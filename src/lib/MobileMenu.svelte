@@ -6,7 +6,7 @@
 </script>
 
 {#if showMenu}
-	<nav class="space-y-1 md:hidden" in:fly={{ x: 10, duration: 2000 }} out:fade>
+	<nav class="space-y-1 md:hidden" in:fly={{ x: 0, duration: 2000 }} out:fade>
 		<a
 			href="javascript:void(0)"
 			class="flex items-center space-x-3 px-3 font-medium rounded text-gray-50 bg-gray-700 bg-opacity-60"

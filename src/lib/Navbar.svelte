@@ -28,13 +28,15 @@
 						alt="logo"
 						class=" h-12 transition -rotate-12 group-hover:rotate-0 group-active:opacity-50"
 					/>
-					<span class=" inline-block text-black dark:text-slate-200 ">Streamsy</span>
+					<span class=" inline-block text-black text-lg md:text-xs xl:text-base dark:text-slate-200 "
+						>Streamsy</span
+					>
 				</a>
 				<!-- END Logo -->
 			</div>
 			<!-- END Left Section -->
 			<ul
-				class="text-black dark:text-slate-200  gap-2 items-center text-md hidden lg:text-sm xl:flex lg:flex xl:text-lg font-light "
+				class="text-black dark:text-slate-200  gap-2 items-center text-md hidden lg:text-sm xl:flex lg:flex xl:text-lg font-light mx-2"
 			>
 				<li class="">
 					<a href="#" class="group transition focus:text-blue-700"
@@ -74,32 +76,32 @@
 				</li>
 			</ul>
 			{#if mobileSearch}
-			<form onsubmit="return false;" class="w-full absolute  px-1 top-20  md:hidden">
-				<div class="relative">
-					<div class="absolute top-0 left-0 bottom-0 flex items-center justify-center w-14">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 20 20"
-							fill="currentColor"
-							class="w-5 h-5 text-slate-500"
-						>
-							<path
-								fill-rule="evenodd"
-								d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
-								clip-rule="evenodd"
-							/>
-						</svg>
-					</div>
+				<form onsubmit="return false;" class="w-full absolute  px-1 top-20  md:hidden">
+					<div class="relative">
+						<div class="absolute top-0 left-0 bottom-0 flex items-center justify-center w-14">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 20 20"
+								fill="currentColor"
+								class="w-5 h-5 text-slate-500"
+							>
+								<path
+									fill-rule="evenodd"
+									d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+									clip-rule="evenodd"
+								/>
+							</svg>
+						</div>
 
-					<input
-						type="text"
-						class="w-full   block rounded-md pl-12 pr-5 py-3 leading-5 text-sm bg-slate-300 dark:bg-slate-800 text-black dark:text-slate-200 placeholder-slate-500 dark:placeholder:text-slate-400 border-transparent focus:border-transparent hover:border-transparent focus:ring focus:ring-slate-500 focus:ring-opacity-50"
-						id="search"
-						name="search"
-						placeholder="Search.."
-					/>
-				</div>
-			</form>
+						<input
+							type="text"
+							class="w-full   block rounded-md pl-12 pr-5 py-3 leading-5 text-sm bg-slate-300 dark:bg-slate-800 text-black dark:text-slate-200 placeholder-slate-500 dark:placeholder:text-slate-400 border-transparent focus:border-transparent hover:border-transparent focus:ring focus:ring-slate-500 focus:ring-opacity-50"
+							id="search"
+							name="search"
+							placeholder="Search.."
+						/>
+					</div>
+				</form>
 			{/if}
 			<!-- Right Section -->
 			<div class="flex items-center space-x-2 lg:space-x-4">
@@ -117,7 +119,7 @@
 					>
 				</button>
 				<!-- Search -->
-				<form onsubmit="return false;" class="w-40 sm:w-72 lg:w-80 md:w-80 hidden md:block">
+				<form onsubmit="return false;" class="w-40 sm:w-72 lg:w-72  hidden md:block">
 					<div class="relative">
 						<div class="absolute top-0 left-0 bottom-0 flex items-center justify-center w-14">
 							<svg
