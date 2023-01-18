@@ -7,7 +7,8 @@ const colors = require('tailwindcss/colors');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: [
-		'./src/**/*.{html,js,svelte,ts}' // Configure your template paths
+		'./src/**/*.{html,js,svelte,ts}',
+		'./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}' // Configure your template paths
 	],
 	darkMode: 'class',
 	theme: {
@@ -49,6 +50,7 @@ module.exports = {
 		require('@tailwindcss/aspect-ratio'),
 		require('@tailwindcss/forms'),
 		require('@tailwindcss/typography'),
+		require('flowbite/plugin'),
 		plugin(function ({ addUtilities }) {
 			const utilBgPatterns = {
 				'.pattern-dots-sm': {
