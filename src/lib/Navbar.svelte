@@ -7,51 +7,9 @@
 		showMenu = !showMenu;
 	}
 	// Dark Mode
-	onMount(() => {
-		var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-		var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-		var themeToggleBtn = document.getElementById('theme-toggle');
-		// Change the icons inside the button based on previous settings
-		if (
-			localStorage.getItem('color-theme') === 'dark' ||
-			(!('color-theme' in localStorage) &&
-				window.matchMedia('(prefers-color-scheme: dark)').matches)
-		) {
-			themeToggleLightIcon.classList.remove('hidden');
-		} else {
-			themeToggleDarkIcon.classList.remove('hidden');
-		}
-
-		themeToggleBtn.addEventListener('click', function () {
-			// toggle icons inside button
-			themeToggleDarkIcon.classList.toggle('hidden');
-			themeToggleLightIcon.classList.toggle('hidden');
-			console.log(localStorage.getItem('color-theme'));
-			// if set via local storage previously
-			if (localStorage.getItem('color-theme')) {
-				if (localStorage.getItem('color-theme') === 'light') {
-					document.documentElement.classList.add('dark');
-					localStorage.setItem('color-theme', 'dark');
-				} else {
-					document.documentElement.classList.remove('dark');
-					localStorage.setItem('color-theme', 'light');
-				}
-
-				// if NOT set via local storage previously
-			} else {
-				if (document.documentElement.classList.contains('dark')) {
-					document.documentElement.classList.remove('dark');
-					localStorage.setItem('color-theme', 'light');
-				} else {
-					document.documentElement.classList.add('dark');
-					localStorage.setItem('color-theme', 'dark');
-				}
-			}
-		});
-	});
 </script>
 
-<header id="page-header" class="flex flex-none items-center z-1">
+<header id="page-header" class="flex flex-none items-center z-1 text-black dark:text-white">
 	<div class="container xl:max-w-7xl mx-auto px-4 lg:px-8">
 		<div class="flex justify-between py-10">
 			<!-- Left Section -->
@@ -66,13 +24,13 @@
 						alt="logo"
 						class=" h-12 transition -rotate-12 group-hover:rotate-0 group-active:opacity-50"
 					/>
-					<span class="inline:block sm:inline-block  ">Streamsy</span>
+					<span class="hidden md:inline-block text-black dark:text-slate-200 ">Streamsy</span>
 				</a>
 				<!-- END Logo -->
 			</div>
 			<!-- END Left Section -->
 			<ul
-				class="text-slate-200  gap-2 items-center text-md hidden lg:text-sm xl:flex lg:flex xl:text-lg font-light "
+				class="text-black dark:text-slate-200  gap-2 items-center text-md hidden lg:text-sm xl:flex lg:flex xl:text-lg font-light "
 			>
 				<li class="">
 					<a href="#" class="group transition focus:text-blue-700"
@@ -132,7 +90,7 @@
 						</div>
 						<input
 							type="text"
-							class="w-full block rounded-full pl-12 pr-5 py-3 leading-5 text-sm bg-slate-800 text-slate-200 placeholder:text-slate-400 border-transparent focus:border-transparent hover:border-transparent focus:ring focus:ring-slate-500 focus:ring-opacity-50"
+							class="w-full block rounded-full pl-12 pr-5 py-3 leading-5 text-sm bg-slate-300 dark:bg-slate-800 text-black dark:text-slate-200 placeholder-slate-500 dark:placeholder:text-slate-400 border-transparent focus:border-transparent hover:border-transparent focus:ring focus:ring-slate-500 focus:ring-opacity-50"
 							id="search"
 							name="search"
 							placeholder="Search.."
@@ -146,7 +104,7 @@
 				>
 					Login
 				</button>
-				<DarkMode>
+				<DarkMode class="hidden md:inline-block">
 					<svelte:fragment slot="lightIcon">
 						<svg
 							class="hi-solid hi-sun inline-block w-5 h-5"
