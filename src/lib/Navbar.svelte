@@ -1,9 +1,54 @@
 <script>
+	import { onMount } from 'svelte';
+	import { fade, fly } from 'svelte/transition';
 	import MobileMenu from './MobileMenu.svelte';
 	let showMenu = false;
 	function toggleMobileMenu() {
 		showMenu = !showMenu;
 	}
+	// Dark Mode
+	onMount(() => {
+		var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+		var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+		var themeToggleBtn = document.getElementById('theme-toggle');
+		// Change the icons inside the button based on previous settings
+		if (
+			localStorage.getItem('color-theme') === 'dark' ||
+			(!('color-theme' in localStorage) &&
+				window.matchMedia('(prefers-color-scheme: dark)').matches)
+		) {
+			themeToggleLightIcon.classList.remove('hidden');
+		} else {
+			themeToggleDarkIcon.classList.remove('hidden');
+		}
+
+		themeToggleBtn.addEventListener('click', function () {
+			// toggle icons inside button
+			themeToggleDarkIcon.classList.toggle('hidden');
+			themeToggleLightIcon.classList.toggle('hidden');
+			console.log(localStorage.getItem('color-theme'));
+			// if set via local storage previously
+			if (localStorage.getItem('color-theme')) {
+				if (localStorage.getItem('color-theme') === 'light') {
+					document.documentElement.classList.add('dark');
+					localStorage.setItem('color-theme', 'dark');
+				} else {
+					document.documentElement.classList.remove('dark');
+					localStorage.setItem('color-theme', 'light');
+				}
+
+				// if NOT set via local storage previously
+			} else {
+				if (document.documentElement.classList.contains('dark')) {
+					document.documentElement.classList.remove('dark');
+					localStorage.setItem('color-theme', 'light');
+				} else {
+					document.documentElement.classList.add('dark');
+					localStorage.setItem('color-theme', 'dark');
+				}
+			}
+		});
+	});
 </script>
 
 <header id="page-header" class="flex flex-none items-center z-1">
@@ -19,44 +64,46 @@
 					<img
 						src="logo.png"
 						alt="logo"
-						class="w-10 h-10 text-indigo-400 transition -rotate-12 group-hover:rotate-0 group-active:opacity-50"
+						class=" h-12 transition -rotate-12 group-hover:rotate-0 group-active:opacity-50"
 					/>
 					<span class="inline:block sm:inline-block  ">Streamsy</span>
 				</a>
 				<!-- END Logo -->
 			</div>
 			<!-- END Left Section -->
-			<ul class="text-slate-200  gap-2 items-center text-md hidden lg:text-sm xl:flex lg:flex xl:text-lg font-light ">
+			<ul
+				class="text-slate-200  gap-2 items-center text-md hidden lg:text-sm xl:flex lg:flex xl:text-lg font-light "
+			>
 				<li class="">
-					<a href="#" class="group transition"
+					<a href="#" class="group transition focus:text-blue-700"
 						>Home<span
 							class="block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-sky-600"
 						/></a
 					>
 				</li>
 				<li class="">
-					<a href="#" class="group transition"
+					<a href="#" class="group transition focus:text-blue-700"
 						>Most Popular<span
 							class="block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-sky-600"
 						/></a
 					>
 				</li>
 				<li class="">
-					<a href="#" class="group transition"
+					<a href="#" class="group transition focus:text-blue-700"
 						>Subbed Anime<span
 							class="block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-sky-600"
 						/></a
 					>
 				</li>
 				<li class="">
-					<a href="#" class="group transition"
+					<a href="#" class="group transition focus:text-blue-700"
 						>Dubbed Anime<span
 							class="block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-sky-600"
 						/></a
 					>
 				</li>
 				<li class="">
-					<a href="#" class="group transition"
+					<a href="#" class="group transition focus:text-blue-700"
 						>OVAs
 						<span
 							class="block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-sky-600"
@@ -99,6 +146,33 @@
 				>
 					Login
 				</button>
+				<button
+					id="theme-toggle"
+					type="button"
+					class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5"
+				>
+					<svg
+						class="hi-solid hi-moon  w-5 h-5 hidden "
+						id="theme-toggle-dark-icon"
+						fill="currentColor"
+						viewBox="0 0 20 20"
+						xmlns="http://www.w3.org/2000/svg"
+						><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" /></svg
+					>
+					<svg
+						id="theme-toggle-light-icon"
+						class="hi-solid hi-sun hidden w-5 h-5"
+						fill="currentColor"
+						viewBox="0 0 20 20"
+						xmlns="http://www.w3.org/2000/svg"
+						><path
+							fill-rule="evenodd"
+							d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+							clip-rule="evenodd"
+						/></svg
+					>
+				</button>
+
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<div class="mobile-menu cursor-pointer" on:click={toggleMobileMenu}>
 					<svg
@@ -118,7 +192,7 @@
 			</div>
 			<!-- END Right Section -->
 		</div>
-		<MobileMenu />
+		<MobileMenu {showMenu} />
 	</div>
 </header>
 <!-- END Page Header -->
