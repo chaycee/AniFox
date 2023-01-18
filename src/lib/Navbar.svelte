@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { fade, fly } from 'svelte/transition';
+
 	import MobileMenu from './MobileMenu.svelte';
 	let showMenu = false;
 	function toggleMobileMenu() {
