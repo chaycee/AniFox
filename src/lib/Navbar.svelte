@@ -13,11 +13,15 @@
 	// Dark Mode
 </script>
 
-<header id="page-header" class="flex flex-none items-center z-1 text-black dark:text-white">
+<header
+	id="page-header"
+	class="flex flex-none items-center z-1 text-black dark:text-white"
+	ondragstart="false"
+>
 	<div class="container xl:max-w-7xl mx-auto md:px-4 lg:px-8">
-		<div class="flex justify-between py-10 relative">
+		<div class="flex justify-between pt-10 relative">
 			<!-- Left Section -->
-			<div class="flex items-center space-x-2 lg:space-x-6">
+			<div class="flex items-center space-x-2 lg:space-x-6 " ondragstart="false">
 				<!-- Logo -->
 				<a
 					href="javascript:void(0)"
@@ -26,9 +30,10 @@
 					<img
 						src="logo.png"
 						alt="logo"
-						class=" h-12 transition -rotate-12 group-hover:rotate-0 group-active:opacity-50"
+						class=" h-12 transition -rotate-12  group-hover:rotate-0 group-active:opacity-60"
 					/>
-					<span class=" inline-block text-black text-lg md:text-xs xl:text-base dark:text-slate-200 "
+					<span
+						class=" inline-block text-black text-lg md:text-xs xl:text-base dark:text-slate-200 "
 						>Streamsy</span
 					>
 				</a>

@@ -8,5 +8,8 @@
 	class="flex flex-col mx-auto w-full min-h-screen dark:bg-slate-900 bg-[#dde4e6]"
 >
 	<Navbar />
-	<slot />
+	
+			<slot />
+
+
 </div>
