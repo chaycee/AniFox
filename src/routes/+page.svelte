@@ -63,6 +63,6 @@
 	];
 </script>
 
-<div class="max-w-max  opacity-60">
-	<CarouselTransition {images} loop transitionType="fade" transitionParams="{{ duration: 1000 }}" showCaptions={false} showThumbs={false} slideControls={false} duration="5000" />
+<div class="max-w-max  opacity-60 object-cover">
+	<CarouselTransition {images} loop transitionType="fade" transitionParams="{{ duration: 1000 }}" showCaptions={false} showThumbs={false} slideControls={false} duration="50000" />
 </div>
