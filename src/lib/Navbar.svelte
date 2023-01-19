@@ -1,6 +1,7 @@
 <script>
 	import { DarkMode } from 'flowbite-svelte';
 	import MobileMenu from './MobileMenu.svelte';
+	import { onMount } from 'svelte';
 	let showMenu = false;
 	function toggleMobileMenu() {
 		showMenu = !showMenu;
@@ -9,6 +10,7 @@
 	function toggleMobileSearch() {
 		mobileSearch = !mobileSearch;
 	}
+	
 	// Dark Mode
 </script>
 
@@ -126,7 +128,7 @@
 			{/if}
 			<!-- Right Section -->
 			<div class="flex items-center space-x-2 lg:space-x-4 mb-2">
-				<button class="md:hidden" id="mobile-search" on:click={toggleMobileSearch}>
+				<button class=" block md:hidden" id="mobile-search" on:click={toggleMobileSearch}>
 					<svg
 						class="hi-solid hi-search inline-block w-7 h-6"
 						fill="currentColor"
