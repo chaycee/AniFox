@@ -1,4 +1,4 @@
-/** @type {import('./$types').PageLoad} */
+/** @type {import('./$types').PageServerLoad} */
 import { META } from '@consumet/extensions';
 const anilist = new META.Anilist();
 export async function load() {
