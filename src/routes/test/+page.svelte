@@ -1,22 +1,13 @@
 <script>
-	import { ANIME } from '@consumet/extensions';
-	// openplayer
+
+
 	import { onMount } from 'svelte';
 	import OpenPlayerJS from 'openplayerjs';
-	import { META } from '@consumet/extensions';
-	import 'openplayerjs/dist/openplayer.min.css';
-	const anilist = new META.Anilist();
-	// const gogoanime = new ANIME.Gogoanime({
-	// 	url: 'https://cors.proxy.consumet.org/https://www.gogoanime.dk'
-	// });
 
-	// // Search for an anime. In this case, "One Piece"
-	// const results = gogoanime.search('One Piece').then((data) => {
-	// 	// print results
-	// });
-	const results = anilist.fetchPopularAnime().then((data) => {
-		console.log(data);
-	});
+	import 'openplayerjs/dist/openplayer.min.css';
+
+	
+
 	onMount(() => {
 		document.querySelectorAll('.op-player__media').forEach((player) => {
 			if (player.id === 'video3') {

@@ -1,9 +1,9 @@
 <script>
-	let images = [
-		'https://s4.anilist.co/file/anilistcdn/media/anime/banner/21459-yeVkolGKdGUV.jpg',
-		'https://s4.anilist.co/file/anilistcdn/media/anime/banner/1535.jpg',
-		'https://s4.anilist.co/file/anilistcdn/media/anime/banner/16498-8jpFCOcDmneX.jpg	'
-	];
+	export let data;
+
+	const { popular } = data;
+	const {trending} = data;
+	let images = [];
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
 	import '@splidejs/svelte-splide/css/themes/splide-skyblue.min.css';
 	import { onMount } from 'svelte';
@@ -14,7 +14,7 @@
 	class="relative "
 	options={{
 		rewind: true,
-		height: 600,
+		height: 400,
 
 		cover: true,
 		autoplay: true,
@@ -24,13 +24,12 @@
 		perPage: 1,
 		easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
 		perMove: 1,
-		autoplaySpeed: 5000,
-		interval: 5000
+		interval: 3000
 	}}
 >
-	{#each images as image}
+	{#each popular.results as image}
 		<SplideSlide>
-			<img src={image} alt="Ima" class="w-full h-auto" />
+			<img src={image.cover} alt="Ima" class="w-full h-auto" />
 			<div
 				class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent via-black/75 to-black"
 			/>
@@ -61,27 +60,34 @@
 	</div>
 	<nav class="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8">
 		<!-- Movie -->
-		{#each images as img}
+		{#each trending.results.slice(0,6) as card}
 			<a
 				href="javascript:void(0)"
 				class="group relative overflow-hidden aspect-w-16 aspect-h-10 bg-black/25 rounded-2xl transition hover:ring-4 hover:ring-indigo-500/50 active:opacity-75 active:ring-indigo-500/25"
 			>
-				<img class="object-cover" src={img} />
+				<img class="object-cover h-[150%]" src={card.image} />
 				<div
 					class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent via-black/75 to-black"
 				>
 					<div class="p-4 flex items-end justify-start space-x-2">
-						<div
-							class="font-medium xl:relative flex xl:top-28 items-center space-x-1 px-1.5 py-1 rounded-lg text-slate-200 bg-slate-800/50"
-						>
-							<span class="text-yellow-400">SUB</span>
-						</div>
+
 					</div>
 					<div class="px-4 py-5 flex items-end justify-between space-x-2">
 						<div class="space-y-1">
-							<h3 class="text-xl font-semibold text-white">Cyberpunk Stories</h3>
-							<p class="text-sm font-semibold text-slate-500">2022</p>
+							<h3 class="text-xl font-semibold text-white">{card.title.english}</h3>
+							<section class="text-sm font-semibold text-slate-500">
+								{card.releaseDate}
+								{#each card.genres as genre}
+								<div
+									class="font-semibold inline-flex px-2 py-[1px] leading-4 text-xs rounded text-blue-700 ml-1 bg-[#0f172a]"
+								>
+									{genre}
+								</div>
+								{/each}
+
+							</section>
 						</div>
+
 						<div
 							class="flex items-center justify-center w-10 h-10 rounded-full transition text-slate-400 bg-slate-500/25 group-hover:bg-indigo-500 group-hover:text-white group-hover:scale-110 group-active:scale-100"
 						>
