@@ -19,7 +19,7 @@
 	class="flex flex-none items-center z-1 text-black dark:text-white"
 	ondragstart="false"
 >
-	<div class="container xl:max-w-7xl mx-auto md:px-4 lg:px-8">
+	<div class="container xl:max-w-7xl mx-auto md:px-4 lg:px-4">
 		<div class="flex justify-between pt-10 relative">
 			<!-- Left Section -->
 			<div class="flex items-center space-x-2 lg:space-x-6 " ondragstart="false">
