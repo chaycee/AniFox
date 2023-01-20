@@ -1,14 +1,42 @@
 <script>
-
 	let images = [
-		'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx20958-HuFJyr54Mmir.jpg',
-		'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx21087-UV2tu6exrfXz.jpg',
-		'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx101922-PEn1CTc93blC.jpg	'
+		'https://s4.anilist.co/file/anilistcdn/media/anime/banner/21459-yeVkolGKdGUV.jpg',
+		'https://s4.anilist.co/file/anilistcdn/media/anime/banner/1535.jpg',
+		'https://s4.anilist.co/file/anilistcdn/media/anime/banner/16498-8jpFCOcDmneX.jpg	'
 	];
-
-
+	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
+	import '@splidejs/svelte-splide/css/themes/splide-skyblue.min.css';
+	import { onMount } from 'svelte';
 </script>
 
+<Splide
+	aria-label="My Favorite Images"
+	class="relative "
+	options={{
+		rewind: true,
+		height: 600,
+
+		cover: true,
+		autoplay: true,
+		pauseOnHover: false,
+		pauseOnFocus: false,
+		trimSpace: false,
+		perPage: 1,
+		easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
+		perMove: 1,
+		autoplaySpeed: 5000,
+		interval: 5000
+	}}
+>
+	{#each images as image}
+		<SplideSlide>
+			<img src={image} alt="Ima" class="w-full h-auto" />
+			<div
+				class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent via-black/75 to-black"
+			/>
+		</SplideSlide>
+	{/each}
+</Splide>
 <section class="space-y-6">
 	<div class="flex items-center justify-between">
 		<h2 class="text-slate-200 font-semibold text-xl">Latest Anime</h2>
@@ -42,11 +70,10 @@
 				<div
 					class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent via-black/75 to-black"
 				>
-					<div class="p-4 flex items-center justify-start space-x-2">
+					<div class="p-4 flex items-end justify-start space-x-2">
 						<div
-							class="font-medium flex items-center space-x-1 px-1.5 py-1 rounded-lg text-slate-200 bg-slate-800/50"
+							class="font-medium xl:relative flex xl:top-28 items-center space-x-1 px-1.5 py-1 rounded-lg text-slate-200 bg-slate-800/50"
 						>
-
 							<span class="text-yellow-400">SUB</span>
 						</div>
 					</div>
@@ -76,7 +103,6 @@
 		{/each}
 	</nav>
 </section>
-
 
 <style>
 </style>
