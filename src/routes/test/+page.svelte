@@ -16,19 +16,19 @@
 					startLevel: 0,
 					fragLoadingTimeOut: 10000,
 					fragLoadingMaxRetry: 2,
-					lowBufferWatchdogPeriod: 0.5, // 0.5 seconds
+					lowBufferWatchdogPeriod: 0.5,
 					highBufferWatchdogPeriod: 3,
 					capLevelToPlayerSize: true,
-					// optimize buffering
+
 					maxMaxBufferLength: 60,
 					maxBufferLength: 60,
 					maxBufferSize: 60 * 1000 * 1000,
 					maxBufferHole: 0.5,
-					// lower qualiry if video buffering
-					
+
+
 					maxLoadingDelay: 4,
 					maxFragLookUpTolerance: 0.2,
-					// seek
+
 					maxSeekHole: 2,
 					seekHoleNudgeDuration: 0.01,
 

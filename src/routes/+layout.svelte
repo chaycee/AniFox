@@ -34,11 +34,11 @@
 		new Sparticles(node, options);
 	}
 </script>
-<div class="relative">
-	<div class="absolute inset-0" use:addSparticles />
+<div class="relative ">
+	<div class=" inset-0 fixed" use:addSparticles />
 <div
 	id="page-container"
-	class="flex flex-col mx-auto w-full min-h-screen dark:bg-slate-900 bg-[#dde4e6] "
+	class="z-1 flex flex-col mx-auto w-full min-h-screen dark:bg-slate-900 bg-[#dde4e6] "
 >
 	<Navbar />
 
