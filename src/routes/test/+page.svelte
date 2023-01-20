@@ -10,8 +10,29 @@
 				return;
 			}
 			const p = new OpenPlayerJS(player.id, {
-				startTime: 10,
-				startVolume: 0.5,
+				hls: {
+					overrideNative: true,
+					smoothQualityChange: true,
+					startLevel: 0,
+					fragLoadingTimeOut: 10000,
+					fragLoadingMaxRetry: 2,
+					lowBufferWatchdogPeriod: 0.5, // 0.5 seconds
+					highBufferWatchdogPeriod: 3,
+					capLevelToPlayerSize: true,
+					// optimize buffering
+					maxMaxBufferLength: 60,
+					maxBufferLength: 60,
+					maxBufferSize: 60 * 1000 * 1000,
+					maxBufferHole: 0.5,
+					// lower qualiry if video buffering
+					
+					maxLoadingDelay: 4,
+					maxFragLookUpTolerance: 0.2,
+					// seek
+					maxSeekHole: 2,
+					seekHoleNudgeDuration: 0.01,
+
+				},
 				controls: {
 					layers: {
 						left: ['play', 'time', 'volume'],
@@ -27,6 +48,6 @@
 
 <video class="op-player__media" id="video1" controls playsinline>
 	<source
-		src="https://cors.proxy.consumet.org/https://wwwx15.gofcdn.com/videos/hls/EtiimCKVPtb_ZNKCKTj7IA/1674241776/193284/5b9accdaf29e09ff95a707901618bd49/ep.1.1664990410.m3u8"
+		src="https://cors.proxy.consumet.org/https://wwwx12.gofcdn.com/videos/hls/bUpU7rMtZie2t8KsiM8RPQ/1674246582/194011/9f11c469545a167de45769fe76e00090/ep.4.1666433492.m3u8"
 	/>
 </video>
