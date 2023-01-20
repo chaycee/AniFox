@@ -2,7 +2,7 @@
 	export let data;
 
 	const { popular } = data;
-	const {trending} = data;
+	const { trending } = data;
 	let images = [];
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
 	import '@splidejs/svelte-splide/css/themes/splide-skyblue.min.css';
@@ -11,11 +11,10 @@
 
 <Splide
 	aria-label="My Favorite Images"
-	class="relative "
+	class=""
 	options={{
 		rewind: true,
 		height: 400,
-
 		cover: true,
 		autoplay: true,
 		pauseOnHover: false,
@@ -24,16 +23,92 @@
 		perPage: 1,
 		easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
 		perMove: 1,
-		interval: 3000
+		interval: 3000,
+		arrows: false
 	}}
 >
-	{#each popular.results as image}
-		<SplideSlide>
-			<img src={image.cover} alt="Ima" class="w-full h-auto" />
+	{#each popular.results as data}
+		<SplideSlide class="relative flex rounded-2xl items-end">
+			<img src={data.cover} alt="Ima" class="" />
 			<div
-				class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent via-black/75 to-black"
+				class="absolute inset-0 flex flex-col justify-between bg-gradient-to-bl from-transparent via-black/25 to-black "
 			/>
-		</SplideSlide>
+			<div
+				class="absolute inset-0 flex flex-col justify-between bg-gradient-to-br from-transparent via-black/25 to-black "
+			/>
+			<div
+				class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent via-black/10 to-black "
+			/>
+			<!-- Card -->
+			<div class="flex flex-col rounded shadow-sm text-white overflow-hidden z-1 opacity-75">
+				<!-- Card Header -->
+				<div class="px-5 lg:px-6 w-full ">
+					<h3 class="font-normal  text-lg lg:text-3xl">
+						{data.title.english}
+						<div class="flex items-center gap-2  text-sm lg:text-base">
+							<div class="flex items-center">
+								<svg
+									class="hi-solid hi-clock inline-block w-4 h-4 opacity-75"
+									fill="currentColor"
+									viewBox="0 0 20 20"
+									xmlns="http://www.w3.org/2000/svg"
+									><path
+										fill-rule="evenodd"
+										d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+										clip-rule="evenodd"
+									/></svg
+								>
+
+								<span>{data.duration}m</span>
+							</div>
+							<div class="flex items-center">
+								<svg
+									class="hi-solid hi-calendar inline-block w-4 h-4 opacity-75"
+									fill="currentColor"
+									viewBox="0 0 20 20"
+									xmlns="http://www.w3.org/2000/svg"
+									><path
+										fill-rule="evenodd"
+										d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+										clip-rule="evenodd"
+									/></svg
+								>
+								<span>{data.releaseDate}</span>
+							</div>
+							<div class="flex items-center">
+								<svg
+									class="hi-solid hi-play inline-block w-4 h-4 opacity-75"
+									fill="currentColor"
+									viewBox="0 0 20 20"
+									xmlns="http://www.w3.org/2000/svg"
+									><path
+										fill-rule="evenodd"
+										d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+										clip-rule="evenodd"
+									/></svg
+								>
+								<span>{data.type}</span>
+							</div>
+						</div>
+					</h3>
+				</div>
+				<!-- END Card Header -->
+
+				<!-- Card Body -->
+				<div class="px-5 py-2 lg:p-6 grow lg:w-[800px] h-20 text-left mb-2">
+					<p class=" text-left line-clamp-2 font-extralight lg:line-clamp-3">
+						{data.description.replace(/<[^>]*>?/gm, '')}
+					</p>
+				</div>
+				<!-- END Card Body -->
+
+				<!-- Card Footer -->
+				<div class="py-4 px-5 lg:px-6 w-full text-sm text-gray-100 ">
+					<!-- END Card Footer -->
+				</div>
+				<!-- END Card -->
+			</div></SplideSlide
+		>
 	{/each}
 </Splide>
 <section class="space-y-6">
@@ -60,7 +135,7 @@
 	</div>
 	<nav class="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8">
 		<!-- Movie -->
-		{#each trending.results.slice(0,6) as card}
+		{#each trending.results.slice(0, 6) as card}
 			<a
 				href="javascript:void(0)"
 				class="group relative overflow-hidden aspect-w-16 aspect-h-10 bg-black/25 rounded-2xl transition hover:ring-4 hover:ring-indigo-500/50 active:opacity-75 active:ring-indigo-500/25"
@@ -69,22 +144,19 @@
 				<div
 					class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent via-black/75 to-black"
 				>
-					<div class="p-4 flex items-end justify-start space-x-2">
-
-					</div>
+					<div class="p-4 flex items-end justify-start space-x-2" />
 					<div class="px-4 py-5 flex items-end justify-between space-x-2">
 						<div class="space-y-1">
 							<h3 class="text-xl font-semibold text-white">{card.title.english}</h3>
 							<section class="text-sm font-semibold text-slate-500">
 								{card.releaseDate}
 								{#each card.genres as genre}
-								<div
-									class="font-semibold inline-flex px-2 py-[1px] leading-4 text-xs rounded text-blue-700 ml-1 bg-[#0f172a]"
-								>
-									{genre}
-								</div>
+									<div
+										class="font-semibold inline-flex px-2 py-[1px] leading-4 text-xs rounded text-yellow-500 ml-1 bg-[#0f172a]"
+									>
+										{genre}
+									</div>
 								{/each}
-
 							</section>
 						</div>
 

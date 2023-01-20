@@ -1,12 +1,8 @@
 <script>
-
-
 	import { onMount } from 'svelte';
 	import OpenPlayerJS from 'openplayerjs';
 
 	import 'openplayerjs/dist/openplayer.min.css';
-
-	
 
 	onMount(() => {
 		document.querySelectorAll('.op-player__media').forEach((player) => {
@@ -31,6 +27,6 @@
 
 <video class="op-player__media" id="video1" controls playsinline>
 	<source
-		src="https://cors.proxy.consumet.org/https://wwwx15.gofcdn.com/videos/hls/92GFoj7ZW-a-OkaKJYcfeg/1674206893/193284/5b9accdaf29e09ff95a707901618bd49/ep.1.1664990410.m3u8"
+		src="https://cors.proxy.consumet.org/https://wwwx15.gofcdn.com/videos/hls/EtiimCKVPtb_ZNKCKTj7IA/1674241776/193284/5b9accdaf29e09ff95a707901618bd49/ep.1.1664990410.m3u8"
 	/>
 </video>
