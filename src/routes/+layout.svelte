@@ -2,6 +2,7 @@
 	import '../app.css';
 	import Navbar from '$lib/Navbar.svelte';
 	import Sparticles from 'sparticles';
+	
 
 	let sparticles,
 		options = {

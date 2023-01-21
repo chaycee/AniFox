@@ -1,7 +1,9 @@
 /** @type {import('./$types').PageServerLoad} */
+export const ssr = true;
+// TODO: Switch to consument api instead to use natibe svelte fetch
 import { META } from '@consumet/extensions';
 const anilist = new META.Anilist();
-export async function load() {
+export async function load({fetch }) {
 	const popularAnime = anilist.fetchPopularAnime().then((data) => {
 		return data;
 	});

@@ -27,6 +27,7 @@
 		arrows: false
 	}}
 >
+<!-- TODO: Change cover to image on mobile view  -->
 	{#each popular.results as data}
 		<SplideSlide class="relative flex rounded-2xl items-end">
 			<img src={data.cover} alt="Ima" class="" />
