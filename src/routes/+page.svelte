@@ -27,7 +27,7 @@
 		arrows: false
 	}}
 >
-<!-- TODO: Change cover to image on mobile view  -->
+	<!-- TODO: Change cover to image on mobile view  -->
 	{#each popular.results as data}
 		<SplideSlide class="relative flex rounded-2xl items-end">
 			<img src={data.cover} alt="Ima" class="" />
@@ -112,12 +112,12 @@
 		>
 	{/each}
 </Splide>
-<section class="space-y-6">
+<section class="space-y-6 ">
 	<div class="flex items-center justify-between">
-		<h2 class="text-slate-200 font-semibold text-xl">Latest Anime</h2>
+		<h2 class="dark:text-slate-200 font-semibold text-xl">Latest Anime</h2>
 		<a
 			href="javascript:void(0)"
-			class="group flex items-center space-x-1 text-sm transition text-slate-400 hover:text-white active:text-slate-400"
+			class="group flex items-center space-x-1 text-sm transition text-black dark:text-slate-400 hover:text-white active:text-slate-400"
 		>
 			<span>See All</span>
 			<svg
@@ -143,7 +143,7 @@
 			>
 				<img class="object-cover h-[150%]" src={card.image} />
 				<div
-					class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent via-black/75 to-black"
+					class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent via-black/75 to-black "
 				>
 					<div class="p-4 flex items-end justify-start space-x-2" />
 					<div class="px-4 py-5 flex items-end justify-between space-x-2">
@@ -184,10 +184,10 @@
 </section>
 <section class="space-y-6">
 	<div class="flex items-center justify-between">
-		<h2 class="text-slate-200 font-semibold text-xl">Continue Watching</h2>
+		<h2 class="dark:text-slate-200 font-semibold text-xl">Continue Watching</h2>
 		<a
 			href="javascript:void(0)"
-			class="group flex items-center space-x-1 text-sm transition text-slate-400 hover:text-white active:text-slate-400"
+			class="group flex items-center space-x-1 text-sm transition dark:text-slate-400 hover:text-white active:text-slate-400"
 		>
 			<span>See All</span>
 			<svg
