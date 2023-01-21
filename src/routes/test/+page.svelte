@@ -1,53 +1,36 @@
 <script>
 	import { onMount } from 'svelte';
-	import OpenPlayerJS from 'openplayerjs';
 
-	import 'openplayerjs/dist/openplayer.min.css';
-
+	import 'vidstack/styles/base.css';
+	// the following styles are optional - remove to go headless.
+	import 'vidstack/styles/ui/buttons.css';
+	import 'vidstack/styles/ui/sliders.css';
+	import { defineCustomElements } from 'vidstack/elements';
+	import {
+		MediaCanPlayEvent,
+		MediaPlayEvent,
+		MediaStartedEvent,
+		MediaTimeUpdateEvent
+	} from 'vidstack';
 	onMount(() => {
-		document.querySelectorAll('.op-player__media').forEach((player) => {
-			if (player.id === 'video3') {
-				return;
-			}
-			const p = new OpenPlayerJS(player.id, {
-				hls: {
-					overrideNative: true,
-					smoothQualityChange: true,
-					startLevel: 0,
-					fragLoadingTimeOut: 10000,
-					fragLoadingMaxRetry: 2,
-					lowBufferWatchdogPeriod: 0.5,
-					highBufferWatchdogPeriod: 3,
-					capLevelToPlayerSize: true,
-
-					maxMaxBufferLength: 60,
-					maxBufferLength: 60,
-					maxBufferSize: 60 * 1000 * 1000,
-					maxBufferHole: 0.5,
-
-
-					maxLoadingDelay: 4,
-					maxFragLookUpTolerance: 0.2,
-
-					maxSeekHole: 2,
-					seekHoleNudgeDuration: 0.01,
-
-				},
-				controls: {
-					layers: {
-						left: ['play', 'time', 'volume'],
-						middle: ['progress'],
-						right: ['levels', 'captions', 'settings', 'fullscreen']
-					}
-				}
-			});
-			p.init();
+		defineCustomElements();
+		const provider = document.querySelector('vds-hls-video');
+		provider.addEventListener('play', (event) => {
+			// request events are attached to media events.
+			const playRequestEvent = event.request;
+			console.log('play request was satisfied.');
 		});
 	});
+
+	import 'openplayerjs/dist/openplayer.min.css';
 </script>
 
-<video class="op-player__media" id="video1" controls playsinline>
-	<source
-		src="https://cors.proxy.consumet.org/https://wwwx12.gofcdn.com/videos/hls/bUpU7rMtZie2t8KsiM8RPQ/1674246582/194011/9f11c469545a167de45769fe76e00090/ep.4.1666433492.m3u8"
-	/>
-</video>
+<vds-media>
+	<!-- remove `controls` attribute if you're designing a custom UI -->
+	<vds-hls-video controls poster="https://media-files.vidstack.io/poster.png" tabindex="0">
+		<video
+			src="https://wwwx15.gofcdn.com/videos/hls/tmzDnXFi176kQyaSX-jqlw/1674316051/193284/5b9accdaf29e09ff95a707901618bd49/ep.1.1664990410.1080.m3u8"
+			preload="none"
+		/>
+	</vds-hls-video>
+</vds-media>
