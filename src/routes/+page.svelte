@@ -3,7 +3,7 @@
 	console.log(data);
 	const { popular } = data;
 	const { trending } = data;
-	const {recent} = data;
+	const { recent } = data;
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
 	import '@splidejs/svelte-splide/css/themes/splide-skyblue.min.css';
 	import { onMount } from 'svelte';
@@ -19,7 +19,6 @@
 			// change height
 		});
 	});
-
 </script>
 
 <Splide
@@ -47,19 +46,19 @@
 		<SplideSlide class="relative flex items-end">
 			<img src={data.cover} alt="Ima" class="" />
 			<div
-				class="absolute inset-0 flex flex-col justify-between bg-gradient-to-bl from-transparent via-black/25 to-black "
+				class="absolute inset-0 flex flex-col justify-between bg-gradient-to-bl from-transparent via-black/5 to-black "
 			/>
 			<div
-				class="absolute inset-0 flex flex-col justify-between bg-gradient-to-br from-transparent via-black/25 to-black "
+				class="absolute inset-0 flex flex-col justify-between bg-gradient-to-br from-transparent via-black/5 to-black "
 			/>
 			<div
-				class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent via-black/10 to-black "
+				class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent via-black/5 to-black "
 			/>
 			<!-- Card -->
 			<div class="flex flex-col rounded shadow-sm text-white overflow-hidden z-1 opacity-75">
 				<!-- Card Header -->
 				<div class="px-5 lg:px-6 w-full ">
-					<h3 class="font-bold text-white text-lg lg:text-3xl">
+					<h3 class="lg:font-bold font-extrabold text-white text-lg lg:text-3xl">
 						{data.title.english}
 						<div class="flex items-center gap-2  text-sm lg:text-base font-normal">
 							<div class="flex items-center ">
@@ -200,47 +199,62 @@
 </section>
 <section class="space-y-6">
 	<div class="flex items-center justify-between">
-	  <h2 class="dark:text-slate-200 font-semibold text-xl">Recent Episodes</h2>
-	  <a href="javascript:void(0)"
-		class="group flex items-center space-x-1 text-sm transition dark:text-slate-400 dark:hover:text-white active:text-slate-400">
-		<span>See All</span>
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-		  class="w-5 h-5 opacity-50 transition ease-out group-hover:opacity-100 group-active:translate-x-2">
-		  <path fill-rule="evenodd"
-			d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
-			clip-rule="evenodd" />
-		</svg>
-	  </a>
+		<h2 class="dark:text-slate-200 font-semibold text-xl">Recent Episodes</h2>
+		<a
+			href="javascript:void(0)"
+			class="group flex items-center space-x-1 text-sm transition dark:text-slate-400 dark:hover:text-white active:text-slate-400"
+		>
+			<span>See All</span>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 20 20"
+				fill="currentColor"
+				class="w-5 h-5 opacity-50 transition ease-out group-hover:opacity-100 group-active:translate-x-2"
+			>
+				<path
+					fill-rule="evenodd"
+					d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+					clip-rule="evenodd"
+				/>
+			</svg>
+		</a>
 	</div>
 	<nav class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-6 gap-4 lg:gap-8">
-	  <!-- Movie -->
-	  {#each recent.results.filter(card => card.title.english) as card}
-	  <a href="javascript:void(0)"
-		class="group relative overflow-hidden aspect-w-3 aspect-h-4 bg-black/25 rounded-2xl transition hover:ring-4 hover:ring-indigo-500/50 active:opacity-75">
-		<img class="object-cover"
-		  src="{card.image}" />
-		<div
-		  class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent via-black/60 to-black">
-		  <div class="p-4 flex items-center justify-start space-x-2">
-			<div
-			  class="font-medium flex items-center space-x-1 px-1.5 py-1 rounded-lg text-slate-200 bg-[#12122b]">
-			  <span>Episode: </span>
-			  <span>{card.episodeNumber}</span>
-			</div>
-		  </div>
-		  <div class="px-4 py-5 flex items-end justify-between space-x-2">
-			<div class="space-y-1">
-			  <h3 class="text-md font-semibold text-white line-clamp-2">{card.title.english}</h3>
-			  <p class="text-sm font-normal text-slate-500">{card.type}</p>
-			</div>
-		  </div>
-		</div>
-	  </a>
-	  <!-- END Movie -->
-	  {/each}
+		<!-- Movie -->
+		{#each recent.results.filter((card) => card.title.english) as card}
+			<a
+				href="javascript:void(0)"
+				class="group relative overflow-hidden aspect-w-3 aspect-h-4 bg-black/25 rounded-2xl transition hover:ring-4 hover:ring-indigo-500/50 active:opacity-75"
+			>
+				<img class="object-cover" src={card.image} />
+				<div
+					class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent via-black/30 to-black"
+				>
+
+					<div class="p-4 flex items-center justify-start space-x-2">
+						<div
+							class="font-semibold inline-flex px-2 py-1 leading-4 text-xs rounded text-black bg-[#55fffe] shadow-sm shadow-black"
+						>
+
+							<span>Ep {card.episodeNumber}</span>
+						</div>
+					</div>
+					<div class="px-4 py-5 flex items-end justify-between space-x-2">
+						<div class="space-y-1">
+							<h3 class="text-md font-medium text-white line-clamp-2">{card.title.english}</h3>
+							<div class="text-sm font-normal text-slate-500">
+								{card.type}
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</a>
+			<!-- END Movie -->
+		{/each}
 	</nav>
 </section>
-	  <!-- END Movie -->
+<!-- END Movie -->
 
 <!-- END Continue Watching -->
 <style>
