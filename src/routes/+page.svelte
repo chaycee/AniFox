@@ -20,6 +20,9 @@
 		});
 	});
 </script>
+<svelte:head>
+	<title>Streamsy</title>
+</svelte:head>
 
 <Splide
 	aria-label="My Favorite Images"
@@ -233,7 +236,7 @@
 
 					<div class="p-4 flex items-center justify-start space-x-2">
 						<div
-							class="font-semibold inline-flex px-2 py-1 leading-4 text-xs rounded text-black bg-[#55fffe] shadow-sm shadow-black"
+							class="font-semibold inline-flex px-2 py-1 leading-4 text-xs rounded-md text-black bg-[#55fffe] shadow-sm shadow-black"
 						>
 
 							<span>Ep {card.episodeNumber}</span>
