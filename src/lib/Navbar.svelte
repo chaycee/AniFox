@@ -29,7 +29,7 @@
 					class="group inline-flex items-center space-x-2 font-semibold text-slate-200 hover:text-white active:text-slate-200 uppercase tracking-wider mr-4 xl:mr-0"
 				>
 					<img
-						src="logo.png"
+						src="/images/logo.png"
 						alt="logo"
 						class=" h-14 transition -rotate-12  group-hover:rotate-0 group-active:opacity-60"
 					/>
