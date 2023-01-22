@@ -6,23 +6,13 @@
 	import 'vidstack/styles/ui/buttons.css';
 	import 'vidstack/styles/ui/sliders.css';
 	import { defineCustomElements } from 'vidstack/elements';
-	import {
-		MediaCanPlayEvent,
-		MediaPlayEvent,
-		MediaStartedEvent,
-		MediaTimeUpdateEvent
-	} from 'vidstack';
+
 	onMount(() => {
 		defineCustomElements();
-		const provider = document.querySelector('vds-hls-video');
-		provider.addEventListener('play', (event) => {
-			// request events are attached to media events.
-			const playRequestEvent = event.request;
-			console.log('play request was satisfied.');
-		});
+
 	});
 
-	import 'openplayerjs/dist/openplayer.min.css';
+
 </script>
 
 <vds-media>

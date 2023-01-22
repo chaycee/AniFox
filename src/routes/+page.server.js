@@ -4,24 +4,21 @@ export const ssr = true;
 import { META } from '@consumet/extensions';
 const anilist = new META.Anilist();
 export async function load({fetch }) {
-	const popularAnime = anilist.fetchPopularAnime().then((data) => {
-		return data;
-	});
-	const trendingAnime = anilist.fetchTrendingAnime().then((data) => {
-		return data;
-	});
+	const popular = async () => {
+		return await fetch('https://api.consumet.org/meta/anilist/popular').then((res) => res.json());
+	}
+	const trendingAnime = async () => {
+		return await fetch('https://api.consumet.org/meta/anilist/trending?perPage=3').then((res) => res.json());
+	}
+	const RecentEpisodes = async () => {
+		return await fetch('https://api.consumet.org/meta/anilist/recent-episodes?perPage=15').then((res) => res.json());
+	}
 
-	const Airing = anilist.fetchAiringSchedule(1, 20, 1, 5, true).then((data) => {
-		return data;
-	});
-	const search = anilist.fetchEpisodeSources("youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-tv-episode-12").then(data => {
-		console.log(data);
-	  })
+
 
 	return {
-		popular: Promise.resolve(popularAnime),
-		trending: Promise.resolve(trendingAnime),
-		airing: Promise.resolve(Airing),
-		search: Promise.resolve(search)
+		popular: popular(),
+		trending: trendingAnime(),
+		recent: RecentEpisodes()
 	};
 }
