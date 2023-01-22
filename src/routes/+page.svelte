@@ -1,9 +1,9 @@
 <script>
 	export let data;
 	console.log(data);
-	const { popular } = data;
-	const { trending } = data;
-	const { recent } = data;
+	$: ({ popular } = data);
+	$: ({ trending } = data);
+	$: ({ recent } = data);
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
 	import '@splidejs/svelte-splide/css/themes/splide-skyblue.min.css';
 	import { onMount } from 'svelte';
@@ -20,6 +20,7 @@
 		});
 	});
 </script>
+
 <svelte:head>
 	<title>Streamsy</title>
 </svelte:head>
@@ -48,6 +49,7 @@
 	{#each popular.results as data}
 		<SplideSlide class="relative flex items-end">
 			<img src={data.cover} alt="Ima" class="" />
+
 			<div
 				class="absolute inset-0 flex flex-col justify-between bg-gradient-to-bl from-transparent via-black/5 to-black "
 			/>
@@ -58,7 +60,7 @@
 				class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent via-black/5 to-black "
 			/>
 			<!-- Card -->
-			<div class="flex flex-col rounded shadow-sm text-white overflow-hidden z-1 opacity-75">
+			<div class="flex flex-col mb-1 xl:mb-5 rounded shadow-sm text-white overflow-hidden z-1 opacity-75 ">
 				<!-- Card Header -->
 				<div class="px-5 lg:px-6 w-full ">
 					<h3 class="lg:font-bold font-extrabold text-white text-lg lg:text-3xl">
@@ -113,16 +115,32 @@
 				<!-- END Card Header -->
 
 				<!-- Card Body -->
-				<div class="px-5 py-2 lg:p-6 grow lg:w-[800px] h-20 text-left mb-2">
-					<p class=" pb-1 text-left line-clamp-2 font-extralight lg:line-clamp-3">
+				<div class="px-5 py-2 lg:p-6 grow lg:w-[800px] h-20 text-left xl:mb-3">
+					<div class=" pb-1 text-left line-clamp-2 font-extralight lg:line-clamp-3">
 						{data.description.replace(/<[^>]*>?/gm, '')}
-					</p>
+					</div>
 				</div>
 				<!-- END Card Body -->
 
 				<!-- Card Footer -->
 				<div class="py-4 px-5 lg:px-6 w-full text-sm text-gray-100 ">
 					<!-- END Card Footer -->
+					<a
+						href="/anime/id/{data.id}"
+						class=" mb-5 xl:mb-0 gap-1 inline-flex justify-center items-center space-x-2 rounded-full border font-semibold focus:outline-none px-6 py-2 leading-6 border-blue-200 bg-blue-200 text-blue-700 hover:text-blue-700 hover:bg-blue-300 hover:border-blue-300 focus:ring focus:ring-blue-500 focus:ring-opacity-50 active:bg-blue-200 active:border-blue-200"
+					>
+						<svg
+							class="hi-solid hi-play inline-block w-5 h-5"
+							fill="currentColor"
+							viewBox="0 0 20 20"
+							xmlns="http://www.w3.org/2000/svg"
+							><path
+								fill-rule="evenodd"
+								d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+								clip-rule="evenodd"
+							/></svg
+						>Watch Now
+					</a>
 				</div>
 				<!-- END Card -->
 			</div></SplideSlide
@@ -155,7 +173,7 @@
 		<!-- Movie -->
 		{#each trending.results as card}
 			<a
-				href="javascript:void(0)"
+				href="/anime/id/{card.id}"
 				class="group relative overflow-hidden aspect-w-16 aspect-h-10 bg-black/25 rounded-2xl transition hover:ring-4 hover:ring-indigo-500/50 active:opacity-75 active:ring-indigo-500/25"
 			>
 				<!-- TODO: REMOVE black div on bottom and redisgn genres and title -->
@@ -233,12 +251,10 @@
 				<div
 					class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent via-black/30 to-black"
 				>
-
 					<div class="p-4 flex items-center justify-start space-x-2">
 						<div
 							class="font-semibold inline-flex px-2 py-1 leading-4 text-xs rounded-md text-black bg-[#55fffe] shadow-sm shadow-black"
 						>
-
 							<span>Ep {card.episodeNumber}</span>
 						</div>
 					</div>
@@ -247,7 +263,6 @@
 							<h3 class="text-md font-medium text-white line-clamp-2">{card.title.english}</h3>
 							<div class="text-sm font-normal text-slate-500">
 								{card.type}
-
 							</div>
 						</div>
 					</div>

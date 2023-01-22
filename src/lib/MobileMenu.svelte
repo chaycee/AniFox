@@ -6,14 +6,14 @@
 </script>
 
 {#if showMenu}
-	<nav class="space-y-1 md:hidden" in:fly={{ x: 0, duration: 2000 }} out:fade>
+	<nav class="space-y-1 md:hidden " in:fly={{ x: 0, duration: 2000 }} out:fade>
 		<a
-			href="javascript:void(0)"
-			class="flex items-center space-x-3 px-3 font-medium rounded text-gray-50 bg-gray-700 bg-opacity-60"
+			href="/"
+			class="flex items-center space-x-3 px-3 font-medium rounded dark:text-gray-50 bg-gray-700 bg-opacity-60"
 		>
 			<span class="flex-none flex items-center opacity-50">
 				<svg
-					class="hi-outline hi-home inline-block w-5 h-5"
+					class="hi-outline hi-home inline-block w-5 h-5 "
 					stroke="currentColor"
 					fill="none"
 					viewBox="0 0 24 24"
@@ -28,43 +28,43 @@
 			</span>
 			<span class="py-2 grow">Home</span>
 		</a>
-		<div class="px-3 pt-5 pb-2 text-xs font-medium uppercase tracking-wider text-gray-400">
+		<div class="px-3 pt-5 pb-2 text-xs font-medium uppercase tracking-wider dark:text-gray-400 text-gray-700 ">
 			Anime
 		</div>
 		<a
 			href="javascript:void(0)"
-			class="flex items-center  px-3 font-medium rounded text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+			class="flex items-center  px-3 font-medium rounded dark:text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
 		>
 			<span class="flex-none flex items-center opacity-50" />
 			<span class="py-2 grow">Most Popular</span>
 		</a>
 		<a
 			href="javascript:void(0)"
-			class="flex items-center  px-3 font-medium rounded text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+			class="flex items-center  px-3 font-medium rounded dark:text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
 		>
 			<span class="flex-none flex items-center opacity-50" />
-			<span class="py-2 grow">Subbed Anime</span>
+			<span class="py-2 grow">Trending</span>
 		</a>
 		<a
 			href="javascript:void(0)"
-			class="flex items-center  px-3 font-medium rounded text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+			class="flex items-center  px-3 font-medium rounded dark:text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
 		>
 			<span class="flex-none flex items-center opacity-50" />
-			<span class="py-2 grow">Dubbed Anime</span>
+			<span class="py-2 grow">Airing Schedule</span>
 		</a>
 		<a
 			href="javascript:void(0)"
-			class="flex items-center  px-3 font-medium rounded text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+			class="flex items-center  px-3 font-medium rounded dark:text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
 		>
 			<span class="flex-none flex items-center opacity-50" />
-			<span class="py-2 grow">OVAs</span>
+			<span class="py-2 grow">Recent Episodes</span>
 		</a>
-		<div class="px-3 pt-5 pb-2 text-xs font-medium uppercase tracking-wider text-gray-400">
+		<div class="px-3 pt-5 pb-2 text-xs font-medium uppercase tracking-wider dark:text-gray-400 text-gray-700">
 			Account
 		</div>
 		<a
 			href="javascript:void(0)"
-			class="flex items-center space-x-3 px-3 font-medium rounded text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+			class="flex items-center space-x-3 px-3 font-medium rounded dark:text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
 		>
 			<span class="flex-none flex items-center opacity-50">
 				<svg
@@ -85,7 +85,7 @@
 		</a>
 		<a
 			href="javascript:void(0)"
-			class="flex items-center space-x-3 px-3 font-medium rounded text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+			class="flex items-center space-x-3 px-3 font-medium rounded dark:text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
 		>
 			<span class="flex-none flex items-center opacity-50">
 				<svg
@@ -111,7 +111,7 @@
 		</a>
 		<a
 			href="javascript:void(0)"
-			class="flex items-center space-x-3 px-3 font-medium rounded text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+			class="flex items-center space-x-3 px-3 font-medium rounded dark:text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
 		>
 			<span class="flex-none flex items-center opacity-50">
 				<svg

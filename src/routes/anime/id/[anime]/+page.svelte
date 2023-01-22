@@ -3,7 +3,7 @@
 	export let data;
 	console.log(data);
 </script>
-<!-- <svelte:head>
+<svelte:head>
 	<title>{data.details.title.english}</title>
-</svelte:head> -->
+</svelte:head>
 <h1>test</h1>

@@ -180,7 +180,7 @@
 				<div class="mobile-menu cursor-pointer" on:click={toggleMobileMenu}>
 					<svg
 						class="hi-solid hi-menu inline-block w-7 h-7 sm:block md:hidden"
-						fill="white"
+						fill="#606070"
 						viewBox="0 0 20 20"
 						xmlns="http://www.w3.org/2000/svg"
 						><path
