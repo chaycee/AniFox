@@ -45,7 +45,7 @@
 
 		<main id="page-content" class="flex flex-auto flex-col max-w-full font-opensans">
 			<div
-				class="container xl:max-w-8xl mx-auto px- py-8 lg:py-8 space-y-16 lg:space-y-8 relative font-opensans"
+				class="container xl:max-w-8xl mx-auto px-1 py-8 lg:py-8 space-y-16 lg:space-y-8 relative font-opensans"
 			>
 				<slot />
 			</div>
