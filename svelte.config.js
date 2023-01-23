@@ -6,9 +6,9 @@ const config = {
 	vitePlugin: {
 		experimental: {
 			inspector: {
-				toggleKeyCombo: 'shift',
+				toggleKeyCombo: 'x',
 				// hold and release key to toggle inspector mode
-				holdMode: true,
+				holdMode: false,
 				// show or hide the inspector option
 				showToggleButton: 'always',
 				// inspector position

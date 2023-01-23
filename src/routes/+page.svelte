@@ -48,7 +48,7 @@
 	<!-- TODO: Reduce the mobile slider in -->
 	{#each popular.results as data}
 		<SplideSlide class="flex items-end ">
-			<img src={data.cover} alt="Ima" class="" />
+			<img src={data.cover} alt="Ima" class="" loading="lazy" />
 
 			<div
 				class="absolute inset-0 flex flex-col justify-between bg-gradient-to-bl from-transparent via-black/5 to-black "
@@ -182,7 +182,7 @@
 				class="group relative overflow-hidden aspect-w-16 aspect-h-10 bg-black/25 rounded-2xl transition hover:ring-4 hover:ring-red-500/50 active:opacity-75 active:ring-red-500/25"
 			>
 				<!-- TODO: REMOVE black div on bottom and redisgn genres and title -->
-				<img class="object-cover h-[150%] opacity-100" src={card.image} />
+				<img class="object-cover h-[150%] opacity-100" src={card.image} loading="lazy" alt="trending anime"/>
 				<div
 					class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent  via-black/60 to-black"
 				>
@@ -255,7 +255,7 @@
 				href="javascript:void(0)"
 				class="group relative overflow-hidden aspect-w-3 aspect-h-4 bg-black/25 rounded-2xl transition hover:ring-4 hover:ring-red-500/50 active:opacity-75"
 			>
-				<img class="object-cover" src={card.image} />
+				<img class="object-cover" src={card.image} loading="lazy" alt="recent episodes"/>
 				<div
 					class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent via-black/30 to-black"
 				>

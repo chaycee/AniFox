@@ -2,7 +2,7 @@
 	import '../app.css';
 	import Navbar from '$lib/Navbar.svelte';
 	import Sparticles from 'sparticles';
-
+	export const ssr = true;
 	let sparticles,
 		options = {
 			composition: 'source-over',

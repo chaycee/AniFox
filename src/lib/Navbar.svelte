@@ -75,7 +75,7 @@
 					>
 				</li>
 			</ul>
-			<form onsubmit="return false;" class="w-40 sm:w-72 lg:w-72  hidden md:block">
+			<form onsubmit="return false;" class="w-40 sm:w-72 lg:w-80  hidden md:block">
 				<div class="relative">
 					<div class="absolute top-0 left-0 bottom-0 flex items-center justify-center w-14">
 						<svg
@@ -153,7 +153,7 @@
 				>
 					Login
 				</button>
-				<DarkMode class="hidden md:inline-block">
+				<!-- <DarkMode class="hidden md:inline-block">
 					<svelte:fragment slot="lightIcon">
 						<svg
 							class="hi-solid hi-sun inline-block w-5 h-5"
@@ -176,7 +176,7 @@
 							><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" /></svg
 						>
 					</svelte:fragment>
-				</DarkMode>
+				</DarkMode> -->
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<div class="mobile-menu cursor-pointer" on:click={toggleMobileMenu}>
 					<svg
