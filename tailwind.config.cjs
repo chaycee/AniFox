@@ -14,7 +14,8 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['Inter', ...defaultTheme.fontFamily.sans]
+				sans: ['Inter', ...defaultTheme.fontFamily.sans],
+				opensans: ['Open Sans', 'sans-serif'],
 			},
 			maxWidth: {
 				'8xl': '90rem',

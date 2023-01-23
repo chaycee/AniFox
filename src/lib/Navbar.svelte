@@ -25,6 +25,7 @@
 			<div class="flex items-center space-x-2 lg:space-x-6 " ondragstart="false">
 				<!-- Logo -->
 				<a
+					data-sveltekit-preload-code='hover'
 					href="/"
 					class="group inline-flex items-center space-x-2 font-semibold text-slate-200 hover:text-white active:text-slate-200 uppercase tracking-wider mr-4 xl:mr-0"
 				>
@@ -43,33 +44,33 @@
 
 			<!-- END Left Section -->
 			<ul
-				class="text-black dark:text-slate-200  gap-8 items-center text-md hidden lg:text-sm xl:flex lg:flex xl:text-lg font-light mx-1 mb-2"
+				class="text-black dark:text-slate-300  gap-8 items-center text-md hidden lg:text-sm xl:flex lg:flex xl:text-lg font-light mx-1 mb-2 "
 			>
 				<li class="">
-					<a href="#" class="group transition focus:text-blue-700"
+					<a href="/" class="group transition focus:text-blue-700"
 						>Home<span
-							class="block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-sky-600"
+							class="block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-[#dc5a5b]"
 						/></a
 					>
 				</li>
 				<li class="">
 					<a href="#" class="group transition focus:text-blue-700"
 						>Most Popular<span
-							class="block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-sky-600"
+							class="block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-[#dc5a5b]"
 						/></a
 					>
 				</li>
 				<li class="">
 					<a href="#" class="group transition focus:text-blue-700"
 						>Subbed Anime<span
-							class="block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-sky-600"
+							class="block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-[#dc5a5b]"
 						/></a
 					>
 				</li>
 				<li class="">
 					<a href="#" class="group transition focus:text-blue-700"
 						>Dubbed Anime<span
-							class="block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-sky-600"
+							class="block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-[#dc5a5b]"
 						/></a
 					>
 				</li>
@@ -93,7 +94,7 @@
 
 					<input
 						type="text"
-						class="w-full block  rounded-full pl-12 pr-5 py-3 leading-5 text-sm bg-slate-300 dark:bg-slate-800 text-black dark:text-slate-200 placeholder-slate-500 dark:placeholder:text-slate-400 border-transparent focus:border-transparent hover:border-transparent focus:ring focus:ring-slate-500 focus:ring-opacity-50"
+						class="w-full block  rounded-full pl-12 pr-5 py-3 leading-5 text-sm bg-slate-400 dark:bg-[#201e27] text-black dark:text-slate-200 placeholder-slate-500 dark:placeholder:text-slate-400 border-transparent focus:border-transparent hover:border-transparent focus:ring focus:ring-slate-500 focus:ring-opacity-50"
 						id="search"
 						name="search"
 						placeholder="Search.."
@@ -148,7 +149,7 @@
 				<!-- END Search -->
 				<button
 					type="button"
-					class="hidden md:inline-flex justify-center items-center space-x-2 rounded-md border font-semibold focus:outline-none px-3 py-2 leading-6 border-indigo-700 bg-indigo-700 text-white hover:text-white hover:bg-indigo-800 hover:border-indigo-800 focus:ring focus:ring-indigo-500 focus:ring-opacity-50 active:bg-indigo-700 active:border-indigo-700"
+					class="hidden md:inline-flex justify-center items-center space-x-2 rounded-md border font-semibold focus:outline-none px-3 py-2 leading-6 border-[#442b38] bg-[#442b38] text-red-500 hover:text-red-400 hover:bg-[#523343] hover:border-[#442b38] focus:ring focus:ring-red-500 focus:ring-opacity-50 active:bg-[#442b38] active:border-[#442b38]"
 				>
 					Login
 				</button>
