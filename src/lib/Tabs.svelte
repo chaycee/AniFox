@@ -33,7 +33,7 @@
 	-->
 	<div class="flex items-center space-x-1 md:space-x-2 text-sm ">
 		<button
-		on:click|once|preventDefault={handleClick}
+		on:click|preventDefault={handleClick}
 
 			type="button"
 			id="overview-tab"
@@ -45,7 +45,7 @@
 			Overview
 		</button>
 		<button
-		on:click|once|preventDefault={handleClick}
+		on:click|preventDefault={handleClick}
 
 			type="button"
 			id="related-tab"
@@ -57,7 +57,7 @@
 			Related
 		</button>
 		<button
-		on:click|once|preventDefault={handleClick}
+		on:click|preventDefault={handleClick}
 
 			type="button"
 			id="recommendations-tab"
