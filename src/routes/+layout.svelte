@@ -5,7 +5,7 @@
 	import { onMount } from 'svelte';
 	onMount(() => {
 		let myElement = document.getElementById('Particles');
-		let count = /Mobi|Android/i.test(navigator.userAgent) ? 85 : 500;
+		let count = /Mobi|Android/i.test(navigator.userAgent) ? 0 : 500;
 		console.log(count);
 		let
 			options = {

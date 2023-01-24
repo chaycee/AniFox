@@ -41,7 +41,7 @@
 			role="tab"
 			aria-controls="overview-tab-pane"
 			aria-selected="true"
-			class="grow px-3 md:px-5 py-2.5 font-medium transition flex items-center justify-center space-x-2 rounded-md text-gray-400 border-b-2 border-solid border-x-0 border-t-0 border-transparent aria-selected:border-red-300 active:border-red-300 focus:border-border-300 hover:text-rose-600  focus:text-red-300 focus:font-semibold"
+			class="grow px-3 md:px-5 py-2.5 font-semibold transition flex items-center justify-center space-x-2 rounded-md text-gray-400 border-b-2 border-solid border-x-0 border-t-0 border-transparent aria-selected:border-red-300 active:border-red-300 focus:border-border-300 hover:text-rose-600  focus:text-red-300 focus:font-bold"
 		>
 			Overview
 		</button>
@@ -51,7 +51,7 @@
 			role="tab"
 			aria-controls="related-tab-pane"
 			aria-selected="false"
-			class="grow px-3 md:px-5 py-2.5 font-medium transition flex items-center justify-center space-x-2 rounded-md  text-gray-400 border-b-2 border-solid border-x-0 border-t-0 border-transparent aria-selected:border-red-300 hover:text-rose-600  focus:text-red-300 focus:font-semibold"
+			class="grow px-3 md:px-5 py-2.5 font-semibold transition flex items-center justify-center space-x-2 rounded-md  text-gray-400 border-b-2 border-solid border-x-0 border-t-0 border-transparent aria-selected:border-red-300 hover:text-rose-600  focus:text-red-300 focus:font-bold"
 		>
 			Related
 		</button>
@@ -61,7 +61,7 @@
 			role="tab"
 			aria-controls="recommendations-tab-pane"
 			aria-selected="false"
-			class="grow px-3 md:px-5 py-2.5 font-medium transition flex items-center justify-center space-x-2 rounded-md text-gray-400 border-b-2 border-solid border-x-0 border-t-0 border-transparent aria-selected:border-red-300 hover:text-rose-600  focus:text-red-300 focus:font-semibold"
+			class="grow px-3 md:px-5 py-2.5 font-semibold transition flex items-center justify-center space-x-2 rounded-md text-gray-400 border-b-2 border-solid border-x-0 border-t-0 border-transparent aria-selected:border-red-300 hover:text-rose-600  focus:text-red-300 focus:font-bold"
 		>
 			Recommendations
 		</button>
@@ -81,46 +81,62 @@
 			/>
 			<div
 				id="overview-tab-pane"
-				class="relative px-2 py-2 text-sm font- flex flex-col gap-2"
+				class="relative px-2 py-2  text-sm font- flex flex-col gap-2"
 				tab="tabpanel"
 				aria-labelledby="overview-tab"
 				tabindex="0"
 			>
 				<article class=" h-28 overflow-scroll text-slate-200 text-left">
 					<h4 class="text-slate-200 ">Overview:</h4>
-					<p class="text-slate-500 text-sm font-thin">
+					<p class="text-slate-500 text-xs font-thin">
 						{animeInfo.description.replace(/<[^>]*>?/gm, '')}
 					</p>
 				</article>
 				<div class="">
 					<span class="gap-2 mb-2 font-extrabold">Japanese: </span>
-					<span class="font-extralight">{animeInfo.title.native}</span>
+					<span class="  text-xs font-thin">{animeInfo.title.native}</span>
 				</div>
 				<div>
 					<span class="gap-2 mb-2 font-extrabold">Synonyms: </span>
-					<span class="font-extralight">{animeInfo.synonyms}</span>
+					<span class="text-xs font-thin">{animeInfo.synonyms}</span>
 				</div>
 				<div>
 					<span class="gap-2 mb-2 font-extrabold">Aired: </span>
-					<span class="font-extralight"
-						>    {[animeInfo.startDate.year, new Intl.DateTimeFormat('en-US', {month: 'long'}).format(new Date(2022, animeInfo.startDate.month-1, 1)), animeInfo.startDate.day].join(" ")} to {[animeInfo.endDate.year, new Intl.DateTimeFormat('en-US', {month: 'long'}).format(new Date(2022, animeInfo.endDate.month-1, 1)), animeInfo.endDate.day].join(" ")}  </span
-					>
+					<span class="font-thin  text-xs">
+						{[
+							animeInfo.startDate.year,
+							new Intl.DateTimeFormat('en-US', { month: 'long' }).format(
+								new Date(2022, animeInfo.startDate.month - 1, 1)
+							),
+							animeInfo.startDate.day
+						].join(' ')} to {[
+							animeInfo.endDate.year,
+							new Intl.DateTimeFormat('en-US', { month: 'long' }).format(
+								new Date(2022, animeInfo.endDate.month - 1, 1)
+							),
+							animeInfo.endDate.day
+						].join(' ')}
+					</span>
 				</div>
 				<div>
 					<span class="gap-2 mb-2 font-extrabold">Status: </span>
-					<span class="font-extralight">{animeInfo.status}</span>
+					<span class="text-xs font-thin">{animeInfo.status}</span>
 				</div>
 				<div>
 					<span class="gap-2 mb-2 font-extrabold">genres: </span>
-					<span class="font-normal ">
+					<span class="text-xs font-normal ">
 						{#each animeInfo.genres as genre}
-						<div class="font-extralight inline-flex px-2 py-1 leading-4 text-xs rounded-full text-gray-200 border-[1px] border-red-400  ml-1">{genre}</div>
+							<div
+								class="font-extralight inline-flex px-2 py-1 leading-4 text-xs rounded-full text-gray-200 border-[1px] border-red-400  ml-1"
+							>
+								{genre}
+							</div>
 						{/each}
 					</span>
 				</div>
 				<div>
 					<span class="gap-2 mb-2 font-extrabold">Studios: </span>
-					<span class="font-extralight">{animeInfo.studios}</span>
+					<span class=" text-xs font-thin">{animeInfo.studios}</span>
 				</div>
 				<!-- <div class=" flex gap-2 mb-2 ">Aired:</div>
 				<div class=" flex gap-2 mb-2 ">Status:</div>
