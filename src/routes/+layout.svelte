@@ -7,38 +7,37 @@
 		let myElement = document.getElementById('Particles');
 		let count = /Mobi|Android/i.test(navigator.userAgent) ? 0 : 500;
 		console.log(count);
-		let
-			options = {
-				composition: 'source-over',
-			count,
-			speed: 13,
-			parallax: 17.4,
-			direction: 0,
-			xVariance: 2.6,
-			yVariance: 7.8,
+		let options = {
+			composition: 'source-over',
+			count: 1000,
+			speed: 100,
+			parallax: 50,
+			direction: 360,
+			xVariance: 50,
+			yVariance: 50,
 			rotate: true,
 			rotation: 1,
-			alphaSpeed: 21,
-			alphaVariance: 0,
-			minAlpha: -2,
-			maxAlpha: 2,
-			minSize: 3,
-			maxSize: 4,
-			style: 'both',
+			alphaSpeed: 10,
+			alphaVariance: 1,
+			minAlpha: 0,
+			maxAlpha: 1,
+			minSize: 100,
+			maxSize: 100,
+			style: 'fill',
 			bounce: false,
-			drift: 5.9,
-			glow: 0,
+			drift: 50,
+			glow: 15,
 			twinkle: false,
-			color: ['#ed333b', '#e01b24', '#e01b24', '#ed333b', '#dc5a5b', '#f66151'],
+			color: ['#000000'],
 			shape: 'circle',
 			imageUrl: ''
-			};
-		let mySparticles = new Sparticles(myElement, options );
+		};
+		let mySparticles = new Sparticles(myElement, options);
 	});
 </script>
 
 <div class="relative  font-opensans">
-	<div class=" inset-0 fixed"  id="Particles" />
+	<div class=" inset-0 fixed" id="Particles" />
 	<div
 		id="page-container"
 		class="z-1 flex flex-col mx-auto w-full min-h-screen dark:bg-[#16151d] bg-[#dde4e6] "
