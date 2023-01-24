@@ -8,6 +8,6 @@ export async function load({fetch, params}) {
 			return data;
 		}
 	return {
-		details: fetchDetails(params.anime)
+		animeInfo: fetchDetails(params.anime)
 	};
 }

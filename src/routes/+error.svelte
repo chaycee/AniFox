@@ -6,7 +6,7 @@
 <div id="page-container" class="flex flex-col mx-auto w-full min-h-screen bg-gray-100">
 	<!-- Page Content -->
 	<main id="page-content" class="flex flex-auto flex-col max-w-full">
-		<div class="bg-[#0f172a] min-h-screen flex items-center relative overflow-hidden">
+		<div class="bg-[#16151d] min-h-screen flex items-center relative overflow-hidden">
 			<!-- Left/Right Background -->
 			<div
 				class="absolute left-0 top-0 bottom-0 w-48 bg-[#0f172a] transform skew-x-6 -ml-48 md:-ml-28"

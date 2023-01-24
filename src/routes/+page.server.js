@@ -14,19 +14,23 @@ export async function load({ fetch }) {
 		// fetch page 1 and 2
 		const page1 = await fetch(
 			'https://api.consumet.org/meta/anilist/recent-episodes?provider=zoro?page=1'
-		).then((res) => res.json());
+		).then((res) => res.json())
+		console.log(page1);
 		const page2 = await fetch(
 			'https://api.consumet.org/meta/anilist/recent-episodes?provider=zoro&page=2'
 		).then((res) => res.json());
+
 		// merge the two pages
-		const combined = { ...page1, ...page2 };
+		const combined = [...page1.results, ...page2.results];
+		// concat the two pages
+			console.log(combined);
 
 		return combined;
 	};
 
 	return {
 		// cache for 1 hour
-		maxAge: 60 * 60,
+
 		popular: popular(),
 		trending: trendingAnime(),
 		recent: RecentEpisodes()

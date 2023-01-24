@@ -53,6 +53,7 @@ module.exports = {
 		require('@tailwindcss/typography'),
 		require('@tailwindcss/line-clamp'),
 		require('flowbite/plugin'),
+		require('vidstack/tailwind.cjs'),
 		plugin(function ({ addUtilities }) {
 			const utilBgPatterns = {
 				'.pattern-dots-sm': {

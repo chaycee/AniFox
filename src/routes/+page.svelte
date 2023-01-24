@@ -1,6 +1,6 @@
 <script>
 	export let data;
-	console.log(data);
+	
 	$: ({ popular } = data);
 	$: ({ trending } = data);
 	$: ({ recent } = data);
@@ -248,7 +248,7 @@
 	</div>
 	<nav class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-6 gap-4 lg:gap-8">
 		<!-- Movie -->
-		{#each recent.results.filter((card) => card.title.english).slice(0,12) as card}
+		{#each recent.filter(ep => ep.title.english) as card}
 			<a
 
 				data-sveltekit-preload-code='hover'
