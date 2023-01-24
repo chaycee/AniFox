@@ -1,10 +1,15 @@
 <script>
 	import { DarkMode } from 'flowbite-svelte';
 	import MobileMenu from './MobileMenu.svelte';
-	import { onMount } from 'svelte';
+	import { mobileMenuState } from './stores.js';
+
 	let showMenu = false;
+	mobileMenuState.subscribe((value) => {
+		showMenu = value;
+	});
 	function toggleMobileMenu() {
 		showMenu = !showMenu;
+		mobileMenuState.set(true);
 	}
 	let mobileSearch = false;
 	function toggleMobileSearch() {
@@ -19,13 +24,13 @@
 	class="flex flex-none items-center z-1 text-black dark:text-white"
 	ondragstart="false"
 >
-	<div class="container xl:max-w-8xl mx-auto px-4 lg:px-0">
+	<div class="container xl:max-w-8xl mx-auto lg:px-0">
 		<div class="flex justify-between pt-10 relative">
 			<!-- Left Section -->
 			<div class="flex items-center space-x-2 lg:space-x-6 " ondragstart="false">
 				<!-- Logo -->
 				<a
-					data-sveltekit-preload-code='hover'
+					data-sveltekit-preload-code="hover"
 					href="/"
 					class="group inline-flex items-center space-x-2 font-semibold text-slate-200 hover:text-white active:text-slate-200 uppercase tracking-wider mr-4 xl:mr-0"
 				>
@@ -47,28 +52,40 @@
 				class="text-black dark:text-slate-300  gap-8 items-center text-md hidden lg:text-sm xl:flex lg:flex xl:text-lg font-light mx-1 mb-2 "
 			>
 				<li class="">
-					<a href="/" class="group transition focus:text-blue-700"
+					<a
+						data-sveltekit-preload-code="hover"
+						href="/"
+						class="group transition focus:text-blue-700"
 						>Home<span
 							class="block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-[#dc5a5b]"
 						/></a
 					>
 				</li>
 				<li class="">
-					<a href="#" class="group transition focus:text-blue-700"
+					<a
+						data-sveltekit-preload-code="hover"
+						href="#"
+						class="group transition focus:text-blue-700"
 						>Most Popular<span
 							class="block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-[#dc5a5b]"
 						/></a
 					>
 				</li>
 				<li class="">
-					<a href="#" class="group transition focus:text-blue-700"
+					<a
+						data-sveltekit-preload-code="hover"
+						href="#"
+						class="group transition focus:text-blue-700"
 						>Subbed Anime<span
 							class="block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-[#dc5a5b]"
 						/></a
 					>
 				</li>
 				<li class="">
-					<a href="#" class="group transition focus:text-blue-700"
+					<a
+						data-sveltekit-preload-code="hover"
+						href="#"
+						class="group transition focus:text-blue-700"
 						>Dubbed Anime<span
 							class="block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-[#dc5a5b]"
 						/></a

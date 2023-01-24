@@ -77,10 +77,10 @@
 	-->
 	<div class="py-">
 		<!-- Overview Tab -->
-
-		<div class="relative">
+<!-- FIXME: backdrop-blur-md -->
+		<div class="relative ">
 			<div
-				class=" absolute w-full h-full bg-gray-700 bg-opacity-60 backdrop-blur-md drop-shadow-lg"
+				class=" absolute w-full h-full bg-gray-700 bg-opacity-70  "
 			/>
 			<div
 				id="overview-tab-pane"

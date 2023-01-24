@@ -37,6 +37,7 @@
 					</h3>
 				</div>
 				<a
+					data-sveltekit-preload-code="hover"
 					href="../"
 					class="inline-flex justify-center items-center space-x-2 border font-semibold focus:outline-none px-3 py-2 leading-5 text-sm rounded  bg-[#5145cd] text-gray-800 shadow-sm hover:text-gray-800 hover:bg-[#473db8] border-none hover:shadow focus:ring focus:ring-gray-500 focus:ring-opacity-25   active:shadow-none"
 				>

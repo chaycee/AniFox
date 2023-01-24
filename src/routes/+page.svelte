@@ -1,33 +1,26 @@
 <script>
 	export let data;
-
+	let pagination;
 	$: ({ popular } = data);
 	$: ({ trending } = data);
 	$: ({ recent } = data);
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
-	import '@splidejs/svelte-splide/css/themes/splide-default.min.css';
+	import '@splidejs/svelte-splide/css/themes/splide-skyblue.min.css';
 	import { onMount } from 'svelte';
-
-	let isMobileView = false;
-	let height;
-	onMount(() => {
-		isMobileView = window.innerWidth < 600;
-
-		// log everytome width changes
-		window.addEventListener('resize', () => {
-			isMobileView = window.innerWidth < 600;
-			// change height
-		});
-	});
+	onMount(()=>{
+		pagination = /Mobi|Android/i.test(navigator.userAgent) ? false : true;
+	})
 </script>
 
 <svelte:head>
 	<title>Streamsy</title>
 </svelte:head>
-
+<div
+				class="container xl:max-w-8xl mx-auto  lg:px-1  lg:py-8 space-y-16 lg:space-y-8 relative font-opensans"
+			>
 <Splide
 	aria-label="My Favorite Images"
-	class=""
+	class=" "
 	options={{
 		rewind: true,
 		height: 360,
@@ -41,7 +34,9 @@
 		easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
 		perMove: 1,
 		interval: 4000,
-		arrows: false
+		arrows: false,
+		pagination,
+
 	}}
 >
 	<!-- TODO: Change cover to image on mobile view  -->
@@ -117,20 +112,20 @@
 				<!-- END Card Header -->
 
 				<!-- Card Body -->
-				<div class="px-5 py-2 lg:p-6 grow lg:w-[800px] h-20 text-left xl:mb-3">
-					<div class=" pb-1 text-left line-clamp-2 font-extralight lg:line-clamp-3">
+				<div class="px-5 py-2 xl:p-6 grow lg:w-[800px] h-20 text-left xl:mb-3">
+					<div class=" pb-1  xl:pb-1 text-left line-clamp-3 lg:line-clamp-3 font-extralight xl:line-clamp-4">
 						{data.description.replace(/<[^>]*>?/gm, '')}
 					</div>
 				</div>
 				<!-- END Card Body -->
 
 				<!-- Card Footer -->
-				<div class="py-4 px-5 lg:px-6 w-full text-sm text-gray-100 ">
+				<div class="xl:py-4  px-5 lg:px-6 w-full text-sm text-gray-100 ">
 					<!-- END Card Footer -->
 					<a
 						data-sveltekit-preload-code='hover'
 						href="/anime/id/{data.id}"
-						class=" mb-5 xl:mb-0 gap-1 inline-flex justify-center items-center space-x-2 rounded-full border font-semibold focus:outline-none px-6 py-2 leading-6 border-[#442b38] bg-[#442b38] text-red-500 hover:text-red-400 hover:bg-[#523343] hover:border-[#442b38] focus:ring focus:ring-red-500 focus:ring-opacity-50 active:bg-[#442b38] active:border-[#442b38]"
+						class=" mb-4 mt-2 xl:mt-5  xl:mb-0 gap-1 inline-flex justify-center items-center space-x-2 rounded-full border font-semibold focus:outline-none px-6 py-2 leading-6 border-[#442b38] bg-[#442b38] text-red-500 hover:text-red-400 hover:bg-[#523343] hover:border-[#442b38] focus:ring focus:ring-red-500 focus:ring-opacity-50 active:bg-[#442b38] active:border-[#442b38]"
 					>
 						<svg
 							class="hi-solid hi-play inline-block w-5 h-5"
@@ -281,7 +276,7 @@
 	</nav>
 </section>
 <!-- END Movie -->
-
+</div>
 <!-- END Continue Watching -->
 <style>
 

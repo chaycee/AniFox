@@ -1,15 +1,53 @@
 <!-- Simple Dark Navigation with Extras -->
 <script>
 	import { fade, fly } from 'svelte/transition';
+	import { mobileMenuState } from './stores.js';
 	export let showMenu;
 	$: showMenu;
 </script>
 
 {#if showMenu}
-	<nav class="space-y-1 md:hidden " in:fly={{ x: 0, duration: 2000 }} out:fade>
+	<nav
+		class="space-y-1 md:hidden absolute z-10  w-60 right-0 top-0 bg-[#201e27] h-full"
+		in:fly={{ x: 0, duration: 1000 }}
+		out:fade
+	>
+		<div class="flex justify-end  my-3 items-center">
+			<div
+				on:click={() => {
+					showMenu = false;
+					mobileMenuState.set(false);
+				}}
+				on:keydown={(event) => {
+					if (event.keyCode === 13 || event.keyCode === 32) {
+					showMenu = false;
+					mobileMenuState.set(false);
+					}
+					}}
+				class="font-semibold  inline-flex px-2 py-1 leading-4 items-center space-x-1 text-xs rounded-full text-slate-300 bg-gray-600"
+			>
+				<span>Close Menu</span>
+				<svg
+					class="hi-solid hi-arrow-right inline-block w-5 h-5"
+					fill="currentColor"
+					viewBox="0 0 20 20"
+					xmlns="http://www.w3.org/2000/svg"
+					><path
+						fill-rule="evenodd"
+						d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+						clip-rule="evenodd"
+					/></svg
+				>
+			</div>
+		</div>
 		<a
+			on:click={() => {
+				showMenu = false;
+				mobileMenuState.set(false);
+			}}
+			data-sveltekit-preload-code="hover"
 			href="/"
-			class="flex items-center space-x-3 px-3 font-medium rounded dark:text-gray-50 bg-gray-700 bg-opacity-60"
+			class="flex items-center space-x-3 px-3 font-medium rounded dark:text-gray-50 bg-gray-700 bg-opacity-60 "
 		>
 			<span class="flex-none flex items-center opacity-50">
 				<svg
@@ -28,43 +66,72 @@
 			</span>
 			<span class="py-2 grow">Home</span>
 		</a>
-		<div class="px-3 pt-5 pb-2 text-xs font-medium uppercase tracking-wider dark:text-gray-400 text-gray-700 ">
+		<div
+			class="px-3 pt-5 pb-2 text-xs font-medium uppercase tracking-wider dark:text-gray-400 text-gray-700 "
+		>
 			Anime
 		</div>
 		<a
+			on:click={() => {
+				showMenu = false;
+				mobileMenuState.set(false);
+			}}
+			data-sveltekit-preload-code="hover"
 			href="javascript:void(0)"
-			class="flex items-center  px-3 font-medium rounded dark:text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+			class="flex items-center  px-3 font-medium rounded-md dark:text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40 border-b-[1px] border-gray-700"
 		>
 			<span class="flex-none flex items-center opacity-50" />
 			<span class="py-2 grow">Most Popular</span>
 		</a>
 		<a
+			on:click={() => {
+				showMenu = false;
+				mobileMenuState.set(false);
+			}}
+			data-sveltekit-preload-code="hover"
 			href="javascript:void(0)"
-			class="flex items-center  px-3 font-medium rounded dark:text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+			class="flex items-center  px-3 font-medium rounded dark:text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40 border-b-[1px] border-gray-700"
 		>
 			<span class="flex-none flex items-center opacity-50" />
 			<span class="py-2 grow">Trending</span>
 		</a>
 		<a
+			on:click={() => {
+				showMenu = false;
+				mobileMenuState.set(false);
+			}}
+			data-sveltekit-preload-code="hover"
 			href="javascript:void(0)"
-			class="flex items-center  px-3 font-medium rounded dark:text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+			class="flex items-center  px-3 font-medium rounded dark:text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40 border-b-[1px] border-gray-700"
 		>
 			<span class="flex-none flex items-center opacity-50" />
 			<span class="py-2 grow">Airing Schedule</span>
 		</a>
 		<a
+			on:click={() => {
+				showMenu = false;
+				mobileMenuState.set(false);
+			}}
+			data-sveltekit-preload-code="hover"
 			href="javascript:void(0)"
-			class="flex items-center  px-3 font-medium rounded dark:text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+			class="flex items-center  px-3 font-medium rounded dark:text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40 border-b-[1px] border-gray-700"
 		>
 			<span class="flex-none flex items-center opacity-50" />
 			<span class="py-2 grow">Recent Episodes</span>
 		</a>
-		<div class="px-3 pt-5 pb-2 text-xs font-medium uppercase tracking-wider dark:text-gray-400 text-gray-700">
+		<div
+			class="px-3 pt-5 pb-2 text-xs font-medium uppercase tracking-wider dark:text-gray-400 text-gray-700"
+		>
 			Account
 		</div>
 		<a
+			on:click={() => {
+				showMenu = false;
+				mobileMenuState.set(false);
+			}}
+			data-sveltekit-preload-code="hover"
 			href="javascript:void(0)"
-			class="flex items-center space-x-3 px-3 font-medium rounded dark:text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+			class="flex items-center space-x-3 px-3 font-medium rounded dark:text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40 border-b-[1px] border-gray-700"
 		>
 			<span class="flex-none flex items-center opacity-50">
 				<svg
@@ -84,8 +151,13 @@
 			<span class="py-2 grow">Profile</span>
 		</a>
 		<a
+			on:click={() => {
+				showMenu = false;
+				mobileMenuState.set(false);
+			}}
+			data-sveltekit-preload-code="hover"
 			href="javascript:void(0)"
-			class="flex items-center space-x-3 px-3 font-medium rounded dark:text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+			class="flex items-center space-x-3 px-3 font-medium rounded dark:text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40 border-b-[1px] border-gray-700"
 		>
 			<span class="flex-none flex items-center opacity-50">
 				<svg
@@ -110,8 +182,13 @@
 			<span class="py-2 grow">Settings</span>
 		</a>
 		<a
+			on:click={() => {
+				showMenu = false;
+				mobileMenuState.set(false);
+			}}
+			data-sveltekit-preload-code="hover"
 			href="javascript:void(0)"
-			class="flex items-center space-x-3 px-3 font-medium rounded dark:text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+			class="flex items-center space-x-3 px-3 font-medium rounded dark:text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40 border-b-[1px] border-gray-700"
 		>
 			<span class="flex-none flex items-center opacity-50">
 				<svg

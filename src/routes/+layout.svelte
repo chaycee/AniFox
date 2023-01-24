@@ -9,26 +9,26 @@
 		console.log(count);
 		let options = {
 			composition: 'source-over',
-			count: 1000,
-			speed: 100,
-			parallax: 50,
-			direction: 360,
-			xVariance: 50,
-			yVariance: 50,
+			count,
+			speed: 13,
+			parallax: 17.4,
+			direction: 0,
+			xVariance: 2.6,
+			yVariance: 7.8,
 			rotate: true,
 			rotation: 1,
-			alphaSpeed: 10,
-			alphaVariance: 1,
-			minAlpha: 0,
-			maxAlpha: 1,
-			minSize: 100,
-			maxSize: 100,
-			style: 'fill',
+			alphaSpeed: 21,
+			alphaVariance: 0,
+			minAlpha: -2,
+			maxAlpha: 2,
+			minSize: 3,
+			maxSize: 4,
+			style: 'both',
 			bounce: false,
-			drift: 50,
-			glow: 15,
+			drift: 5.9,
+			glow: 0,
 			twinkle: false,
-			color: ['#000000'],
+			color: ['#ed333b', '#e01b24', '#e01b24', '#ed333b', '#dc5a5b', '#f66151'],
 			shape: 'circle',
 			imageUrl: ''
 		};
@@ -46,11 +46,9 @@
 
 		<main id="page-content" class="flex flex-auto flex-col max-w-full font-opensans">
 			<!-- TODO: xl:mx-0 pc? -->
-			<div
-				class="container xl:max-w-8xl mx-auto  lg:px-1  lg:py-8 space-y-16 lg:space-y-8 relative font-opensans"
-			>
+
 				<slot />
-			</div>
+			
 		</main>
 	</div>
 </div>
