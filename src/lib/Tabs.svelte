@@ -3,28 +3,25 @@
 	export let animeInfo;
 
 	console.log(animeInfo);
-	onMount(() => {
+	const handleClick = (event) => {
+		const button = event.target;
 		const buttons = document.querySelectorAll('[role="tab"]');
-		buttons.forEach(function (button) {
-			button.addEventListener('click', function () {
-				buttons.forEach((b) => {
-					if (b === button) {
-						b.setAttribute('aria-selected', true);
-					} else {
-						b.setAttribute('aria-selected', false);
-					}
-				});
-				let target = button.getAttribute('aria-controls');
-				document.getElementById(target).classList.remove('hidden');
-				buttons.forEach((b) => {
-					if (b !== button) {
-						let target = b.getAttribute('aria-controls');
-						document.getElementById(target).classList.add('hidden');
-					}
-				});
-			});
+		buttons.forEach((b) => {
+			if (b === button) {
+				b.setAttribute('aria-selected', true);
+			} else {
+				b.setAttribute('aria-selected', false);
+			}
 		});
-	});
+		let target = button.getAttribute('aria-controls');
+		document.getElementById(target).classList.remove('hidden');
+		buttons.forEach((b) => {
+			if (b !== button) {
+				let target = b.getAttribute('aria-controls');
+				document.getElementById(target).classList.add('hidden');
+			}
+		});
+	};
 </script>
 
 <!-- TODO: you can reduce javascript here by checking aria-selected: in tailwind to set visible and hidden by default -->
@@ -36,6 +33,8 @@
 	-->
 	<div class="flex items-center space-x-1 md:space-x-2 text-sm ">
 		<button
+		on:click|once|preventDefault={handleClick}
+
 			type="button"
 			id="overview-tab"
 			role="tab"
@@ -46,6 +45,8 @@
 			Overview
 		</button>
 		<button
+		on:click|once|preventDefault={handleClick}
+
 			type="button"
 			id="related-tab"
 			role="tab"
@@ -56,6 +57,8 @@
 			Related
 		</button>
 		<button
+		on:click|once|preventDefault={handleClick}
+
 			type="button"
 			id="recommendations-tab"
 			role="tab"
@@ -77,7 +80,7 @@
 
 		<div class="relative">
 			<div
-				class=" absolute w-full h-full bg-gray-700 bg-opacity-60 backdrop-blur-lg drop-shadow-lg"
+				class=" absolute w-full h-full bg-gray-700 bg-opacity-60 backdrop-blur-md drop-shadow-lg"
 			/>
 			<div
 				id="overview-tab-pane"

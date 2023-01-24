@@ -17,10 +17,10 @@
 		<img
 			src={animeInfo.cover}
 			alt=""
-			class="absolute inset-0 object-cover w-full h-full "
+			class="absolute inset-0 object-cover w-full h-full blur-sm"
 		/>
 		<div
-			class=" absolute w-full h-full bg-[#16151d] bg-opacity-70 backdrop-blur-lg drop-shadow-lg"
+			class=" absolute w-full h-full bg-[#16151d] bg-opacity-80  drop-shadow-lg"
 		/>
 
 		<div class=" flex flex-col items-center justify-center relative gap-2  py-5">
