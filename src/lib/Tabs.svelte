@@ -81,14 +81,16 @@
 			/>
 			<div
 				id="overview-tab-pane"
-				class="relative px-2 py-2  text-sm font- flex flex-col gap-2"
+				class="relative px-2 py-2  text-sm font- flex flex-col gap-5"
 				tab="tabpanel"
 				aria-labelledby="overview-tab"
 				tabindex="0"
 			>
-				<article class=" h-28 overflow-scroll text-slate-200 text-left">
+				<article
+					class=" h-28 xl:h-max overflow-scroll overflow-y-visible overflow-x-hidden xl:overflow-visible text-slate-200 text-left"
+				>
 					<h4 class="text-slate-200 ">Overview:</h4>
-					<p class="text-slate-500 text-xs font-thin">
+					<p class="text-slate-400 text-xs font-thin">
 						{animeInfo.description.replace(/<[^>]*>?/gm, '')}
 					</p>
 				</article>
@@ -193,4 +195,29 @@
 	</div>
 	<!-- END Tab Content -->
 </div>
+
 <!-- END Tabs Component: Pills Justified -->
+<style>
+	#overview-tab::-webkit-scrollbar-track {
+		-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+		background-color: #12122b;
+		border-radius: 10px;
+	}
+
+	#overview-tab::-webkit-scrollbar {
+		width: 10px;
+		background-color: #f5f5f5;
+	}
+
+	#overview-tab::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		background-image: -webkit-gradient(
+			linear,
+			left bottom,
+			left top,
+			color-stop(0.44, rgb(122, 153, 217)),
+			color-stop(0.72, rgb(73, 125, 189)),
+			color-stop(0.86, rgb(28, 58, 148))
+		);
+	}
+</style>

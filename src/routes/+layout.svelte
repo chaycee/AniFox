@@ -46,6 +46,7 @@
 		<Navbar />
 
 		<main id="page-content" class="flex flex-auto flex-col max-w-full font-opensans">
+			<!-- TODO: xl:mx-0 pc? -->
 			<div
 				class="container xl:max-w-8xl mx-auto  lg:px-1  lg:py-8 space-y-16 lg:space-y-8 relative font-opensans"
 			>
