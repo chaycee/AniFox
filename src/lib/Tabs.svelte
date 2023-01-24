@@ -25,7 +25,7 @@
 </script>
 
 <!-- TODO: you can reduce javascript here by checking aria-selected: in tailwind to set visible and hidden by default -->
-<div class="relative mt-4">
+<div class="relative mt-4 w-full">
 	<!-- Nav Tabs -->
 	<!--
 	  aria-selected
@@ -78,7 +78,7 @@
 	<div class="py-">
 		<!-- Overview Tab -->
 <!-- FIXME: backdrop-blur-md -->
-		<div class="relative ">
+		<div class="relative">
 			<div
 				class=" absolute w-full h-full bg-gray-700 bg-opacity-70  "
 			/>

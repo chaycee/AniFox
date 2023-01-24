@@ -11,7 +11,7 @@
 	<title>{animeInfo.title.english}</title>
 </svelte:head>
 <!-- Page Container -->
-<section class="space-y-6 xl:px-0 dark:text-slate-200 absolute top-0 ">
+<section class="space-y-6 xl:px-0 dark:text-slate-200 absolute top-0 w-full ">
 	<div class="relative">
 		<img src={animeInfo.cover} alt="" class="absolute inset-0 object-cover w-full h-full blur-sm" />
 		<div class=" absolute w-full h-full bg-[#16151d] bg-opacity-80  " />
