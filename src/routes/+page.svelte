@@ -5,7 +5,7 @@
 	$: ({ trending } = data);
 	$: ({ recent } = data);
 	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
-	import '@splidejs/svelte-splide/css/themes/splide-skyblue.min.css';
+	import '@splidejs/svelte-splide/css/themes/splide-default.min.css';
 	import { onMount } from 'svelte';
 	onMount(()=>{
 		pagination = /Mobi|Android/i.test(navigator.userAgent) ? false : true;
@@ -39,8 +39,8 @@
 
 	}}
 >
-	<!-- TODO: Change cover to image on mobile view  -->
-	<!-- TODO: Reduce the mobile slider in -->
+	<!-- TODO: Change cover to image on mobile view Maybe debatable -->
+	<!-- TODO: Reduce the mobile slider in maybe need more feedback-->
 	{#each popular.results as data}
 		<SplideSlide class="flex items-end ">
 			<img src={data.cover} alt="Ima" class="" loading="lazy" />
@@ -176,7 +176,7 @@
 				href="/anime/id/{card.id}"
 				class="group relative overflow-hidden aspect-w-16 aspect-h-10 bg-black/25 rounded-2xl transition hover:ring-4 hover:ring-red-500/50 active:opacity-75 active:ring-red-500/25"
 			>
-				<!-- TODO: REMOVE black div on bottom and redisgn genres and title -->
+
 				<img class="object-cover h-[150%] opacity-100" src={card.image} loading="lazy" alt="trending anime"/>
 				<div
 					class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent  via-black/60 to-black"

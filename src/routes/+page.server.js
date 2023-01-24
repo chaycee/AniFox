@@ -1,6 +1,6 @@
 /** @type {import('./$types').PageServerLoad} */
 export const ssr = true;
-// TODO: Switch to consument api instead to use natibe svelte fetch
+
 export async function load({ fetch }) {
 	const popular = async () => {
 		return await fetch('https://api.consumet.org/meta/anilist/popular').then((res) => res.json());
@@ -10,6 +10,7 @@ export async function load({ fetch }) {
 			res.json()
 		);
 	};
+	// TODO: u can split it to avoid waterfall issues
 	const RecentEpisodes = async () => {
 		// fetch page 1 and 2
 		const page1 = await fetch(
@@ -23,7 +24,7 @@ export async function load({ fetch }) {
 		// merge the two pages
 		const combined = [...page1.results, ...page2.results];
 		// concat the two pages
-			console.log(combined);
+
 
 		return combined;
 	};

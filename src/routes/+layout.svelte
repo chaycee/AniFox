@@ -45,10 +45,10 @@
 		<Navbar />
 
 		<main id="page-content" class="flex flex-auto flex-col max-w-full font-opensans">
-			<!-- TODO: xl:mx-0 pc? -->
+			
 
 				<slot />
-			
+
 		</main>
 	</div>
 </div>

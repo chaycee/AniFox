@@ -9,7 +9,7 @@
 {#if showMenu}
 	<nav
 		class="space-y-1 md:hidden absolute z-10  w-60 right-0 top-0 bg-[#201e27] h-full"
-		in:fly={{ x: 0, duration: 1000 }}
+		in:fly={{ x: 0, duration: 500 }}
 		out:fade
 	>
 		<div class="flex justify-end  my-3 items-center">

@@ -46,7 +46,7 @@
 				</a>
 				<!-- END Logo -->
 			</div>
-
+			<!-- TODO: add curent clicked Tab color and change hover color -->
 			<!-- END Left Section -->
 			<ul
 				class="text-black dark:text-slate-300  gap-8 items-center text-md hidden lg:text-sm xl:flex lg:flex xl:text-lg font-light mx-1 mb-2 "
@@ -55,7 +55,8 @@
 					<a
 						data-sveltekit-preload-code="hover"
 						href="/"
-						class="group transition focus:text-blue-700"
+						id="http://localhost:3000"
+						class="group transition  target:text-blue-700"
 						>Home<span
 							class="block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-[#dc5a5b]"
 						/></a
