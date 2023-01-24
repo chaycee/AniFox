@@ -2,11 +2,15 @@
 	import '../app.css';
 	import Navbar from '$lib/Navbar.svelte';
 	import Sparticles from 'sparticles';
-	export const ssr = true;
-	let sparticles,
-		options = {
-			composition: 'source-over',
-			count: 799,
+	import { onMount } from 'svelte';
+	onMount(() => {
+		let myElement = document.getElementById('Particles');
+		let count = /Mobi|Android/i.test(navigator.userAgent) ? 85 : 500;
+		console.log(count);
+		let
+			options = {
+				composition: 'source-over',
+			count,
 			speed: 13,
 			parallax: 17.4,
 			direction: 0,
@@ -28,15 +32,13 @@
 			color: ['#ed333b', '#e01b24', '#e01b24', '#ed333b', '#dc5a5b', '#f66151'],
 			shape: 'circle',
 			imageUrl: ''
-		};
-
-	function addSparticles(node) {
-		new Sparticles(node, options);
-	}
+			};
+		let mySparticles = new Sparticles(myElement, options );
+	});
 </script>
 
 <div class="relative  font-opensans">
-	<div class=" inset-0 fixed" use:addSparticles />
+	<div class=" inset-0 fixed"  id="Particles" />
 	<div
 		id="page-container"
 		class="z-1 flex flex-col mx-auto w-full min-h-screen dark:bg-[#16151d] bg-[#dde4e6] "
