@@ -42,7 +42,7 @@
 		<!-- TODO: Reduce the mobile slider in maybe need more feedback-->
 		{#each popular.results as data}
 			<SplideSlide class="flex items-end ">
-				<img src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{data.cover}&output=webp" alt="Ima" class="" loading="lazy" />
+				<img src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{data.cover}&output=webp&w=1400&h=360&fit=cover" alt="Ima" class="" loading="lazy" />
 
 				<div
 					class="absolute inset-0 flex flex-col justify-between bg-gradient-to-bl from-transparent via-black/5 to-black "
@@ -178,11 +178,9 @@
 					class="group relative overflow-hidden aspect-w-16 aspect-h-10 bg-black/25 rounded-2xl transition hover:ring-4 hover:ring-red-500/50 active:opacity-75 active:ring-red-500/25"
 				>
 					<img
-						class="object-cover h-[150%] opacity-100"
-						<img
-						src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{card.image}&output=webp"
-						width="300"
-						height="400"
+						class="h-[150%] opacity-100"
+
+						src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{card.image}&output=webp&w=430&h=450&fit=cover"
 						loading="lazy"
 						alt="trending anime"
 					/>
@@ -259,7 +257,7 @@
 				>
 					<img
 						class="object-cover"
-						src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{card.image}&output=webp"
+						src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{card.image}&output=webp&w=250&h=350&fit=cover"
 						loading="lazy"
 						alt="recent episodes"
 					/>
