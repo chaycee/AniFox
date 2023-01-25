@@ -13,7 +13,7 @@
 <!-- Page Container -->
 <section class="space-y-6 xl:px-0 dark:text-slate-200 absolute top-0 w-full ">
 	<div class="relative">
-		<img src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{animeInfo.image}&output=webp&w=1950&h=450" alt="" class="absolute inset-0 object-cover w-full h-full blur-sm" />
+		<img src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{animeInfo.cover}&output=webp&w=1950&h=450" alt="" class="absolute inset-0 object-cover w-full h-full blur-sm" />
 		<div class=" absolute w-full h-full bg-[#16151d] bg-opacity-80  " />
 
 		<div class="flex flex-col items-center justify-center relative">
