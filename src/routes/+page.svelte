@@ -190,7 +190,7 @@
 						<div class="p-4 flex items-end justify-start space-x-2" />
 						<div class="px-4 py-5 flex items-end justify-between space-x-2">
 							<div class="space-y-1">
-								<h3 class="text-lg font-semibold  text-white">{card.title.english}</h3>
+								<h3 class="text-sm xl:text-base font-semibold  text-white">{card.title.english}</h3>
 								<section class="text-sm font-semibold w-max text-slate-500">
 									{card.releaseDate}
 									{#each card.genres.slice(0, 3) as genre}
@@ -273,7 +273,7 @@
 						</div>
 						<div class="px-4 py-5 flex items-end justify-between space-x-2">
 							<div class="space-y-1">
-								<h3 class="text-md font-normal text-white line-clamp-2 ">{card.title.english}</h3>
+								<h3 class="text-sm xl:text-base font-normal text-white line-clamp-2 ">{card.title.english}</h3>
 								<div class="text-sm font-normal text-slate-500">
 									{card.type}
 								</div>

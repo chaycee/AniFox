@@ -16,6 +16,7 @@ module.exports = {
 			fontFamily: {
 				sans: ['Inter', ...defaultTheme.fontFamily.sans],
 				opensans: ['Open Sans', 'sans-serif'],
+				Monse: ['MontserratAlt1', 'sans-serif']
 			},
 			maxWidth: {
 				'8xl': '90rem',

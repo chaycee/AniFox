@@ -40,8 +40,8 @@
 						class=" h-14 transition -rotate-12  group-hover:rotate-0 group-active:opacity-60"
 					/>
 					<span
-						class=" inline-block text-black text-lg md:text-xs xl:text-lg dark:text-slate-200 mb-3"
-						>Streamsy</span
+						class="font-Monse inline-block text-black text-lg md:text-xs xl:text-xl dark:text-slate-200 mb-3"
+						>Anifox</span
 					>
 				</a>
 				<!-- END Logo -->

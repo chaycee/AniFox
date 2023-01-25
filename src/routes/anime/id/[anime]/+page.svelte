@@ -49,8 +49,8 @@
 					class="inline-flex justify-center items-center space-x-2 rounded-full border font-semibold focus:outline-none px-4 py-2 mt-2 leading-6 border-red-400 bg-red-400 text-red-700 hover:text-red-700 hover:bg-red-300 hover:border-red-300 focus:ring focus:ring-red-500 focus:ring-opacity-50 active:bg-red-200 active:border-red-200 gap-1"
 				>
 					<svg
-						class="hi-solid hi-play inline-block w-5 h-5"
-						fill="currentColor"
+						class="hi-solid hi-play inline-block w-5 h-5 "
+						fill="currentColor "
 						viewBox="0 0 20 20"
 						xmlns="http://www.w3.org/2000/svg"
 						><path
