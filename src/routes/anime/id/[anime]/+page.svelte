@@ -18,7 +18,7 @@
 
 		<div class="flex flex-col items-center justify-center relative">
 			<div class="flex flex-col  items-center mt-24">
-				<img src={animeInfo.image} alt="" srcset="" class="object-contain h-52 w-52" />
+				<img src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{animeInfo.image}&output=webp" alt="" srcset="" class="object-contain h-52 w-52" />
 				<div class="font-semibold text-xl px-2 py-3  tracking-wide text-center">
 					{animeInfo.title.english}
 				</div>
