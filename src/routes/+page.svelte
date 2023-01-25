@@ -13,7 +13,7 @@
 </script>
 
 <svelte:head>
-	<title>Streamsy</title>
+	<title>AniFox</title>
 </svelte:head>
 <div
 	class="container xl:max-w-8xl mx-auto  lg:px-1  lg:py-8 space-y-16 lg:space-y-8 relative font-opensans"
