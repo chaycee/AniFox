@@ -10,7 +10,7 @@ export async function load({ fetch }) {
 			res.json()
 		);
 	};
-	// TODO: u can split it to avoid waterfall issues
+	// TODO: u can split it to avoid waterfall issues possibly fixed?
 	const RecentEpisodes = async () => {
 		// fetch page 1 and 2
 		return await fetch(
@@ -18,12 +18,12 @@ export async function load({ fetch }) {
 		).then((res) => res.json())
 
 	};
-
+	const [popularData, trendingData, recentData] = await Promise.all([popular(), trendingAnime(), RecentEpisodes()])
 	return {
 		// cache for 1 hour
 
-		popular: popular(),
-		trending: trendingAnime(),
-		recent: RecentEpisodes()
+		popular: popularData,
+		trending: trendingData,
+		recent: recentData
 	};
 }

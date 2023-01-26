@@ -1,4 +1,5 @@
 <script>
+	// FIXME: ASK tommy about particles in onmount
 	import '../app.css';
 	import Navbar from '$lib/Navbar.svelte';
 	import Sparticles from 'sparticles';

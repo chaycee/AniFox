@@ -51,11 +51,10 @@
 			pagination
 		}}
 	>
-		<!-- TODO: Change cover to image on mobile view Maybe debatable -->
-		<!-- TODO: Reduce the mobile slider in maybe need more feedback-->
+		
 		{#each popular.results as data}
 			<SplideSlide class="flex items-end ">
-				<img src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{data.cover}&output=webp&w=1400&h=360&fit=cover" alt="Ima" class="" loading="lazy" />
+				<img src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{data.cover}&output=webp&w=1400&h=360&fit=cover&af" alt="Ima" class="" />
 
 				<div
 					class="absolute inset-0 flex flex-col justify-between bg-gradient-to-bl from-transparent via-black/5 to-black "
@@ -193,8 +192,8 @@
 					<img
 						class="h-[150%] opacity-100"
 
-						src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{card.image}&output=webp&w=430&h=450&fit=cover"
-						loading="lazy"
+						src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{card.image}&output=webp&w=460&h640&fit=fill&af"
+
 						alt="trending anime"
 					/>
 					<div
@@ -203,7 +202,7 @@
 						<div class="p-4 flex items-end justify-start space-x-2" />
 						<div class="px-4 py-5 flex items-end justify-between space-x-2">
 							<div class="space-y-1">
-								<h3 class="text-sm xl:text-base font-semibold  text-white">{card.title.english}</h3>
+								<h3 class="text-sm w-[99%] xl:text-base font-semibold  text-white">{card.title.english}</h3>
 								<section class="text-sm font-semibold w-max text-slate-500">
 									{card.releaseDate}
 									{#each card.genres.slice(0, 3) as genre}
@@ -270,7 +269,7 @@
 				>
 					<img
 						class="object-cover"
-						src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{card.image}&output=webp&w=250&h=350&fit=cover"
+						src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{card.image}&output=webp&w=460&h=640&fit=cover&af"
 						loading="lazy"
 						alt="recent episodes"
 					/>

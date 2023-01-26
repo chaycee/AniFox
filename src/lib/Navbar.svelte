@@ -37,7 +37,7 @@
 					<img
 						src="/images/logo.png"
 						alt="logo"
-						class=" h-14 transition -rotate-12  group-hover:rotate-0 group-active:opacity-60"
+						class=" w-14 h-14 transition -rotate-12  group-hover:rotate-0 group-active:opacity-60"
 					/>
 					<span
 						class="font-Monse inline-block text-black text-lg md:text-xs xl:text-xl dark:text-slate-200 mb-3"
@@ -171,7 +171,7 @@
 				>
 					Login
 				</button>
-			
+
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<div class="mobile-menu cursor-pointer" on:click={toggleMobileMenu}>
 					<svg
