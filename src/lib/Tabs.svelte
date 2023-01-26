@@ -1,8 +1,17 @@
 <script>
 	import { onMount } from 'svelte';
 	export let animeInfo;
-
-	console.log(animeInfo);
+	import {
+		afterNavigate,
+		beforeNavigate,
+		disableScrollHandling,
+		goto,
+		invalidate,
+		invalidateAll,
+		preloadCode,
+		preloadData
+	} from '$app/navigation';
+	$: animeInfo;
 	const handleClick = (event) => {
 		const button = event.target;
 		const buttons = document.querySelectorAll('[role="tab"]');
@@ -22,6 +31,29 @@
 			}
 		});
 	};
+	const resetTab = () => {
+		// Get the tab buttons and tab panes
+		const buttons = document.querySelectorAll('[role="tab"]');
+		const panes = document.querySelectorAll('[tab="tabpanel"]');
+
+		// Loop through the buttons and set the aria-selected attribute of the overview tab to true and of the other tabs to false
+		buttons.forEach((button) => {
+			if (button.getAttribute('aria-controls') === 'overview-tab-pane') {
+				button.setAttribute('aria-selected', true);
+			} else {
+				button.setAttribute('aria-selected', false);
+			}
+		});
+
+		// Loop through the tab panes and show the overview tab and hide the other tabs
+		panes.forEach((pane) => {
+			if (pane.id === 'overview-tab-pane') {
+				pane.classList.remove('hidden');
+			} else {
+				pane.classList.add('hidden');
+			}
+		});
+	};
 </script>
 
 <!-- TODO: you can reduce javascript here by checking aria-selected: in tailwind to set visible and hidden by default -->
@@ -33,8 +65,7 @@
 	-->
 	<div class="flex items-center space-x-1 md:space-x-2 text-sm ">
 		<button
-		on:click|preventDefault={handleClick}
-
+			on:click|preventDefault={handleClick}
 			type="button"
 			id="overview-tab"
 			role="tab"
@@ -45,8 +76,7 @@
 			Overview
 		</button>
 		<button
-		on:click|preventDefault={handleClick}
-
+			on:click|preventDefault={handleClick}
 			type="button"
 			id="related-tab"
 			role="tab"
@@ -57,8 +87,7 @@
 			Related
 		</button>
 		<button
-		on:click|preventDefault={handleClick}
-
+			on:click|preventDefault={handleClick}
 			type="button"
 			id="recommendations-tab"
 			role="tab"
@@ -77,17 +106,14 @@
 	-->
 	<div class="py-">
 		<!-- Overview Tab -->
-<!-- FIXME: backdrop-blur-md -->
+		<!-- FIXME: backdrop-blur-md -->
 		<div class="relative">
-			<div
-				class=" absolute w-full h-full bg-gray-700 bg-opacity-70  "
-			/>
+			<div class=" absolute w-full h-full bg-gray-700 bg-opacity-100  " />
 			<div
 				id="overview-tab-pane"
-				class="relative px-2 py-2  text-sm font- flex flex-col gap-5"
+				class="relative px-2 py-2  text-sm  flex flex-col gap-5 h-max"
 				tab="tabpanel"
 				aria-labelledby="overview-tab"
-
 			>
 				<article
 					class=" h-28 xl:h-max overflow-scroll overflow-y-visible overflow-x-hidden xl:overflow-visible text-slate-200 text-left"
@@ -143,55 +169,126 @@
 					<span class="gap-2 mb-2 font-extrabold">Studios: </span>
 					<span class=" text-xs font-thin">{animeInfo.studios}</span>
 				</div>
-				<!-- <div class=" flex gap-2 mb-2 ">Aired:</div>
-				<div class=" flex gap-2 mb-2 ">Status:</div>
-				<div class="  flex gap-2 mb-2 ">Genres:</div>
-				<div class=" flex gap-2 mb-2 ">Studios:</div>
-				<div class="  flex gap-2 mb-2 ">Producers:</div> -->
 			</div>
 		</div>
 		<!-- END Overview Tab -->
 
 		<!-- Related Tab -->
 		<div class="related-wrapper">
-			<div
-				class="hidden"
-				id="related-tab-pane"
-				tab="tabpanel"
-				aria-labelledby="related-tab"
-
-			>
-				<h4 class="text-lg font-bold mb-2">Profile Title</h4>
-				<p class="text-sm leading-relaxed text-gray-700">
-					Integer sed dolor erat. Fusce erat ipsum, varius vel euismod sed, tristique et lectus?
-					Etiam egestas fringilla enim, id convallis lectus laoreet at. Fusce purus nisi, gravida
-					sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis
-					scelerisque? Proin rhoncus dui at ligula vestibulum ut facilisis ante sodales! Suspendisse
-					potenti. Aliquam tincidunt sollicitudin sem nec ultrices. Sed at mi velit. Ut egestas
-					tempor est, in cursus enim venenatis eget! Nulla quis ligula ipsum.
-				</p>
+			<div class="relative">
+				<div class=" absolute w-full h-full bg-gray-700 bg-opacity-70  " />
+				<div
+					class="hidden relative"
+					id="related-tab-pane"
+					tab="tabpanel"
+					aria-labelledby="related-tab"
+				>
+					<section class="space-y-6 px-2 xl:px-0 ">
+						<nav
+							class="grid grid-cols-2 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-6 gap-4 lg:gap-8 py-5"
+						>
+							<!-- Movie -->
+							{#each animeInfo.relations.filter((ep) => ep.type === 'OVA' || ep.type === 'MOVIE') as relation}
+								<a
+									data-sveltekit-preload-code="hover"
+									href="javascript:void(0)"
+									class="group relative overflow-hidden aspect-w-3 aspect-h-4 bg-black/25 rounded-2xl transition hover:ring-4 hover:ring-red-500/50 active:opacity-75  "
+								>
+									<img
+										class="object-cover "
+										src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{relation.image}&output=webp&w=250&h=350&fit=cover"
+										loading="lazy"
+										alt="recent episodes"
+									/>
+									<div
+										class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent via-black/30 to-black "
+									>
+										<div class="p-4 flex items-center justify-start space-x-2" />
+										<div class="px-4 py-5 flex items-end justify-between space-x-2">
+											<div class="space-y-1">
+												{#if relation.title.english !== null}
+													<h3 class="text-sm xl:text-base font-normal text-white line-clamp-2 ">
+														{relation.title.english}
+													</h3>
+												{:else}
+													<h3 class="text-sm xl:text-base font-normal text-white line-clamp-2 ">
+														{relation.title.romaji}
+													</h3>
+												{/if}
+												<div class="text-sm font-normal text-slate-500">
+													{relation.type}
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+							{/each}
+						</nav>
+					</section>
+				</div>
 			</div>
 		</div>
 		<!-- END Related Tab -->
 
 		<!-- Recommendations Tab -->
 		<div class="recommendations-wrapper">
-			<div
-				class="hidden"
-				id="recommendations-tab-pane"
-				tab="tabpanel"
-				aria-labelledby="recommendations-tab"
-				
-			>
-				<h4 class="text-lg font-bold mb-2">Settings Title</h4>
-				<p class="text-sm leading-relaxed text-gray-700">
-					Etiam egestas fringilla enim, id convallis lectus laoreet at. Fusce purus nisi, gravida
-					sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis
-					scelerisque? Proin rhoncus dui at ligula vestibulum ut facilisis ante sodales! Suspendisse
-					potenti. Aliquam tincidunt sollicitudin sem nec ultrices. Sed at mi velit. Ut egestas
-					tempor est, in cursus enim venenatis eget! Nulla quis ligula ipsum. Integer sed dolor
-					erat. Fusce erat ipsum, varius vel euismod sed, tristique et lectus?
-				</p>
+			<div class="relative">
+				<div class=" absolute w-full h-full bg-gray-700 bg-opacity-70  " />
+				<div
+					class="hidden relative "
+					id="recommendations-tab-pane"
+					tab="tabpanel"
+					aria-labelledby="recommendations-tab"
+				>
+					<section class="space-y-6 px-2 xl:px-0 ">
+						<nav
+							class="grid grid-cols-2 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-6 gap-4 lg:gap-8 py-5"
+						>
+							<!-- Movie -->
+							<!-- FIXME: proper way of reload data or make it faster -->
+							{#each animeInfo.recommendations as relation}
+								<a
+									on:click={() => {
+										invalidateAll();
+										window.location.href = `/anime/id/${relation.id}`;
+
+									}}
+
+									data-sveltekit-preload-code="hover"
+									class="group relative overflow-hidden aspect-w-3 aspect-h-4 bg-black/25 rounded-2xl transition hover:ring-4 hover:ring-red-500/50 active:opacity-75  "
+								>
+									<img
+										class="object-cover "
+										src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{relation.image}&output=webp&w=250&h=350&fit=cover"
+										loading="lazy"
+										alt="recent episodes"
+									/>
+									<div
+										class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent via-black/30 to-black "
+									>
+										<div class="p-4 flex items-center justify-start space-x-2" />
+										<div class="px-4 py-5 flex items-end justify-between space-x-2">
+											<div class="space-y-1">
+												{#if relation.title.english !== null}
+													<h3 class="text-sm xl:text-base font-normal text-white line-clamp-2 ">
+														{relation.title.english}
+													</h3>
+												{:else}
+													<h3 class="text-sm xl:text-base font-normal text-white line-clamp-2 ">
+														{relation.title.romaji}
+													</h3>
+												{/if}
+												<div class="text-sm font-normal text-slate-500">
+													{relation.type}
+												</div>
+											</div>
+										</div>
+									</div>
+								</a>
+							{/each}
+						</nav>
+					</section>
+				</div>
 			</div>
 		</div>
 		<!-- END Recommendations Tab -->

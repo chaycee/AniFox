@@ -7,7 +7,7 @@
 	$: showMenu;
 
 </script>
-
+<!-- FIXME: remove scroll when menu is on -->
 {#if showMenu}
 	<div
 		class="fixed inset-0 z-1 bg-black bg-opacity-50 "
