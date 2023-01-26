@@ -1,6 +1,6 @@
 <script>
 	import Tabs from '$lib/Tabs.svelte';
-
+	export const router = false;
 	/** @type {import('./$types').PageData} */
 	export let data;
 

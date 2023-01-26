@@ -262,7 +262,7 @@
 		</div>
 		<nav class="grid grid-cols-2 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-6 gap-4 lg:gap-8">
 			<!-- Movie -->
-			{#each recent.filter((ep) => ep.title.english) as card}
+			{#each recent.results.filter((ep) => ep.title.english) as card}
 				<a
 					data-sveltekit-preload-code="hover"
 					href="javascript:void(0)"

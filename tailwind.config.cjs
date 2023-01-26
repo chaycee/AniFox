@@ -7,8 +7,7 @@ const colors = require('tailwindcss/colors');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: [
-		'./src/**/*.{html,js,svelte,ts}',
-		'./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}' // Configure your template paths
+		'./src/**/*.{html,js,svelte,ts}'
 	],
 	darkMode: 'class',
 	theme: {
@@ -53,7 +52,6 @@ module.exports = {
 		require('@tailwindcss/forms'),
 		require('@tailwindcss/typography'),
 		require('@tailwindcss/line-clamp'),
-		require('flowbite/plugin'),
 		require('vidstack/tailwind.cjs'),
 		plugin(function ({ addUtilities }) {
 			const utilBgPatterns = {

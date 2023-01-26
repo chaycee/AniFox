@@ -13,19 +13,10 @@ export async function load({ fetch }) {
 	// TODO: u can split it to avoid waterfall issues
 	const RecentEpisodes = async () => {
 		// fetch page 1 and 2
-		const page1 = await fetch(
+		return await fetch(
 			'https://api.consumet.org/meta/anilist/recent-episodes?provider=zoro?page=1'
 		).then((res) => res.json())
-		const page2 = await fetch(
-			'https://api.consumet.org/meta/anilist/recent-episodes?provider=zoro&page=2'
-		).then((res) => res.json());
 
-		// merge the two pages
-		const combined = [...page1.results, ...page2.results];
-		// concat the two pages
-
-
-		return combined;
 	};
 
 	return {

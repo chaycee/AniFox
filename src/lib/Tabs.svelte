@@ -196,7 +196,7 @@
 								>
 									<img
 										class="object-cover "
-										src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{relation.image}&output=webp&w=250&h=350&fit=cover"
+										src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{relation.image}&output=webp&w=460&h=644&fit=cover"
 										loading="lazy"
 										alt="recent episodes"
 									/>
@@ -259,8 +259,8 @@
 								>
 									<img
 										class="object-cover "
-										src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{relation.image}&output=webp&w=250&h=350&fit=cover"
-										loading="lazy"
+										src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{relation.image}&output=webp&w=450&h=644x&fit=cover"
+										
 										alt="recent episodes"
 									/>
 									<div
