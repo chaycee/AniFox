@@ -87,7 +87,7 @@
 				class="relative px-2 py-2  text-sm font- flex flex-col gap-5"
 				tab="tabpanel"
 				aria-labelledby="overview-tab"
-				tabindex="0"
+
 			>
 				<article
 					class=" h-28 xl:h-max overflow-scroll overflow-y-visible overflow-x-hidden xl:overflow-visible text-slate-200 text-left"
@@ -159,7 +159,7 @@
 				id="related-tab-pane"
 				tab="tabpanel"
 				aria-labelledby="related-tab"
-				tabindex="0"
+
 			>
 				<h4 class="text-lg font-bold mb-2">Profile Title</h4>
 				<p class="text-sm leading-relaxed text-gray-700">
@@ -181,7 +181,7 @@
 				id="recommendations-tab-pane"
 				tab="tabpanel"
 				aria-labelledby="recommendations-tab"
-				tabindex="0"
+				
 			>
 				<h4 class="text-lg font-bold mb-2">Settings Title</h4>
 				<p class="text-sm leading-relaxed text-gray-700">

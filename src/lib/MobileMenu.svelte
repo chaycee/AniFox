@@ -5,12 +5,7 @@
 	import { onMount } from 'svelte';
 	export let showMenu;
 	$: showMenu;
-	
-	$: if (showMenu) {
-		document.body.style.overflow = 'hidden';
-	} else {
-		document.body.style.overflow = 'auto';
-	}
+
 </script>
 
 {#if showMenu}
