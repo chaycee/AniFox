@@ -36,7 +36,7 @@
 	});
 </script>
 
-<div class="relative  font-opensans">
+<div class="relative  font-opensans  ">
 	<div class=" inset-0 fixed" id="Particles" />
 	<div
 		id="page-container"
@@ -45,7 +45,7 @@
 		<Navbar />
 
 		<main id="page-content" class="flex flex-auto flex-col max-w-full font-opensans">
-			
+
 
 				<slot />
 

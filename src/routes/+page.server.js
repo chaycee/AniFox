@@ -16,7 +16,6 @@ export async function load({ fetch }) {
 		const page1 = await fetch(
 			'https://api.consumet.org/meta/anilist/recent-episodes?provider=zoro?page=1'
 		).then((res) => res.json())
-		console.log(page1);
 		const page2 = await fetch(
 			'https://api.consumet.org/meta/anilist/recent-episodes?provider=zoro&page=2'
 		).then((res) => res.json());

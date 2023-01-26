@@ -2,13 +2,35 @@
 <script>
 	import { fade, fly } from 'svelte/transition';
 	import { mobileMenuState } from './stores.js';
+	import { onMount } from 'svelte';
 	export let showMenu;
 	$: showMenu;
+	
+	$: if (showMenu) {
+		document.body.style.overflow = 'hidden';
+	} else {
+		document.body.style.overflow = 'auto';
+	}
 </script>
 
 {#if showMenu}
+	<div
+		class="fixed inset-0 z-1 bg-black bg-opacity-50 "
+		in:fade={{ duration: 500 }}
+		out:fade
+		on:click={() => {
+			showMenu = false;
+			mobileMenuState.set(false);
+		}}
+		on:keydown={(event) => {
+			if (event.keyCode === 13 || event.keyCode === 32) {
+				showMenu = false;
+				mobileMenuState.set(false);
+			}
+		}}
+	/>
 	<nav
-		class="space-y-1 md:hidden absolute z-10  w-60 right-0 top-0 bg-[#201e27] h-full"
+		class="space-y-1 md:hidden absolute z-10  w-60 right-0 top-0 bg-[#201e27] h-screen"
 		in:fly={{ x: 0, duration: 500 }}
 		out:fade
 	>
@@ -20,11 +42,11 @@
 				}}
 				on:keydown={(event) => {
 					if (event.keyCode === 13 || event.keyCode === 32) {
-					showMenu = false;
-					mobileMenuState.set(false);
+						showMenu = false;
+						mobileMenuState.set(false);
 					}
-					}}
-				class="font-semibold  inline-flex px-2 py-1 leading-4 items-center space-x-1 text-xs rounded-full text-slate-300 bg-gray-600"
+				}}
+				class="font-semibold  inline-flex px-2 py-1 leading-4 items-center space-x-1 text-xs rounded-full text-slate-300 bg-gray-600 cursor-pointer"
 			>
 				<span>Close Menu</span>
 				<svg
