@@ -51,10 +51,10 @@
 			pagination
 		}}
 	>
-		
+
 		{#each popular.results as data}
 			<SplideSlide class="flex items-end ">
-				<img src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{data.cover}&output=webp&w=1400&h=360&fit=cover&af" alt="Ima" class="" />
+				<img src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{data.cover}&output=webp&w=1400&h=360&fit=cover&af" alt="Ima" class="" loading="lazy"/>
 
 				<div
 					class="absolute inset-0 flex flex-col justify-between bg-gradient-to-bl from-transparent via-black/5 to-black "
@@ -190,9 +190,9 @@
 					class="group relative overflow-hidden aspect-w-16 aspect-h-10 bg-black/25 rounded-2xl transition hover:ring-4 hover:ring-red-500/50 active:opacity-75 active:ring-red-500/25"
 				>
 					<img
-						class="h-[150%] opacity-100"
+						class="h-[130%] opacity-100"
 
-						src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{card.image}&output=webp&w=460&h640&fit=fill&af"
+						src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{card.image}&output=webp&w=460&fit=cover&af"
 
 						alt="trending anime"
 					/>

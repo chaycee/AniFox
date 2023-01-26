@@ -19,7 +19,7 @@
 
 		<div class="flex flex-col items-center justify-center relative">
 			<div class="flex flex-col  items-center mt-24">
-				<img src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{animeInfo.image}&output=webp&w=350&h=350&fit=contain&af" alt="anime pooster" class="h-52 w-52" />
+				<img src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{animeInfo.image}&output=webp&w=350&h=350&fit=contain&af" alt="anime pooster" class="h-56" />
 				<div class="font-semibold text-xl px-2 py-3  tracking-wide text-center">
 					{animeInfo.title.english}
 				</div>
