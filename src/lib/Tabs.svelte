@@ -174,6 +174,7 @@
 		<!-- END Overview Tab -->
 
 		<!-- Related Tab -->
+		<!-- TODO: add a link wrapper around cards -->
 		<div class="related-wrapper">
 			<div class="relative">
 				<div class=" absolute w-full h-full bg-gray-700 bg-opacity-70  " />
@@ -245,7 +246,7 @@
 							class="grid grid-cols-2 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-6 gap-4 lg:gap-8 py-5"
 						>
 							<!-- Movie -->
-							<!-- FIXME: proper way of reload data or make it faster -->
+							<!-- FIXME: proper way of reload data or make it faster change relation to some else-->
 							{#each animeInfo.recommendations as relation}
 								<a
 									on:click={() => {

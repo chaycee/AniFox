@@ -37,19 +37,4 @@
 	});
 </script>
 
-<div class="relative  font-opensans  ">
-	<div class=" inset-0 fixed" id="Particles" />
-	<div
-		id="page-container"
-		class="z-1 flex flex-col mx-auto w-full min-h-screen dark:bg-[#16151d] bg-[#dde4e6] "
-	>
-		<Navbar />
-
-		<main id="page-content" class="flex flex-auto flex-col max-w-full font-opensans">
-
-
 				<slot />
-
-		</main>
-	</div>
-</div>

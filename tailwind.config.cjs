@@ -11,6 +11,29 @@ module.exports = {
 	],
 	darkMode: 'class',
 	theme: {
+		colors:{
+			primary: '#161616',
+			secondary: '#212121',
+			accent: '#94f9ff',
+			textsecondary: '#9d9d9d',
+			black: colors.black,
+			white: colors.white,
+			gray: colors.gray,
+			emerald: colors.emerald,
+			indigo: colors.indigo,
+			yellow: colors.yellow,
+			red: colors.red,
+			blue: colors.blue,
+			teal: colors.teal,
+			pink: colors.pink,
+			orange: colors.orange,
+			green: colors.green,
+			rose: colors.rose,
+			violet: colors.violet,
+			cyan: colors.cyan,
+
+
+		},
 		extend: {
 			fontFamily: {
 				sans: ['Inter', ...defaultTheme.fontFamily.sans],
