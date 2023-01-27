@@ -20,6 +20,8 @@
 			perPage: 1,
 			perMove: 1,
 			gap: '1rem',
+            autoplay: true,
+            
 
 			pauseOnHover: false,
 			resetProgress: false,
@@ -33,6 +35,8 @@
 				<SplideSlide class="flex items-end relative">
 					<img
 						src={`https://images.weserv.nl/?url=cors.proxy.consumet.org/${item.mappings.thevdb.artworks[0]}&w=1700&h=560&fit=fill&output=webp&af`}
+						width="1700px"
+						height="660px"
 						class="rounded-3xl"
 						alt="Anime Cover"
 					/>

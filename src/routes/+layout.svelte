@@ -57,7 +57,7 @@
 				href="javascript:void(0)"
 				class="inline-flex items-center mr-5  space-x-2 font-bold text-2xl font-Monse tracking-wide text-white hover:opacity-75"
 			>
-				<img src="/images/logo.png" alt="Logo" class="inline-block w-12 h-12 mt-3 text-pink-400" />
+				<img src="/images/logo.png" alt="Logo" class="inline-block w-12 h-12 mt-3 text-pink-400" width="48px" height="48px"/>
 
 				<span>AniFox</span>
 			</a>
