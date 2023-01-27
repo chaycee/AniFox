@@ -31,6 +31,9 @@ module.exports = {
 			rose: colors.rose,
 			violet: colors.violet,
 			cyan: colors.cyan,
+			// transparent: 'transparent',
+			transparent: 'transparent',
+
 
 
 		},

@@ -57,7 +57,7 @@
 	>
 
 		{#each popular.results as data}
-			<SplideSlide class="flex items-end ">
+			<SplideSlide class="flex items-end relative">
 				<img src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{data.cover}&output=webp&w=1400&h=360&fit=cover&af" alt="Ima" class="" loading="lazy"/>
 
 				<div

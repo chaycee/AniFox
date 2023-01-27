@@ -11,9 +11,12 @@
     ADD YOUR MAIN CONTENT BELOW
 
         <!-- Placeholder -->
+
+
 <div
-	class="w-full h-full flex items-center justify-center rounded-xl  text-gray-400 "
+	class="w-full h-full flex items-center justify-center rounded-xl text-gray-400 "
 >
+
 	<Splide aria-label="My Favorite Images" class="rounded-3xl "
         options={{
 
@@ -22,7 +25,7 @@
             perPage: 1,
             perMove: 1,
             gap: '1rem',
-            autoplay: true,
+
             pauseOnHover: false,
             resetProgress: false,
             interval: 3000,
@@ -35,18 +38,28 @@
         {#each data.popular as item,i}
 
         {#if item.mappings.thevdb.artworks}
-		<SplideSlide class='' >
-
-
+		<SplideSlide class='flex items-end relative' >
 			<img src={`https://images.weserv.nl/?url=cors.proxy.consumet.org/${item.mappings.thevdb.artworks[0]}&w=1600&h=560&fit=fill&output=webp&af`} class="rounded-3xl" alt="Anime Cover"/>
 
-
+                test
+                <div
+                class="absolute inset-0 flex flex-col justify-between bg-gradient-to-l from-transparent via-black/10 to-secondary/70"
+            >
 
 		</SplideSlide>
+        <!-- {:else}
+
+        <SplideSlide class='' >
+
+			<img src={`https://images.weserv.nl/?url=cors.proxy.consumet.org/${item.mappings.kitsu.attributes.coverImage.original}&w=1600&h=560&fit=fill&output=webp&af`} class="rounded-3xl" alt="Anime Cover"/>
+
+		</SplideSlide> -->
+
         {/if}
         {/each}
 	</Splide>
 </div>
+
 
 <!--
 
