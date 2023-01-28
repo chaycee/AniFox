@@ -17,7 +17,6 @@ specifiers:
   postcss: ^8.4.21
   prettier: ^2.8.3
   prettier-plugin-svelte: ^2.9.0
-  sparticles: ^1.3.1
   svelte: ^3.55.1
   tailwindcss: ^3.2.4
   vidstack: ^0.0.2
@@ -43,7 +42,6 @@ devDependencies:
   postcss: 8.4.21
   prettier: 2.8.3
   prettier-plugin-svelte: 2.9.0_kdmmghgdi3ngrsq6otxkjilbry
-  sparticles: 1.3.1
   svelte: 3.55.1
   tailwindcss: 3.2.4_postcss@8.4.21
   vite: 4.0.4
@@ -2266,10 +2264,6 @@ packages:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
     dev: false
-
-  /sparticles/1.3.1:
-    resolution: {integrity: sha512-zpQZRpP/W9YCh5mmtH1gHlZSKvLSQWXXdAhPQ9j8FdjuX3RkIPxBW6vrKoaIebzvVLREGPZq61dxSxCCndFemA==}
-    dev: true
 
   /sprintf-js/1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}

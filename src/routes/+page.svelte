@@ -40,7 +40,7 @@
 				<img
 					class="object-cover h-full opacity-100"
 
-					src="https://images.weserv.nl/?url=cors.proxy.consumet.org/{card.image}&output=webp&w=456&h=656&af"
+					src="https://images.weserv.nl/?url=cors.consumet.stream/{card.image}&output=webp&w=456&h=656&af"
 
 					alt="trending anime"
 				/>

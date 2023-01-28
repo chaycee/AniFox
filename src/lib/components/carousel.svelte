@@ -1,6 +1,6 @@
 <script>
     import { Splide, SplideSlide } from '@splidejs/svelte-splide';
-	import '@splidejs/svelte-splide/css/themes/splide-skyblue.min.css';
+	import '@splidejs/svelte-splide/css/themes/splide-default.min.css';
     export let data;
     $: data;
 </script>
@@ -24,10 +24,10 @@
 		}}
 	>
 		{#each data.popular as item, i}
-			{#if item.mappings.thevdb.artworks.clearArt}
+			{#if item.mappings.thevdb.artworks}
 				<SplideSlide class="flex items-end relative">
 					<img
-						src={`https://images.weserv.nl/?url=cors.proxy.consumet.org/${item.mappings.thevdb.artworks.clearArt[0]}&w=1700&h=560&fit=cover&output=webp&af`}
+						src={`https://images.weserv.nl/?url=cors.consumet.stream/${item.mappings.thevdb.artworks.backgrounds[0]}&w=1700&h=560&fit=cover&output=webp&af`}
 						width="1700px"
 						height="660px"
 						class="rounded-3xl"
