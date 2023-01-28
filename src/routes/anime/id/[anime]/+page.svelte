@@ -3,7 +3,7 @@
 	export let data;
 
 	$:({ animeInfo } = data);
-	$:console.log(animeInfo)
+	
 </script>
 
 <svelte:head>
