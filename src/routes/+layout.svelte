@@ -2,6 +2,7 @@
 
 	import '../app.css'
 	import Footer from '$lib/components/footer.svelte';
+	let genres = ["Action", "Adventure", "Cars", "Comedy", "Drama", "Fantasy", "Horror", "Mahou Shoujo", "Mecha", "Music", "Mystery", "Psychological", "Romance", "Sci-Fi", "Slice of Life", "Sports", "Supernatural", "Thriller"];
 	const toggleSidebar = () => {
 		const pageContainer = document.getElementById('page-container');
 		const pageSidebar = document.getElementById('page-sidebar');
@@ -23,6 +24,10 @@
 		const searchInput = document.getElementById('search-input');
 		searchInput.classList.toggle('hidden');
 	};
+	function getRainbowColor(index) {
+  var colors = ["#ff0000", "#ff7f00", "#ffff00", "#00ff00", "#0000ff", "#4b0082", "#8b00ff"];
+  return colors[index % colors.length];
+}
 </script>
 
 <!-- Page Container -->
@@ -255,6 +260,36 @@
 						<span class="py-2 grow">Log out</span>
 					</a>
 				</nav>
+				<details class="px-3 pt-5 pb-2 text-xs font-medium uppercase tracking-wider text-gray-400">
+					<summary>Genres</summary>
+
+				{#each genres as genre,index}
+					<a
+						href="javascript:void(0)"
+						class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+					>
+						<span class="flex-none flex items-center opacity-50">
+							<svg class="bi bi-circle-fill inline-block w-2 h-2" xmlns="http://www.w3.org/2000/svg" fill={getRainbowColor(index)} viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/></svg>
+							<!-- bookmark svg
+								<svg
+								class="hi-outline hi-bookmark-alt inline-block w-5 h-5"
+								stroke="currentColor"
+								fill={getRainbowColor(index)}
+								viewBox="0 0 24 24"
+								xmlns="http://www.w3.org/2000/svg"
+								><path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M5 13l4 3 4-3V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8z"
+								/></svg
+							> -->
+						</span>
+						<span class="py-2 grow">{genre}</span>
+					</a>
+				{/each}
+			</details>
+
 			</div>
 		</div>
 		<!-- END Sidebar Navigation -->

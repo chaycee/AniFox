@@ -15,10 +15,8 @@
 			perPage: 1,
 			perMove: 1,
 			gap: '1rem',
-
-			hasTrack: false,
-
-			pauseOnHover: false,
+			autoplay: true,
+			pauseOnHover: true,
 			resetProgress: false,
 			interval: 3000
 		}}
@@ -124,7 +122,7 @@
 									<!-- genres -->
 									<div class="font-normal h-full ">Genres
 									<div class="flex flex-wrap mt-[6px]">
-									  {#each item.genres as genre}
+									  {#each item.genres.slice(0,3) as genre}
 										<span class="text-xs text-gray-400 ">{genre}|</span>
 									  {/each}
 									</div>
