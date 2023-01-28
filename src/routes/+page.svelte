@@ -38,33 +38,20 @@
 				class="group relative overflow-hidden aspect-w-16 aspect-h-10 bg-black/25 rounded-2xl transition hover:ring-4 hover:ring-red-500/50 active:opacity-75 active:ring-red-500/25"
 			>
 				<img
-					class="object-cover h-full opacity-100 transform transition duration-300 ease-out group-hover:scale-125 group-focus:scale-125 group-focus-within:scale-125"
+					class="object-cover h-full opacity-100 transform transition duration-300 ease-out group-hover:scale-105 group-focus:scale-105 group-focus-within:scale-105"
 
 					src="https://images.weserv.nl/?url=cors.consumet.stream/{card.image}&output=webp&w=456&h=656&af"
 
 					alt="trending anime"
 				/>
-				<div class="absolute inset-0 flex z-100 flex-col items-center justify-center bg-blue-700 bg-opacity-80 transform transition duration-300 ease-out opacity-0 translate-x-full group-hover:opacity-100 group-focus:opacity-100 group-focus-within:opacity-100 group-hover:translate-x-0 group-focus:translate-x-0 group-focus-within:translate-x-0">
-					<div class="text-center">
-					  <h4 class="font-semibold text-lg text-white">
-						Main Title
-					  </h4>
-					  <h5 class="font-medium text-white text-opacity-80 mb-5">
-						Image Description
-					  </h5>
-					  <a href="javascript:void(0)" class="inline-flex justify-center items-center space-x-2 border font-semibold focus:outline-none px-3 py-2 leading-5 text-sm rounded border-blue-200 bg-blue-200 text-blue-800 hover:text-blue-800 hover:bg-blue-300 hover:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 active:bg-blue-200 active:border-blue-200">
-						<svg class="hi-solid hi-external-link inline-block w-4 h-4 opacity-50" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path></svg>
-						<span>More Info</span>
-					  </a>
-					</div>
-				  </div>
+
 				<div
 					class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent  via-black/60 to-black"
 				>
 					<div class="p-4 flex items-end justify-start space-x-2" />
 					<div class="px-4 py-5 flex items-end justify-between space-x-2">
 						<div class="space-y-1">
-							<h3 class="text-sm w-[99%] xl:text-base font-semibold  text-white">{card.title.english}</h3>
+							<h3 class="text-sm line-clamp-1 xl:text-base font-semibold  text-white">{card.title.english}</h3>
 							<section class="text-sm font-semibold w-max text-slate-500">
 								{card.releaseDate}
 								{#each card.genres.slice(0, 3) as genre}

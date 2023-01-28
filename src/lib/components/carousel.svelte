@@ -21,7 +21,7 @@
 			interval: 3000
 		}}
 	>
-		{#each data.popular as item, i}
+		{#each data.trending as item, i}
 			{#if item.mappings.thevdb.artworks}
 				<SplideSlide class="flex items-end relative">
 					<img
@@ -89,7 +89,7 @@
 									{item.description.replace(/<[^>]*>?/gm, '')}
 								</p>
 								<!-- ... -->
-								<div class="flex items-center justify-between">
+								<div class="flex items-center justify-between w-96">
 									<div class="text-white font-normal">Rating
 									<span class="flex list-none">
 										<li>

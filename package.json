@@ -31,6 +31,7 @@
 		"@splidejs/svelte-splide": "^0.2.9",
 		"@tailwindcss/line-clamp": "^0.4.2",
 		"hls.js": "^1.3.1",
+		"node-cache": "^5.1.2",
 		"pm2": "^5.2.2",
 		"vidstack": "^0.0.2"
 	}

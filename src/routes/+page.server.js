@@ -2,16 +2,13 @@
 export const ssr = true;
 
 export async function load({ fetch }) {
-	const popular = async () => {
-		return await fetch('https://api.delusionz.xyz/popular').then((res) => res.json());
-	};
-	const trending = async () => {
-		return await fetch('https://api.delusionz.xyz/trending').then((res) => res.json());
-	}
+	const popular = fetch('https://api.delusionz.xyz/popular').then((res) => res.json());
+	const trending = fetch('https://api.delusionz.xyz/trending').then((res) => res.json());
+
+	const [popularData, trendingData] = await Promise.all([popular, trending]);
 
 	return {
-
-		popular: await popular(),
-		trending: await trending()
+		popular: popularData,
+		trending: trendingData
 	};
 }

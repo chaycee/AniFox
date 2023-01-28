@@ -98,6 +98,7 @@
 			<div class="p-4 w-full">
 				<nav class="space-y-1 text-gray-300">
 					<a
+						data-sveltekit-preload-data="hover"
 						href="/"
 						class="flex items-center space-x-3 px-3 font-medium rounded text-gray-300 bg-gray-700 bg-opacity-60"
 					>
@@ -260,7 +261,7 @@
 						<span class="py-2 grow">Log out</span>
 					</a>
 				</nav>
-				<details class="px-3 pt-5 pb-2 text-xs font-medium uppercase tracking-wider text-gray-400">
+				<details class="px-3 pt-5 pb-2 text-xs font-medium uppercase tracking-wider text-gray-400 hover:cursor-pointer">
 					<summary>Genres</summary>
 
 				{#each genres as genre,index}
