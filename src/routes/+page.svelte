@@ -86,8 +86,8 @@
 	</nav>
 </section>
 <section class="space-y-6 py-4 px-2 text-white mx-auto max-w-8xl">
-	
-	<nav class="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-16 ">
+
+	<nav class="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-20 ">
 		<div
 			data-sveltekit-preload-code="hover"
 			class="bg-[#212121] flex flex-col  text-2xl font-normal overflow-hidden bg-black/25 rounded-[40px] p-4 gap-2"
@@ -96,15 +96,17 @@
 			{#each data.popular.slice(0,5) as item}
 			<div class="t">
 			<div class="w-full  px-5  flex mb-2">
+				<a data-sveltekit-preload-data='hover' href="/anime/id/{item.id}" >
 				<img
 					src="https://images.weserv.nl/?url=cors.consumet.stream/{item.image}&output=webp&af"
 					alt=""
 					loading="lazy"
 					class="w-30 h-32"
 				/>
+			</a>
 				<div class="m-2 flex flex-col justify-between">
 					<div class="top-part">
-						<span class="font-extrabold text-xl">{item.title.english}</span>
+						<a data-sveltekit-preload-data='hover' href='/anime/id/{item.id}' class=" font-bold text-lg hover:text-gray-400">{item.title.english}</a>
 
 						<div class="flex items-center">
 							<svg
@@ -140,15 +142,17 @@
 		{#each data.trending.slice(3,8) as item}
 		<div class="t">
 		<div class="w-full  px-5  flex mb-2">
-			<img
-				src="https://images.weserv.nl/?url=cors.consumet.stream/{item.image}&output=webp&af"
-				alt=""
-				loading="lazy"
-				class="w-30 h-32"
-			/>
+			<a data-sveltekit-preload-data='hover' href="/anime/id/{item.id}">
+				<img
+					src="https://images.weserv.nl/?url=cors.consumet.stream/{item.image}&output=webp&af"
+					alt=""
+					loading="lazy"
+					class="w-30 h-32"
+				/>
+			</a>
 			<div class="m-2 flex flex-col justify-between">
 				<div class="top-part">
-					<span class="font-extrabold text-xl">{item.title.english}</span>
+					<a data-sveltekit-preload-data='hover' href='/anime/id/{item.id}' class="font-bold text-base hover:text-gray-400 w-44 lg:w-96 line-clamp-1 ">{item.title.english}</a>
 
 					<div class="flex items-center">
 						<svg

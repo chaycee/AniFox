@@ -1,10 +1,11 @@
 <script>
-    import { Splide, SplideSlide } from '@splidejs/svelte-splide';
+	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
 	import '@splidejs/svelte-splide/css/themes/splide-default.min.css';
-    export let data;
-    $: data;
+	export let data;
+	$: data;
 	$: console.log(data);
 </script>
+
 <div
 	class=" w-full h-full flex items-center justify-center rounded-xl text-gray-400  mx-auto max-w-8xl"
 >
@@ -27,7 +28,6 @@
 				<SplideSlide class="flex items-end relative">
 					<img
 						src={`https://images.weserv.nl/?url=cors.consumet.stream/${item.mappings.thevdb.artworks.backgrounds[0]}&w=1700&h=560&fit=cover&output=webp&af`}
-
 						class="rounded-3xl"
 						alt="Anime Cover"
 					/>
@@ -36,7 +36,7 @@
 					>
 						<div class="text-white  m-auto ml-20">
 							<article class="prose  lg:prose-base text-white">
-								<h1 class="text-red-300">{item.title.english}</h1>
+								<h1 class="text-red-300 line-clamp-2">{item.title.english}</h1>
 
 								<span>
 									<div class="flex items-center gap-2  text-sm lg:text-base font-normal">
@@ -90,47 +90,122 @@
 								</p>
 								<!-- ... -->
 								<div class="flex items-center justify-between w-96">
-									<div class="text-white font-normal">Rating
-									<span class="flex list-none">
-										<li>
-										  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-											<path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-										  </svg>
-										</li>
-										<li>
-										  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-											<path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-										  </svg>
-										</li>
-										<li>
-										  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-											<path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
-										  </svg>
-										</li>
-										<li>
-										  <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-											<path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path>
-										  </svg>
-										</li>
-										<li>
-										  <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="star" class="w-4 text-yellow-500" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-											<path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path>
-										  </svg>
-										</li>
-									  </span>
+									<div class="text-white font-normal">
+										Rating
+										<span class="flex list-none">
+											<li>
+												<svg
+													aria-hidden="true"
+													focusable="false"
+													data-prefix="fas"
+													data-icon="star"
+													class="w-4 text-yellow-500 mr-1"
+													role="img"
+													xmlns="http://www.w3.org/2000/svg"
+													viewBox="0 0 576 512"
+												>
+													<path
+														fill="currentColor"
+														d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+													/>
+												</svg>
+											</li>
+											<li>
+												<svg
+													aria-hidden="true"
+													focusable="false"
+													data-prefix="fas"
+													data-icon="star"
+													class="w-4 text-yellow-500 mr-1"
+													role="img"
+													xmlns="http://www.w3.org/2000/svg"
+													viewBox="0 0 576 512"
+												>
+													<path
+														fill="currentColor"
+														d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+													/>
+												</svg>
+											</li>
+											<li>
+												<svg
+													aria-hidden="true"
+													focusable="false"
+													data-prefix="fas"
+													data-icon="star"
+													class="w-4 text-yellow-500 mr-1"
+													role="img"
+													xmlns="http://www.w3.org/2000/svg"
+													viewBox="0 0 576 512"
+												>
+													<path
+														fill="currentColor"
+														d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+													/>
+												</svg>
+											</li>
+											<li>
+												<svg
+													aria-hidden="true"
+													focusable="false"
+													data-prefix="far"
+													data-icon="star"
+													class="w-4 text-yellow-500 mr-1"
+													role="img"
+													xmlns="http://www.w3.org/2000/svg"
+													viewBox="0 0 576 512"
+												>
+													<path
+														fill="currentColor"
+														d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"
+													/>
+												</svg>
+											</li>
+											<li>
+												<svg
+													aria-hidden="true"
+													focusable="false"
+													data-prefix="far"
+													data-icon="star"
+													class="w-4 text-yellow-500"
+													role="img"
+													xmlns="http://www.w3.org/2000/svg"
+													viewBox="0 0 576 512"
+												>
+													<path
+														fill="currentColor"
+														d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"
+													/>
+												</svg>
+											</li>
+										</span>
 									</div>
 									<!-- genres -->
-									<div class="font-normal h-full ">Genres
-									<div class="flex flex-wrap mt-[6px]">
-									  {#each item.genres.slice(0,3) as genre}
-										<span class="text-xs text-gray-400 ">{genre}|</span>
-									  {/each}
+									<div class="font-normal h-full ">
+										Genres
+										<div class="flex flex-wrap mt-[6px]">
+											{#each item.genres.slice(0, 3) as genre}
+												<span class="text-xs text-gray-400 ">{genre}|</span>
+											{/each}
+										</div>
 									</div>
 								</div>
-							</div>
-							<button type="button" class="inline-flex mt-2 justify-center items-center space-x-2 rounded-md border font-semibold focus:outline-none px-4 py-2 leading-5 text-sm border-gray-200 bg-white text-black hover:text-black hover:bg-gray-200 hover:border-gray-800 focus:ring focus:ring-gray-500 focus:ring-opacity-50 active:bg-gray-100 active:border-gray-300">
-								<svg class="bi bi-play inline-block w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M10.804 8 5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/></svg>Watch Now
-							  </button>
+								<a
+									data-sveltekit-preload-data="hover"
+									href="/anime/id/{item.id}"
+									class="inline-flex mt-2 justify-center items-center space-x-2 rounded-md border font-semibold focus:outline-none px-4 py-2 leading-5 text-sm border-gray-200 bg-white text-black hover:text-black hover:bg-gray-200 hover:border-gray-800 focus:ring focus:ring-gray-500 focus:ring-opacity-50 active:bg-gray-100 active:border-gray-300"
+								>
+									<svg
+										class="bi bi-play inline-block w-5 h-5"
+										xmlns="http://www.w3.org/2000/svg"
+										fill="currentColor"
+										viewBox="0 0 16 16"
+										aria-hidden="true"
+										><path
+											d="M10.804 8 5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"
+										/></svg
+									>Watch Now
+								</a>
 							</article>
 						</div>
 					</div>
