@@ -1,10 +1,10 @@
 <script>
 	import Carousel from '$lib/components/carousel.svelte';
 	export let data;
-	$:data;
+	$: data;
 </script>
 
-<Carousel data={data} />
+<Carousel {data} />
 
 <section class="space-y-6 py-6 px-2 text-white mx-auto max-w-8xl">
 	<div class="flex items-center justify-between ">
@@ -31,7 +31,7 @@
 	</div>
 	<nav class="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8 ">
 		<!-- Movie -->
-		{#each data.trending.slice(0,3) as card}
+		{#each data.trending.slice(0, 3) as card}
 			<a
 				data-sveltekit-preload-code="hover"
 				href="/anime/id/{card.id}"
@@ -39,9 +39,7 @@
 			>
 				<img
 					class="object-cover h-full opacity-100 transform transition duration-300 ease-out group-hover:scale-105 group-focus:scale-105 group-focus-within:scale-105"
-
 					src="https://images.weserv.nl/?url=cors.consumet.stream/{card.image}&output=webp&w=456&h=656&af"
-
 					alt="trending anime"
 				/>
 
@@ -51,7 +49,9 @@
 					<div class="p-4 flex items-end justify-start space-x-2" />
 					<div class="px-4 py-5 flex items-end justify-between space-x-2">
 						<div class="space-y-1">
-							<h3 class="text-sm line-clamp-1 xl:text-base font-semibold  text-white">{card.title.english}</h3>
+							<h3 class="text-sm line-clamp-1 xl:text-[15px] font-sans font-semibold  text-white">
+								{card.title.english}
+							</h3>
 							<section class="text-sm font-semibold w-max text-slate-500">
 								{card.releaseDate}
 								{#each card.genres.slice(0, 3) as genre}
@@ -65,7 +65,7 @@
 						</div>
 
 						<div
-							class="flex absolute right-3 items-center justify-center w-10 h-10 rounded-full transition text-slate-400 bg-[#201e27] group-hover:bg-[#523343] group-hover:text-white group-hover:scale-110 group-active:scale-100"
+							class=" hidden md:flex absolute right-3 items-center justify-center w-10 h-10 rounded-full transition text-slate-400 bg-[#201e27] group-hover:bg-[#523343] group-hover:text-white group-hover:scale-110 group-active:scale-100"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -83,5 +83,98 @@
 			</a>
 			<!-- END Movie -->
 		{/each}
+	</nav>
+</section>
+<section class="space-y-6 py-4 px-2 text-white mx-auto max-w-8xl">
+	
+	<nav class="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-16 ">
+		<div
+			data-sveltekit-preload-code="hover"
+			class="bg-[#212121] flex flex-col  text-2xl font-normal overflow-hidden bg-black/25 rounded-[40px] p-4 gap-2"
+		>
+			<div class="h-16  flex justify-center  w-full  dark:text-slate-400">Most Popular</div>
+			{#each data.popular.slice(0,5) as item}
+			<div class="t">
+			<div class="w-full  px-5  flex mb-2">
+				<img
+					src="https://images.weserv.nl/?url=cors.consumet.stream/{item.image}&output=webp&af"
+					alt=""
+					loading="lazy"
+					class="w-30 h-32"
+				/>
+				<div class="m-2 flex flex-col justify-between">
+					<div class="top-part">
+						<span class="font-extrabold text-xl">{item.title.english}</span>
+
+						<div class="flex items-center">
+							<svg
+								aria-hidden="true"
+								class="w-9 h-8 text-yellow-400"
+								fill="currentColor"
+								viewBox="0 0 20 20"
+								xmlns="http://www.w3.org/2000/svg"
+								><title>First star</title><path
+									d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+								/></svg
+							>
+
+							<p class="ml-2 text-sm font-bold text-gray-100">{parseInt(item.mappings.kitsu.attributes.averageRating)}%</p>
+						</div>
+					</div>
+					<div id="under-section " class="text-sm  text-gray-300 flex gap-2">
+						<span>{item.duration} min</span><span>{item.totalEpisodes} Ep</span><span>{item.status}</span>
+					</div>
+				</div>
+
+			</div>
+			<div class="border-b-[0.5px] relative mx-auto w-[615px] m-2 border-gray-700"></div>
+		</div>
+			{/each}
+
+		</div>
+		<div
+		data-sveltekit-preload-code="hover"
+		class="bg-[#212121] flex flex-col  text-2xl font-normal overflow-hidden bg-black/25 rounded-[40px] p-4 gap-2"
+	>
+		<div class="h-16  flex justify-center  w-full  dark:text-slate-400">Top Airing</div>
+		{#each data.trending.slice(3,8) as item}
+		<div class="t">
+		<div class="w-full  px-5  flex mb-2">
+			<img
+				src="https://images.weserv.nl/?url=cors.consumet.stream/{item.image}&output=webp&af"
+				alt=""
+				loading="lazy"
+				class="w-30 h-32"
+			/>
+			<div class="m-2 flex flex-col justify-between">
+				<div class="top-part">
+					<span class="font-extrabold text-xl">{item.title.english}</span>
+
+					<div class="flex items-center">
+						<svg
+							aria-hidden="true"
+							class="w-9 h-8 text-yellow-400"
+							fill="currentColor"
+							viewBox="0 0 20 20"
+							xmlns="http://www.w3.org/2000/svg"
+							><title>First star</title><path
+								d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+							/></svg
+						>
+
+						<p class="ml-2 text-sm font-bold text-gray-100">{parseInt(item.mappings.kitsu.attributes.averageRating)}%</p>
+					</div>
+				</div>
+				<div id="under-section " class="text-sm  text-gray-300 flex gap-2">
+					<span>{item.duration} min</span><span>{item.totalEpisodes} Ep</span><span>{item.status}</span>
+				</div>
+			</div>
+
+		</div>
+		<div class="border-b-[0.5px] relative mx-auto w-[615px] m-2 border-gray-700"></div>
+	</div>
+		{/each}
+
+	</div>
 	</nav>
 </section>

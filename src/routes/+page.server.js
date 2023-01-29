@@ -39,10 +39,24 @@ export async function load({ fetch }) {
 		  });
 	  }
 	};
+	const recent = async () => {
+		const recentData = myCache.get("recent");
+		if(recentData){
+		  return recentData;
+		} else {
+		  return await fetch('https://api.consumet.org/meta/anilist/recent-episodes?page=1&perPage=15&provider=gogoanime')
+			.then((res) => res.json())
+			.then((data) => {
+			  myCache.set("recent", data);
+			  return data;
+			});
+		}
+	  };
 
-	const [popularData, trendingData] = await Promise.all([popular(), trending()]);
+	const [popularData, trendingData,recentData] = await Promise.all([popular(), trending(),recent()]);
 	return {
 	  popular: popularData,
-	  trending: trendingData
+	  trending: trendingData,
+	  recent: recentData
 	};
   }

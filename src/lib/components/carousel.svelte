@@ -3,6 +3,7 @@
 	import '@splidejs/svelte-splide/css/themes/splide-default.min.css';
     export let data;
     $: data;
+	$: console.log(data);
 </script>
 <div
 	class=" w-full h-full flex items-center justify-center rounded-xl text-gray-400  mx-auto max-w-8xl"
@@ -26,8 +27,7 @@
 				<SplideSlide class="flex items-end relative">
 					<img
 						src={`https://images.weserv.nl/?url=cors.consumet.stream/${item.mappings.thevdb.artworks.backgrounds[0]}&w=1700&h=560&fit=cover&output=webp&af`}
-						width="1700px"
-						height="660px"
+
 						class="rounded-3xl"
 						alt="Anime Cover"
 					/>
