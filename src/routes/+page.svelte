@@ -2,6 +2,7 @@
 	import Carousel from '$lib/components/carousel.svelte';
 	export let data;
 	$: data;
+	$: console.log(data);
 </script>
 
 <Carousel {data} />
@@ -106,7 +107,7 @@
 			</a>
 				<div class="m-2 flex flex-col justify-between">
 					<div class="top-part">
-						<a data-sveltekit-preload-data='hover' href='/anime/id/{item.id}' class=" font-bold text-lg hover:text-gray-400">{item.title.english}</a>
+						<a data-sveltekit-preload-data='hover' href='/anime/id/{item.id}' class=" font-bold text-sm lg:text-base hover:text-gray-400">{item.title.english}</a>
 
 						<div class="flex items-center">
 							<svg
@@ -152,7 +153,7 @@
 			</a>
 			<div class="m-2 flex flex-col justify-between">
 				<div class="top-part">
-					<a data-sveltekit-preload-data='hover' href='/anime/id/{item.id}' class="font-bold text-base hover:text-gray-400 w-44 lg:w-96 line-clamp-1 ">{item.title.english}</a>
+					<a data-sveltekit-preload-data='hover' href='/anime/id/{item.id}' class="font-bold  text-sm lg:text-base hover:text-gray-400 w-44 lg:w-96 line-clamp-1 ">{item.title.english}</a>
 
 					<div class="flex items-center">
 						<svg
@@ -180,5 +181,68 @@
 		{/each}
 
 	</div>
+	</nav>
+</section>
+<section class="space-y-6 py-6 px-2 text-white mx-auto max-w-8xl">
+	<div class="flex items-center justify-between">
+		<h2 class="dark:text-slate-400 font-semibold text-xl">Recent Episodes</h2>
+		<a
+			data-sveltekit-preload-code="hover"
+			href="javascript:void(0)"
+			class="group flex items-center space-x-1 text-sm transition dark:text-slate-400 dark:hover:text-white active:text-slate-400"
+		>
+			<span>See All</span>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 20 20"
+				fill="currentColor"
+				class="w-5 h-5 opacity-50 transition ease-out group-hover:opacity-100 group-active:translate-x-2"
+			>
+				<path
+					fill-rule="evenodd"
+					d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+					clip-rule="evenodd"
+				/>
+			</svg>
+		</a>
+	</div>
+
+	<nav class="grid grid-cols-2 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-7 gap-4 lg:gap-8">
+		<!-- Movie -->
+		{#each data.recent.results.filter((ep) => ep.title.english ) as card}
+			<a
+				data-sveltekit-preload-code="hover"
+				href="javascript:void(0)"
+				class="group relative overflow-hidden aspect-w-3 aspect-h-4 bg-black/25 rounded-2xl transition hover:ring-4 hover:ring-red-500/50 active:opacity-75"
+			>
+				<img
+					class="object-cover"
+					src="https://images.weserv.nl/?url=cors.consumet.stream/{card.image}&output=webp&af"
+					loading="lazy"
+					alt="recent episodes"
+				/>
+				<div
+					class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent via-black/30 to-black"
+				>
+					<div class="p-4 flex items-center justify-start space-x-2">
+						<div
+							class="font-semibold inline-flex px-2 py-1 leading-4 text-xs rounded-md text-accent bg-slate-600 shadow-sm
+							opacity-90 shadow-black"
+						>
+							<span>Ep {card.episodeNumber}</span>
+						</div>
+					</div>
+					<div class="px-4 py-5 flex items-end justify-between space-x-2">
+						<div class="space-y-1">
+							<h3 class="text-sm xl:text-base font-normal text-white line-clamp-2 ">{card.title.english}</h3>
+							<div class="text-sm font-normal text-slate-500">
+								{card.type}
+							</div>
+						</div>
+					</div>
+				</div>
+			</a>
+			<!-- END Movie -->
+		{/each}
 	</nav>
 </section>

@@ -1,8 +1,26 @@
 <script>
-
-	import '../app.css'
+	import '../app.css';
 	import Footer from '$lib/components/footer.svelte';
-	let genres = ["Action", "Adventure", "Cars", "Comedy", "Drama", "Fantasy", "Horror", "Mahou Shoujo", "Mecha", "Music", "Mystery", "Psychological", "Romance", "Sci-Fi", "Slice of Life", "Sports", "Supernatural", "Thriller"];
+	let genres = [
+		'Action',
+		'Adventure',
+		'Cars',
+		'Comedy',
+		'Drama',
+		'Fantasy',
+		'Horror',
+		'Mahou Shoujo',
+		'Mecha',
+		'Music',
+		'Mystery',
+		'Psychological',
+		'Romance',
+		'Sci-Fi',
+		'Slice of Life',
+		'Sports',
+		'Supernatural',
+		'Thriller'
+	];
 	const toggleSidebar = () => {
 		const pageContainer = document.getElementById('page-container');
 		const pageSidebar = document.getElementById('page-sidebar');
@@ -25,9 +43,9 @@
 		searchInput.classList.toggle('hidden');
 	};
 	function getRainbowColor(index) {
-  var colors = ["#ff0000", "#ff7f00", "#ffff00", "#00ff00", "#0000ff", "#4b0082", "#8b00ff"];
-  return colors[index % colors.length];
-}
+		var colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#8b00ff'];
+		return colors[index % colors.length];
+	}
 </script>
 
 <!-- Page Container -->
@@ -50,10 +68,9 @@
 
 	<nav
 		id="page-sidebar"
-		class="flex flex-col fixed top-0 left-0 bottom-0 w-full md:w-64 lg:w-64 h-full bg-secondary border-r-[0.2px] border-secondary text-white z-50 transform transition-transform duration-500 ease-out -translate-x-full lg:translate-x-0 "
-		aria-label="Main Sidebar Navigation"
+		class="flex flex-col fixed top-0 left-0 bottom-0 w-full md:w-64 lg:w-64 h-full bg-secondary border-r-[0.2px] border-secondary text-white z-50 transform transition-transform duration-500 ease-out -translate-x-full lg:translate-x-0 side_bar"
+		aria-label="Main Sidebar Navigation "
 	>
-
 		<!-- Sidebar Header -->
 		<div
 			class="h-16 bg-gray-600 bg-opacity-25 flex-none flex items-center justify-between lg:justify-center px-4  w-full"
@@ -63,7 +80,13 @@
 				href="javascript:void(0)"
 				class="inline-flex items-center mr-5  space-x-2 font-bold text-2xl font-Monse tracking-wide text-white hover:opacity-75"
 			>
-				<img src="/images/logo.png" alt="Logo" class="inline-block w-12 h-12 mt-3 text-pink-400" width="48px" height="48px"/>
+				<img
+					src="/images/logo.png"
+					alt="Logo"
+					class="inline-block w-12 h-12 mt-3 text-pink-400"
+					width="48px"
+					height="48px"
+				/>
 
 				<span>AniFox</span>
 			</a>
@@ -164,7 +187,18 @@
 						class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
 					>
 						<span class="flex-none flex items-center opacity-50">
-							<svg class="bi bi-clock-history inline-block w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z"/><path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z"/><path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"/></svg>
+							<svg
+								class="bi bi-clock-history inline-block w-5 h-5"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="currentColor"
+								viewBox="0 0 16 16"
+								aria-hidden="true"
+								><path
+									d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z"
+								/><path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z" /><path
+									d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z"
+								/></svg
+							>
 						</span>
 						<span class="py-2 grow">Recent Episodes</span>
 					</a>
@@ -261,17 +295,25 @@
 						<span class="py-2 grow">Log out</span>
 					</a>
 				</nav>
-				<details class="px-3 pt-5 pb-2 text-xs font-medium uppercase tracking-wider text-gray-400 hover:cursor-pointer">
+				<details
+					class="px-3 pt-5 pb-2 text-xs font-medium uppercase tracking-wider text-gray-400 hover:cursor-pointer"
+				>
 					<summary>Genres</summary>
 
-				{#each genres as genre,index}
-					<a
-						href="javascript:void(0)"
-						class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
-					>
-						<span class="flex-none flex items-center opacity-50">
-							<svg class="bi bi-circle-fill inline-block w-2 h-2" xmlns="http://www.w3.org/2000/svg" fill={getRainbowColor(index)} viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8"/></svg>
-							<!-- bookmark svg
+					{#each genres as genre, index}
+						<a
+							href="javascript:void(0)"
+							class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+						>
+							<span class="flex-none flex items-center opacity-50">
+								<svg
+									class="bi bi-circle-fill inline-block w-2 h-2"
+									xmlns="http://www.w3.org/2000/svg"
+									fill={getRainbowColor(index)}
+									viewBox="0 0 16 16"
+									aria-hidden="true"><circle cx="8" cy="8" r="8" /></svg
+								>
+								<!-- bookmark svg
 								<svg
 								class="hi-outline hi-bookmark-alt inline-block w-5 h-5"
 								stroke="currentColor"
@@ -285,12 +327,11 @@
 									d="M5 13l4 3 4-3V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8z"
 								/></svg
 							> -->
-						</span>
-						<span class="py-2 grow">{genre}</span>
-					</a>
-				{/each}
-			</details>
-
+							</span>
+							<span class="py-2 grow">{genre}</span>
+						</a>
+					{/each}
+				</details>
 			</div>
 		</div>
 		<!-- END Sidebar Navigation -->
@@ -421,17 +462,29 @@
 	<main id="page-content" class="flex flex-auto flex-col max-w-full pt-16 bg-primary">
 		<!-- Page Section -->
 		<div class="max-w-10xl mx-auto p-4 lg:p-8 w-full font-opensans">
-
-
-				<slot></slot>
-
-
-
+			<slot />
 		</div>
 		<!-- END Page Section -->
 	</main>
 	<!-- END Page Content -->
-<Footer />
-
+	<Footer />
 </div>
+
 <!-- END Page Container -->
+<style>
+	::-webkit-scrollbar {
+		height: 12px;
+		width: 6px;
+		background: #000;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: #464849;
+		-webkit-border-radius: 1ex;
+		-webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+	}
+
+	::-webkit-scrollbar-corner {
+		background: #000;
+	}
+</style>

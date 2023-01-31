@@ -44,7 +44,7 @@ export async function load({ fetch }) {
 		if(recentData){
 		  return recentData;
 		} else {
-		  return await fetch('https://api.consumet.org/meta/anilist/recent-episodes?page=1&perPage=15&provider=gogoanime')
+		  return await fetch('https://api.consumet.org/meta/anilist/recent-episodes?page=1&provider=zoro')
 			.then((res) => res.json())
 			.then((data) => {
 			  myCache.set("recent", data);
