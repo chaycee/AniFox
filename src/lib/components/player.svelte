@@ -29,30 +29,34 @@
 
 		player.load();
 	}
-	onMount(async() => {
-        const response = await fetch(`https://api.consumet.org/meta/anilist/watch/${source.episodes[0].id}?provider=zoro`);
+	// fix subs background styles doesnt apply
+	onMount(async () => {
+		const response = await fetch(
+			`https://api.consumet.org/meta/anilist/watch/${source.episodes[0].id}?provider=zoro`
+		);
 		const firstEp = await response.json();
-        console.log(firstEp);
+		console.log(firstEp);
 		player = new OpenPlayerJS('video', {
 			mode: 'responsive',
-			startTime: 10,
-            detachMenus: true,
+			detachMenus: true,
 			startVolume: 0.5,
-            width: '70%',
-			height: '400px',
+			width: '70%',
+			height: '60%',
 			controls: {
 				layers: {
 					left: ['play', 'time', 'volume'],
 					middle: ['progress'],
 					right: ['captions', 'settings', 'levels', 'fullscreen']
 				}
-			},
-
+			}
 		});
-        player.src = `${proxy}${firstEp.sources[3].url}`
-        const englishSubFilter = firstEp.subtitles.filter((sub) => sub.lang === 'English')[0];
+		// add others with foreach
+		player.src = `${proxy}${firstEp.sources[3].url}`;
+		const englishSubFilter = firstEp.subtitles.filter((sub) => sub.lang === 'English')[0];
 		var englishSub = document.createElement('track');
 		englishSub.srclang = 'en';
+
+		console.log(englishSub);
 		englishSub.src = `${proxy}${englishSubFilter.url}`;
 		player.addCaptions(englishSub);
 		// russian subtitles
@@ -81,6 +85,7 @@
 		<div class="grow border-2 w-32">
 			{#each source.episodes as ep, i}
 				<button
+					data-sveltekit-preload-data="hover"
 					on:click={streamEpisode(ep.id)}
 					type="button"
 					id="src-btn"
@@ -92,3 +97,7 @@
 		</div>
 	</div>
 </section>
+
+<style>
+
+</style>

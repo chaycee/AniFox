@@ -35,7 +35,7 @@
 			<div id="img-wrapper" class="flex justify-center">
 				<div class="relative w-fit">
 					<div
-						class="absolute inset-0 bg-gradient-to-r from-accent via-slate-300 to-accent blur rounded-xl"
+						class="absolute inset-0 bg-gradient-to-r from-accent via-slate-300 to-accent blur-[4px] rounded-xl"
 					/>
 					<img
 						src="https://images.weserv.nl/?url=cors.consumet.stream/{animeInfo.image}&output=webp&af"
@@ -54,33 +54,33 @@
 					<div class="flex  px-4">
 						Type:
 						<span class="text-gray-800 opacity-70">..................................</span>
-						<span class="text-accent">{animeInfo.type}</span>
+						<span class="text-slate-100">{animeInfo.type}</span>
 					</div>
 					<div class="flex  px-4">
 						Episodes:
 						<span class="text-gray-800 opacity-70">...........................</span>
-						<span class="text-accent">{animeInfo.totalEpisodes}</span>
+						<span class="text-slate-100">{animeInfo.totalEpisodes}</span>
 					</div>
 					<div class="flex  px-4">
 						Status:
 						<span class="text-gray-800 opacity-70">................................</span>
-						<span class="text-accent">{animeInfo.status}</span>
+						<span class="text-slate-100">{animeInfo.status}</span>
 					</div>
 					<div class="flex  px-4">
 						Genre:
 						<span class="text-gray-800 opacity-70">................................</span>
-						<span class="text-accent line-clamp-1">{animeInfo.genres}</span>
+						<span class="text-slate-100 line-clamp-1">{animeInfo.genres}</span>
 					</div>
 					<div class="flex  px-4">
 						Release:
 						<span class="text-gray-800 opacity-70">..............................</span>
 						{#if animeInfo.endDate.year === null || animeInfo.endDate.day === null || animeInfo.endDate.month === null || animeInfo.endDate.month === undefined}
-							<span class="text-accent">
+							<span class="text-slate-100">
 								{months[animeInfo.startDate.month - 1]}
 								{animeInfo.startDate.day}, {animeInfo.startDate.year} to Present</span
 							>
 						{:else}
-							<span class="text-accent">
+							<span class="text-slate-100">
 								{months[animeInfo.startDate.month - 1]}
 								{animeInfo.startDate.day}, {animeInfo.startDate.year} to {months[
 									animeInfo.endDate.month - 1
@@ -93,7 +93,7 @@
 						Age restrictions
 						<span class="text-gray-800 opacity-70">.................</span>
 						{#if animeInfo.isAdult === false}
-							<span class="text-accent"
+							<span class="text-slate-100"
 								><div
 									class="font-semibold inline-flex px-2 py-1 leading-4 text-xs rounded text-accent bg-slate-500"
 								>

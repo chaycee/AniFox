@@ -207,21 +207,18 @@
 						class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
 					>
 						<span class="flex-none flex items-center opacity-50">
-							<svg
-								class="hi-outline hi-plus-circle inline-block w-5 h-5"
-								stroke="currentColor"
-								fill="none"
-								viewBox="0 0 24 24"
-								xmlns="http://www.w3.org/2000/svg"
-								><path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
-								/></svg
-							>
+							<svg class="hi-mini hi-newspaper inline-block w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h9A1.5 1.5 0 0114 3.5v11.75A2.75 2.75 0 0016.75 18h-12A2.75 2.75 0 012 15.25V3.5zm3.75 7a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zm0 3a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM5 5.75A.75.75 0 015.75 5h4.5a.75.75 0 01.75.75v2.5a.75.75 0 01-.75.75h-4.5A.75.75 0 015 8.25v-2.5z" clip-rule="evenodd"/><path d="M16.5 6.5h-1v8.75a1.25 1.25 0 102.5 0V8a1.5 1.5 0 00-1.5-1.5z"/></svg>
 						</span>
-						<span class="py-2 grow">Add New</span>
+						<span class="py-2 grow">Anime News</span>
+					</a>
+					<a
+						href="javascript:void(0)"
+						class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+					>
+						<span class="flex-none flex items-center opacity-50">
+							<svg class="hi-mini hi-calendar inline-block w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.75 2a.75.75 0 01.75.75V4h7V2.75a.75.75 0 011.5 0V4h.25A2.75 2.75 0 0118 6.75v8.5A2.75 2.75 0 0115.25 18H4.75A2.75 2.75 0 012 15.25v-8.5A2.75 2.75 0 014.75 4H5V2.75A.75.75 0 015.75 2zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75z" clip-rule="evenodd"/></svg>
+						</span>
+						<span class="py-2 grow">Episode Schedule</span>
 					</a>
 					<div class="px-3 pt-5 pb-2 text-xs font-medium uppercase tracking-wider text-gray-400">
 						Account
@@ -358,7 +355,7 @@
 						type="button"
 						on:click={toggleSidebar}
 						id="sidebarBtn"
-						class="inline-flex justify-center items-center space-x-2 border font-semibold focus:outline-none px-3 py-2 leading-6 rounded border-gray-300 bg-[#d9d9d9] text-gray-800 shadow-sm hover:text-gray-800 hover:bg-gray-100 hover:border-gray-300 hover:shadow focus:ring focus:ring-gray-500 focus:ring-opacity-25 active:bg-white active:border-white active:shadow-none"
+						class="inline-flex justify-center items-center space-x-2  font-semibold focus:outline-none px-3 py-2 leading-6 rounded border-gray-300 bg-[#d9d9d9] border-[5px] text-gray-800 shadow-sm hover:text-gray-800 hover:bg-gray-100 hover:border-gray-300 hover:shadow focus:ring focus:ring-gray-500 focus:ring-opacity-25 active:bg-white active:border-white active:shadow-none"
 					>
 						<svg
 							class="hi-solid hi-menu-alt-1 inline-block w-5 h-5"
