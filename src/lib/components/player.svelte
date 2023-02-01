@@ -3,66 +3,40 @@
 	import OpenPlayerJS from 'openplayerjs';
 	import Hls from 'hls.js';
 	export let source;
-	let test;
-	$: test;
-	$: console.log(source);
-	let russian;
-	$: console.log(russian);
+	$: source = source;
+	let player = null;
 	const proxy = 'https://cors.consumet.stream/';
-	onMount(async () => {
-		const response = await fetch(
-			`https://api.consumet.org/meta/anilist/watch/${source.episodes[0].id}?provider=zoro`
-		);
-		test = await response.json();
+	async function streamEpisode(id) {
+		const response = await fetch(`https://api.consumet.org/meta/anilist/watch/${id}?provider=zoro`);
+		const test = await response.json();
+		player.src = `${proxy}${test.sources[0].url}`;
+		// english subtitles
+		const englishSubFilter = test.subtitles.filter((sub) => sub.lang === 'English')[0];
+		var englishSub = document.createElement('track');
+		englishSub.srclang = 'en';
+		englishSub.src = `${proxy}${englishSubFilter.url}`;
+		player.addCaptions(englishSub);
+		// russian subtitles
+		const russianSubFilter = test.subtitles.filter((sub) => sub.lang === 'Russian')[0];
+		if (russianSubFilter) {
+			var russianSub = document.createElement('track');
+			russianSub.label = 'Russian';
+			russianSub.srclang = 'ru';
+			russianSub.src = `${proxy}${russianSubFilter.url}`;
+			player.addCaptions(russianSub);
+		}
 
-		const player = new OpenPlayerJS('video', {
-			width: '60%',
-			height: '70%',
-			detachMenus: true,
-			controls: {
-				alwaysVisible: false,
-				layers: {
-					left: ['play', 'time', 'volume'],
-					middle: ['progress'],
-					right: ['captions', 'settings', 'fullscreen']
-				}
-			}
+		player.load();
+	}
+	onMount(() => {
+		player = new OpenPlayerJS('video', {
+            mode: 'responsive',
+            width: '50%',
+            height:'50%',
+			detachMenus: true
 		});
-		player.init().then(() => {
-			player.src = `https://cors.consumet.stream/${test.sources[3].url}`;
-			var track = document.createElement('track');
-			track.kind = 'captions';
-			track.label = 'English captions';
-			track.srclang = 'en';
-			track.title = 'English caption';
-			track.src = `https://cors.consumet.stream/${test.subtitles[1].url}`;
-
-			for (let i = 0; i < test.subtitles.length; i++) {
-				if (test.subtitles[i].lang === 'Russian') {
-					russian = test.subtitles[i];
-					var track2 = document.createElement('track');
-					track2.kind = 'captions';
-					track2.label = 'Russian captions';
-					track2.srclang = 'ru';
-					track2.title = 'Russian caption';
-
-					track2.src = `https://cors.consumet.stream/${russian.url || test.subtitles[1].url}`;
-					player.addCaptions(track2);
-				}
-			}
-
-			player.addCaptions(track);
-
-			player.load();
-
-			try {
-				player.play();
-			} catch (err) {
-				throw new Error('error');
-			}
-		});
+		player.init();
 	});
-	$: console.log(test);
 </script>
 
 <svelte:head>
@@ -71,9 +45,21 @@
 		href="https://cdn.jsdelivr.net/npm/openplayerjs@latest/dist/openplayer.min.css"
 	/>
 </svelte:head>
+<section class="space-y-6 py-6 px-2 text-white     ">
 <div class="flex">
-	<video class="op-player__media " id="video" controls playsinline>
-		<!-- <track kind="captions" src="https://cors.consumet.stream/{test.subtitles[0].url}" srclang="en" label="English" /> -->
-	</video>
-	<div class="grow border-2">test</div>
+	<!-- svelte-ignore a11y-media-has-caption -->
+	<video class="op-player op-player__media" id="video" controls playsinline />
+	<div class="grow border-2 w-32">
+		{#each source.episodes as ep, i}
+			<button
+				on:click={streamEpisode(ep.id)}
+				type="button"
+				id="src-btn"
+				class="inline-flex justify-center items-center space-x-2 rounded border font-semibold focus:outline-none px-3 py-2 leading-6 border-red-200 bg-red-200 text-red-700 hover:text-red-700 hover:bg-red-300 hover:border-red-300 focus:ring focus:ring-red-500 focus:ring-opacity-50 active:bg-red-200 active:border-red-200"
+			>
+				Button{i}
+			</button>
+		{/each}
+	</div>
 </div>
+</section>
