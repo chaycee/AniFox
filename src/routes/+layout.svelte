@@ -296,9 +296,9 @@
 					</a>
 				</nav>
 				<details
-					class="px-3 pt-5 pb-2 text-xs font-medium uppercase tracking-wider text-gray-400 hover:cursor-pointer"
+					class="px-5 pt-5 pb-2 text-xs font-medium uppercase tracking-wider text-gray-400 hover:cursor-pointer list-none "
 				>
-					<summary>Genres</summary>
+					<summary class="list-outside    relative left-2 text-sm">Genres</summary>
 
 					{#each genres as genre, index}
 						<a
@@ -487,4 +487,5 @@
 	::-webkit-scrollbar-corner {
 		background: #000;
 	}
+
 </style>

@@ -1,5 +1,6 @@
 <script>
 	/** @type {import('./$types').PageData} */
+	import Player from '$lib/components/player.svelte';
 	export let data;
 	const months = [
 		'January',
@@ -16,7 +17,6 @@
 		'December'
 	];
 	$: ({ animeInfo } = data);
-	$: console.log(data);
 </script>
 
 <svelte:head>
@@ -24,12 +24,14 @@
 </svelte:head>
 
 <div class="relative">
-
-	<img src='{animeInfo.cover}' class="absolute inset-0 rounded-xl object-cover w-max  h-full " alt="" />
+	<img
+		src={animeInfo.cover}
+		class="absolute inset-0 rounded-xl object-cover w-max  h-full "
+		alt=""
+	/>
 	<div class="absolute inset-0 bg-black opacity-80  " />
 	<section class="space-y-6 py-6 px-2 text-white relative  mx-auto backdrop-blur-sm ">
-
-		<div class="flex flex-col lg:flex-row" id="info-wrapper">
+		<div class="flex flex-col px-6 lg:flex-row" id="info-wrapper">
 			<div id="img-wrapper" class="flex justify-center">
 				<div class="relative w-fit">
 					<div
@@ -72,7 +74,7 @@
 					<div class="flex  px-4">
 						Release:
 						<span class="text-gray-800 opacity-70">..............................</span>
-						{#if animeInfo.endDate.year === null || animeInfo.endDate.day === null || animeInfo.endDate.month === null || animeInfo.endDate.month === undefined }
+						{#if animeInfo.endDate.year === null || animeInfo.endDate.day === null || animeInfo.endDate.month === null || animeInfo.endDate.month === undefined}
 							<span class="text-accent">
 								{months[animeInfo.startDate.month - 1]}
 								{animeInfo.startDate.day}, {animeInfo.startDate.year} to Present</span
@@ -113,3 +115,9 @@
 		</div>
 	</section>
 </div>
+<section class="" id="middle-section">
+	<p class="w-full text-slate-300 px-1 py-3">
+		{animeInfo.description.replace(/<[^>]*>?/gm, '')}
+	</p>
+	<Player source={animeInfo} />
+</section>
