@@ -3,7 +3,7 @@
 	import '@splidejs/svelte-splide/css/themes/splide-default.min.css';
 	export let data;
 	$: data;
-	$: console.log(data);
+
 </script>
 
 <div
@@ -11,7 +11,7 @@
 >
 	<Splide
 		aria-label="My Favorite Images"
-		class="rounded-3xl w-full h-full hidden md:block"
+		class="rounded-xl w-full h-full hidden md:block"
 		options={{
 			type: 'loop',
 			perPage: 1,
@@ -27,12 +27,12 @@
 			{#if item.mappings.thevdb.artworks}
 				<SplideSlide class="flex items-end relative">
 					<img
-						src={`https://images.weserv.nl/?url=cors.consumet.stream/${item.mappings.thevdb.artworks.backgrounds[0]}&w=1700&h=560&fit=cover&output=webp&af`}
-						class="rounded-3xl"
+						src={`https://images.weserv.nl/?url=cors.consumet.stream/${item.mappings.thevdb.artworks.backgrounds[0]}&w=1700&h=560&fit=cover&output=webp`}
+						class="rounded-xl"
 						alt="Anime Cover"
 					/>
 					<div
-						class="absolute inset-0 rounded-3xl  flex flex-col justify-between bg-gradient-to-l from-transparent via-black/50 to-secondary/90"
+						class="absolute inset-0 rounded-xl  flex flex-col justify-between bg-gradient-to-l from-transparent via-black/50 to-secondary/90"
 					>
 						<div class="text-white  m-auto ml-20">
 							<article class="prose  lg:prose-base text-white">

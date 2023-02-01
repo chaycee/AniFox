@@ -5,6 +5,7 @@ export async function load({fetch, params}) {
 			return await fetch(`https://api.consumet.org/meta/anilist/info/${id}?provider=zoro`).then((res) => res.json());
 
 		}
+		
 	return {
 		animeInfo: fetchDetails(params.anime)
 	};
