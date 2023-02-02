@@ -1,6 +1,7 @@
 <script>
 	import '../app.css';
 	import Footer from '$lib/components/footer.svelte';
+
 	let genres = [
 		'Action',
 		'Adventure',
@@ -21,6 +22,7 @@
 		'Supernatural',
 		'Thriller'
 	];
+	let test = false;
 	const toggleSidebar = () => {
 		const pageContainer = document.getElementById('page-container');
 		const pageSidebar = document.getElementById('page-sidebar');
@@ -68,7 +70,7 @@
 
 	<nav
 		id="page-sidebar"
-		class="flex flex-col fixed top-0 left-0 bottom-0 w-full md:w-64 lg:w-64 h-full bg-secondary border-r-[0.2px] border-secondary text-white z-50 transform transition-transform duration-500 ease-out -translate-x-full lg:translate-x-0 side_bar"
+		class="flex flex-col fixed top-0 left-0 bottom-0 w-full md:w-64 lg:w-64 h-full bg-primary border-r-[0.2px] border-secondary text-white z-50 transform transition-transform duration-500 ease-out -translate-x-full lg:translate-x-0 side_bar"
 		aria-label="Main Sidebar Navigation "
 	>
 		<!-- Sidebar Header -->
@@ -94,6 +96,7 @@
 
 			<!-- Close Sidebar on Mobile -->
 			<div class="lg:hidden">
+				<!-- TODO: learn class: -->
 				<button
 					type="button"
 					on:click={toggleSidebar}
@@ -168,7 +171,17 @@
 						class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
 					>
 						<span class="flex-none flex items-center opacity-50">
-							<svg class="bi bi-graph-up-arrow inline-block w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5Z"/></svg>
+							<svg
+								class="bi bi-graph-up-arrow inline-block w-5 h-5"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="currentColor"
+								viewBox="0 0 16 16"
+								aria-hidden="true"
+								><path
+									fill-rule="evenodd"
+									d="M0 0h1v15h15v1H0V0Zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5Z"
+								/></svg
+							>
 						</span>
 						<span class="py-2 grow">Trending</span>
 					</a>
@@ -197,7 +210,18 @@
 						class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
 					>
 						<span class="flex-none flex items-center opacity-50">
-							<svg class="hi-mini hi-newspaper inline-block w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h9A1.5 1.5 0 0114 3.5v11.75A2.75 2.75 0 0016.75 18h-12A2.75 2.75 0 012 15.25V3.5zm3.75 7a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zm0 3a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM5 5.75A.75.75 0 015.75 5h4.5a.75.75 0 01.75.75v2.5a.75.75 0 01-.75.75h-4.5A.75.75 0 015 8.25v-2.5z" clip-rule="evenodd"/><path d="M16.5 6.5h-1v8.75a1.25 1.25 0 102.5 0V8a1.5 1.5 0 00-1.5-1.5z"/></svg>
+							<svg
+								class="hi-mini hi-newspaper inline-block w-5 h-5"
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 20 20"
+								fill="currentColor"
+								aria-hidden="true"
+								><path
+									fill-rule="evenodd"
+									d="M2 3.5A1.5 1.5 0 013.5 2h9A1.5 1.5 0 0114 3.5v11.75A2.75 2.75 0 0016.75 18h-12A2.75 2.75 0 012 15.25V3.5zm3.75 7a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zm0 3a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM5 5.75A.75.75 0 015.75 5h4.5a.75.75 0 01.75.75v2.5a.75.75 0 01-.75.75h-4.5A.75.75 0 015 8.25v-2.5z"
+									clip-rule="evenodd"
+								/><path d="M16.5 6.5h-1v8.75a1.25 1.25 0 102.5 0V8a1.5 1.5 0 00-1.5-1.5z" /></svg
+							>
 						</span>
 						<span class="py-2 grow">Anime News</span>
 					</a>
@@ -206,11 +230,21 @@
 						class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
 					>
 						<span class="flex-none flex items-center opacity-50">
-							<svg class="hi-mini hi-calendar inline-block w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.75 2a.75.75 0 01.75.75V4h7V2.75a.75.75 0 011.5 0V4h.25A2.75 2.75 0 0118 6.75v8.5A2.75 2.75 0 0115.25 18H4.75A2.75 2.75 0 012 15.25v-8.5A2.75 2.75 0 014.75 4H5V2.75A.75.75 0 015.75 2zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75z" clip-rule="evenodd"/></svg>
+							<svg
+								class="hi-mini hi-calendar inline-block w-5 h-5"
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 20 20"
+								fill="currentColor"
+								aria-hidden="true"
+								><path
+									fill-rule="evenodd"
+									d="M5.75 2a.75.75 0 01.75.75V4h7V2.75a.75.75 0 011.5 0V4h.25A2.75 2.75 0 0118 6.75v8.5A2.75 2.75 0 0115.25 18H4.75A2.75 2.75 0 012 15.25v-8.5A2.75 2.75 0 014.75 4H5V2.75A.75.75 0 015.75 2zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75z"
+									clip-rule="evenodd"
+								/></svg
+							>
 						</span>
 						<span class="py-2 grow">Episode Schedule</span>
 					</a>
-					
 				</nav>
 				<details
 					class="px-5 pt-5 pb-2 text-xs font-medium uppercase tracking-wider text-gray-400 hover:cursor-pointer list-none "
@@ -219,6 +253,7 @@
 
 					{#each genres as genre, index}
 						<a
+
 							href="javascript:void(0)"
 							class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
 						>
@@ -404,5 +439,4 @@
 	::-webkit-scrollbar-corner {
 		background: #000;
 	}
-
 </style>
