@@ -168,17 +168,7 @@
 						class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
 					>
 						<span class="flex-none flex items-center opacity-50">
-							<svg
-								class="bi bi-graph-up-arrow inline-block w-5 h-5"
-								xmlns="http://www.w3.org/2000/svg"
-								fill="currentColor"
-								viewBox="0 0 16 16"
-								aria-hidden="true"
-								><path
-									fill-rule="evenodd"
-									d="M0 0h1v15h15v1H0V0Zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5Z"
-								/></svg
-							>
+							<svg class="bi bi-graph-up-arrow inline-block w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5Z"/></svg>
 						</span>
 						<span class="py-2 grow">Trending</span>
 					</a>
@@ -220,77 +210,7 @@
 						</span>
 						<span class="py-2 grow">Episode Schedule</span>
 					</a>
-					<div class="px-3 pt-5 pb-2 text-xs font-medium uppercase tracking-wider text-gray-400">
-						Account
-					</div>
-					<a
-						href="javascript:void(0)"
-						class="flex items-center space-x-3 px-3 font-medium rounded text-gray-300 hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
-					>
-						<span class="flex-none flex items-center opacity-50">
-							<svg
-								class="hi-outline hi-user inline-block w-5 h-5"
-								stroke="currentColor"
-								fill="none"
-								viewBox="0 0 24 24"
-								xmlns="http://www.w3.org/2000/svg"
-								><path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-								/></svg
-							>
-						</span>
-						<span class="py-2 grow">Profile</span>
-					</a>
-					<a
-						href="javascript:void(0)"
-						class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
-					>
-						<span class="flex-none flex items-center opacity-50">
-							<svg
-								class="hi-outline hi-cog inline-block w-5 h-5"
-								stroke="currentColor"
-								fill="none"
-								viewBox="0 0 24 24"
-								xmlns="http://www.w3.org/2000/svg"
-								><path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-								/><path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-								/></svg
-							>
-						</span>
-						<span class="py-2 grow">Settings</span>
-					</a>
-					<a
-						href="javascript:void(0)"
-						class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
-					>
-						<span class="flex-none flex items-center opacity-50">
-							<svg
-								class="hi-outline hi-lock-open inline-block w-5 h-5"
-								stroke="currentColor"
-								fill="none"
-								viewBox="0 0 24 24"
-								xmlns="http://www.w3.org/2000/svg"
-								><path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"
-								/></svg
-							>
-						</span>
-						<span class="py-2 grow">Log out</span>
-					</a>
+					
 				</nav>
 				<details
 					class="px-5 pt-5 pb-2 text-xs font-medium uppercase tracking-wider text-gray-400 hover:cursor-pointer list-none "

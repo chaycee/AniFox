@@ -55,7 +55,7 @@
 		const englishSubFilter = firstEp.subtitles.filter((sub) => sub.lang === 'English')[0];
 		var englishSub = document.createElement('track');
 		englishSub.srclang = 'en';
-
+		console.log(firstEp);
 		console.log(englishSub);
 		englishSub.src = `${proxy}${englishSubFilter.url}`;
 		player.addCaptions(englishSub);
@@ -81,7 +81,7 @@
 <section class="space-y-6 py-6 px-2 text-white     ">
 	<div class="flex">
 		<!-- svelte-ignore a11y-media-has-caption -->
-		<video class="op-player op-player__media" id="video" controls playsinline />
+		<video class="op-player op-player__media" id="video" controls playsinline preload="metadata" />
 		<div class="grow border-2 w-32">
 			{#each source.episodes as ep, i}
 				<button

@@ -41,7 +41,7 @@ body::-webkit-scrollbar-thumb {
 	font-family: 'MontserratAlt1';
 	src: url('/fonts/MontserratAlt1-Light.woff') format('woff');
 }
-.op-captions > span {
+.op-player>.op-captions > span {
 	font-size: 2.2vw;
     font-weight: bold;
     color: white;
