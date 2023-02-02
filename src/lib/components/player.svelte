@@ -41,7 +41,7 @@
 			detachMenus: true,
 			startVolume: 0.5,
 			width: '70%',
-			height: '60%',
+
 			controls: {
 				layers: {
 					left: ['play', 'time', 'volume'],
@@ -80,19 +80,20 @@
 		href="https://cdn.jsdelivr.net/npm/openplayerjs@latest/dist/openplayer.min.css"
 	/>
 </svelte:head>
-<section class="space-y-6 py-6 px-2 text-white     ">
-	<div class="flex h-full flex-col lg:flex-row">
+<!-- TODO: ADD NUMERATION START FROM 1 -->
+<section class="px-2 text-white     ">
+	<div class="flex h-full flex-col lg:flex-row ">
 		<!-- svelte-ignore a11y-media-has-caption -->
-		<video class="op-player op-player__media " id="video" controls playsinline preload="metadata" />
-		<div class="grow  h-auto flex-col flex  ">
-			<ul class="border border-gray-700 rounded h-96 lg:h-[550px] overflow-x-hidden scroll-smooth bg-primary divide-y divide-gray-400">
+		<video class="op-player op-player__media border border-gray-800" id="video" controls playsinline preload="metadata" />
+		<div class="grow   flex-col flex  ">
+			<ul class=" rounded h-96 grow border border-gray-700 overflow-x-hidden scroll-smooth bg-primary  divide-y divide-gray-700">
 				{#each source.episodes as ep, i}
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
-					<li class="p-4 flex gap-4 items-center cursor-pointer text-slate-400 hover:text-slate-200" on:click={streamEpisode(ep.id)}>
+					<li class="p-4 flex gap-4 items-center cursor-pointer text-slate-400 hover:bg-gray-700 hover:text-slate-200" on:click={streamEpisode(ep.id)}>
 						<div
-							class="font-semibold inline-flex px-2 py-1 leading-4 text-xs rounded-full text-accent bg-gray-600"
+							class="font-semibold inline-flex  leading-4 text-xs rounded-full text-accent "
 						>
-							{i}
+							{i+1}
 						</div>
 
 						<span class="font-semibold text-sm ">{ep.title}</span>
