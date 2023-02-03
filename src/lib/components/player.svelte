@@ -31,12 +31,15 @@
 		}
 	}
 	async function streamEpisode(id) {
+		player.pause();
 		const response = await fetch(`https://api.consumet.org/meta/anilist/watch/${id}?provider=zoro`);
 		const streamingSrc = await response.json();
 		player.src = `${proxy}${streamingSrc.sources[2].url}`;
 
 		setSubsLang(streamingSrc);
 		player.load();
+		// TODO: autoplay?
+		player.play();
 	}
 
 	onMount(async () => {
@@ -49,17 +52,16 @@
 			);
 		}
 		const firstEp = await response.json();
-		console.log(firstEp);
+
 		player = new OpenPlayerJS('video', {
 			mode: 'responsive',
 			detachMenus: true,
-
+			autoplay: true,
 			width: '160%',
 			height: '500px',
 			alwaysVisible: false,
 			step: 0,
 			hidePlayBtnTimer: 100,
-
 			media: {
 				pauseOnClick: true
 			},
@@ -116,16 +118,7 @@
 
 						<span class="font-semibold text-sm ">{ep.title}</span>
 					</li>
-					<!-- <button
 
-					data-sveltekit-preload-data="hover"
-					on:click={streamEpisode(ep.id)}
-					type="button"
-					id="src-btn"
-					class="inline-flex justify-center items-center space-x-2 rounded border font-semibold focus:outline-none px-3 py-2 leading-6 border-red-200 bg-red-200 text-red-700 hover:text-red-700 hover:bg-red-300 hover:border-red-300 focus:ring focus:ring-red-500 focus:ring-opacity-50 active:bg-red-200 active:border-red-200"
-				>
-					{i}:{ep.title}
-				</button> -->
 				{/each}
 			</ul>
 		</div>
