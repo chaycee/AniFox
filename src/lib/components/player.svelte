@@ -3,7 +3,6 @@
 	import OpenPlayerJS from 'openplayerjs';
 	import { goto } from '$app/navigation';
 
-
 	export let epId;
 	export let source;
 	let player = null;
@@ -11,22 +10,24 @@
 
 	async function changeEpisode(id) {
 		const searchParams = new URLSearchParams(window.location.search);
-    	searchParams.set("ep", id);
-		await goto(window.location.pathname + "?" + searchParams.toString(), { noScroll: true });
+		searchParams.set('ep', id);
+		await goto(window.location.pathname + '?' + searchParams.toString(), { noScroll: true });
 		streamEpisode(id);
 	}
 	function setSubsLang(lang) {
-		const allowedLanguages = ['Russian', 'English', 'German', 'Spanish', 'Arabic'];
-		const subtitles = lang.subtitles;
-		for (const sub of subtitles) {
-			if (!allowedLanguages.includes(sub.lang)) {
-				continue;
-			}
+		if (lang.subtitles) {
+			const allowedLanguages = ['Russian', 'English', 'German', 'Spanish', 'Arabic'];
+			const subtitles = lang.subtitles;
+			for (const sub of subtitles) {
+				if (!allowedLanguages.includes(sub.lang)) {
+					continue;
+				}
 				var track = document.createElement('track');
 				track.srclang = sub.lang;
 				track.label = sub.lang;
 				track.src = `${proxy}${sub.url}`;
 				player.addCaptions(track);
+			}
 		}
 	}
 	async function streamEpisode(id) {
@@ -41,9 +42,7 @@
 	onMount(async () => {
 		let response;
 		if (epId) {
-			response = await fetch(
-				`https://api.consumet.org/meta/anilist/watch/${epId}?provider=zoro`
-			);
+			response = await fetch(`https://api.consumet.org/meta/anilist/watch/${epId}?provider=zoro`);
 		} else {
 			response = await fetch(
 				`https://api.consumet.org/meta/anilist/watch/${source.episodes[0].id}?provider=zoro`
@@ -56,7 +55,7 @@
 			detachMenus: true,
 
 			width: '160%',
-			height:'500px',
+			height: '500px',
 			alwaysVisible: false,
 			step: 0,
 			hidePlayBtnTimer: 100,
@@ -75,7 +74,7 @@
 		// add others with foreach
 		if (firstEp.sources.length >= 5) {
 			player.src = `${proxy}${firstEp.sources[5].url}`;
-		}else{
+		} else {
 			player.src = `${proxy}${firstEp.sources[2].url}`;
 		}
 
@@ -103,12 +102,11 @@
 		/>
 		<div class=" w-full  flex-col flex  ">
 			<ul
-			class="w-full rounded h-96 grow border border-gray-700 overflow-x-hidden scroll-smooth bg-primary  divide-y divide-gray-700"
+				class="w-full rounded h-96 grow border border-gray-700 overflow-x-hidden scroll-smooth bg-primary  divide-y divide-gray-700"
 			>
 				{#each source.episodes as ep, i}
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<li
-
 						class="p-4 flex gap-4 items-center cursor-pointer text-slate-400 hover:bg-gray-700 hover:text-slate-200"
 						on:click={changeEpisode(ep.id)}
 					>
