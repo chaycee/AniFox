@@ -3,10 +3,17 @@
 	import OpenPlayerJS from 'openplayerjs';
 
 	let isInView;
+	export let epId;
 	export let source;
 	$: source = source;
 	let player = null;
 	const proxy = 'https://cors.consumet.stream/';
+
+	async function changeEpisode(id) {
+		const searchParams = new URLSearchParams(window.location.search);
+    	searchParams.set("ep", id);
+    	window.location.search = searchParams.toString();
+	}
 	async function streamEpisode(id) {
 		const response = await fetch(`https://api.consumet.org/meta/anilist/watch/${id}?provider=zoro`);
 		const streamingSrc = await response.json();
@@ -32,9 +39,16 @@
 	}
 	// fix subs background styles doesnt apply
 	onMount(async () => {
-		const response = await fetch(
-			`https://api.consumet.org/meta/anilist/watch/${source.episodes[0].id}?provider=zoro`
-		);
+		let response;
+		if (epId) {
+			response = await fetch(
+				`https://api.consumet.org/meta/anilist/watch/${epId}?provider=zoro`
+			);
+		} else {
+			response = await fetch(
+				`https://api.consumet.org/meta/anilist/watch/${source.episodes[0].id}?provider=zoro`
+			);
+		}
 		const firstEp = await response.json();
 		console.log(firstEp);
 		player = new OpenPlayerJS('video', {
@@ -106,7 +120,7 @@
 					<li
 
 						class="p-4 flex gap-4 items-center cursor-pointer text-slate-400 hover:bg-gray-700 hover:text-slate-200"
-						on:click={streamEpisode(ep.id)}
+						on:click={changeEpisode(ep.id)}
 					>
 						<div class="font-semibold inline-flex  leading-4 text-xs rounded-full text-accent ">
 							{i + 1}

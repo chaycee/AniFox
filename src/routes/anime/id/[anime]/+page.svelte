@@ -16,7 +16,7 @@
 		'November',
 		'December'
 	];
-	$: ({ animeInfo } = data);
+	$: ({ animeInfo, episodeId } = data);
 </script>
 
 <svelte:head>
@@ -119,5 +119,5 @@
 	<p class="w-full text-slate-300 px-1 py-3">
 		{animeInfo.description.replace(/<[^>]*>?/gm, '')}
 	</p>
-	<Player source={animeInfo} />
+	<Player source={animeInfo} epId={episodeId}/>
 </section>
