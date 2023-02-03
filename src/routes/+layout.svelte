@@ -439,4 +439,8 @@
 	::-webkit-scrollbar-corner {
 		background: #000;
 	}
+	#page-container, #page-header {
+		/* smooth transition on close sidebar */
+		transition: all 0.3s ease-in-out;
+  }
 </style>

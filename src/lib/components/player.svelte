@@ -3,10 +3,9 @@
 	import OpenPlayerJS from 'openplayerjs';
 	import { goto } from '$app/navigation';
 
-	let isInView;
+
 	export let epId;
 	export let source;
-	$: source = source;
 	let player = null;
 	const proxy = 'https://cors.consumet.stream/';
 
@@ -16,30 +15,29 @@
 		await goto(window.location.pathname + "?" + searchParams.toString(), { noScroll: true });
 		streamEpisode(id);
 	}
-	async function streamEpisode(id) {
-		const response = await fetch(`https://api.consumet.org/meta/anilist/watch/${id}?provider=zoro`);
-		const streamingSrc = await response.json();
-		player.src = `${proxy}${streamingSrc.sources[3].url}`;
-		console.log(streamingSrc.sources[3]);
+	function setSubsLang(lang) {
 		const allowedLanguages = ['Russian', 'English', 'German', 'Spanish', 'Arabic'];
-		const subtitles = streamingSrc.subtitles;
-		const addedTracks = new Map();
+		const subtitles = lang.subtitles;
 		for (const sub of subtitles) {
 			if (!allowedLanguages.includes(sub.lang)) {
 				continue;
 			}
-			if (!addedTracks.has(sub.lang)) {
 				var track = document.createElement('track');
 				track.srclang = sub.lang;
 				track.label = sub.lang;
 				track.src = `${proxy}${sub.url}`;
 				player.addCaptions(track);
-				addedTracks.set(sub.lang, track);
-			}
 		}
+	}
+	async function streamEpisode(id) {
+		const response = await fetch(`https://api.consumet.org/meta/anilist/watch/${id}?provider=zoro`);
+		const streamingSrc = await response.json();
+		player.src = `${proxy}${streamingSrc.sources[3].url}`;
+
+		setSubsLang(streamingSrc);
 		player.load();
 	}
-	// fix subs background styles doesnt apply
+
 	onMount(async () => {
 		let response;
 		if (epId) {
@@ -56,11 +54,13 @@
 		player = new OpenPlayerJS('video', {
 			mode: 'responsive',
 			detachMenus: true,
-			startVolume: 0.5,
-			width: '100%',
+
+			width: '160%',
+			height:'500px',
 			alwaysVisible: false,
 			step: 0,
 			hidePlayBtnTimer: 100,
+
 			media: {
 				pauseOnClick: true
 			},
@@ -74,24 +74,7 @@
 		});
 		// add others with foreach
 		player.src = `${proxy}${firstEp.sources[3].url}`;
-
-		const allowedLanguages = ['Russian', 'English', 'German', 'Spanish', 'Arabic'];
-		const subtitles = firstEp.subtitles;
-		const addedTracks = new Map();
-		for (const sub of subtitles) {
-			if (!allowedLanguages.includes(sub.lang)) {
-				continue;
-			}
-			if (!addedTracks.has(sub.lang)) {
-				var track = document.createElement('track');
-				track.srclang = sub.lang;
-				track.label = sub.lang;
-				track.src = `${proxy}${sub.url}`;
-				player.addCaptions(track);
-				addedTracks.set(sub.lang, track);
-			}
-		}
-
+		setSubsLang(firstEp);
 		player.init();
 	});
 </script>
@@ -113,9 +96,9 @@
 			playsinline
 			preload="metadata"
 		/>
-		<div class="grow   flex-col flex  ">
+		<div class=" w-full  flex-col flex  ">
 			<ul
-			class=" rounded h-96 grow border border-gray-700 overflow-x-hidden scroll-smooth bg-primary  divide-y divide-gray-700"
+			class="w-full rounded h-96 grow border border-gray-700 overflow-x-hidden scroll-smooth bg-primary  divide-y divide-gray-700"
 			>
 				{#each source.episodes as ep, i}
 					<!-- svelte-ignore a11y-click-events-have-key-events -->

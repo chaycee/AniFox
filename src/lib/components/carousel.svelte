@@ -32,7 +32,7 @@
 						alt="Anime Cover"
 					/>
 					<div
-						class="absolute inset-0 rounded-xl  flex flex-col justify-between bg-gradient-to-l from-transparent via-black/50 to-secondary/90"
+						class="absolute inset-0 rounded-xl  flex flex-col justify-between bg-gradient-to-l from-transparent via-black/40 to-secondary/90"
 					>
 						<div class="text-white  m-auto ml-20">
 							<article class="prose  lg:prose-base text-white">
