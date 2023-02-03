@@ -34,7 +34,7 @@
 		player.pause();
 		const response = await fetch(`https://api.consumet.org/meta/anilist/watch/${id}?provider=zoro`);
 		const streamingSrc = await response.json();
-		player.src = `${proxy}${streamingSrc.sources[2].url}`;
+		player.src = `${proxy}${streamingSrc.sources[3].url}`;
 
 		setSubsLang(streamingSrc);
 		player.load();
@@ -77,7 +77,7 @@
 		if (firstEp.sources.length >= 5) {
 			player.src = `${proxy}${firstEp.sources[5].url}`;
 		} else {
-			player.src = `${proxy}${firstEp.sources[2].url}`;
+			player.src = `${proxy}${firstEp.sources[3].url}`;
 		}
 
 		setSubsLang(firstEp);
