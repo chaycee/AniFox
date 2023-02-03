@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import OpenPlayerJS from 'openplayerjs';
+	import { goto } from '$app/navigation';
 
 	let isInView;
 	export let epId;
@@ -12,7 +13,8 @@
 	async function changeEpisode(id) {
 		const searchParams = new URLSearchParams(window.location.search);
     	searchParams.set("ep", id);
-    	window.location.search = searchParams.toString();
+		await goto(window.location.pathname + "?" + searchParams.toString(), { noScroll: true });
+		streamEpisode(id);
 	}
 	async function streamEpisode(id) {
 		const response = await fetch(`https://api.consumet.org/meta/anilist/watch/${id}?provider=zoro`);
