@@ -2,7 +2,7 @@
 	import Carousel from '$lib/components/carousel.svelte';
 	export let data;
 	$: data;
-
+	console.log(data);
 </script>
 
 <Carousel {data} />
@@ -210,9 +210,10 @@
 	<nav class="grid grid-cols-2 md:grid-cols-4 sm:grid-cols-2 xl:grid-cols-7 gap-4 lg:gap-8">
 		<!-- Movie -->
 		{#each data.recent.results.filter((ep) => ep.title.english ) as card}
+		
 			<a
 				data-sveltekit-preload-code="hover"
-				href="javascript:void(0)"
+				href="/anime/id/{card.id}?ep={card.episodeId}"
 				class="group relative overflow-hidden aspect-w-3 aspect-h-4 bg-black/25 rounded-2xl transition hover:ring-4 hover:ring-red-500/50 active:opacity-75"
 			>
 				<img

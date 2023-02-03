@@ -32,7 +32,7 @@
 	async function streamEpisode(id) {
 		const response = await fetch(`https://api.consumet.org/meta/anilist/watch/${id}?provider=zoro`);
 		const streamingSrc = await response.json();
-		player.src = `${proxy}${streamingSrc.sources[3].url}`;
+		player.src = `${proxy}${streamingSrc.sources[2].url}`;
 
 		setSubsLang(streamingSrc);
 		player.load();
@@ -73,7 +73,12 @@
 			}
 		});
 		// add others with foreach
-		player.src = `${proxy}${firstEp.sources[3].url}`;
+		if (firstEp.sources.length >= 5) {
+			player.src = `${proxy}${firstEp.sources[5].url}`;
+		}else{
+			player.src = `${proxy}${firstEp.sources[2].url}`;
+		}
+
 		setSubsLang(firstEp);
 		player.init();
 	});
