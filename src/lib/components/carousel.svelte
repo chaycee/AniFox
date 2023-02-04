@@ -25,8 +25,8 @@
 		{#each data.trending as item, i}
 			<SplideSlide class="flex items-end relative">
 				<img
-					src={item.mappings.thevdb
-						? `https://images.weserv.nl/?url=cors.consumet.stream/${item.mappings.thevdb.artworks.backgrounds[0]}&w=1700&h=560&fit=cover&output=webp`
+					src={item.mappings.thetvdb
+						? `https://images.weserv.nl/?url=cors.consumet.stream/${item.mappings.thetvdb.artworks.backgrounds[0]}&w=1700&h=560&fit=cover&output=webp`
 						: item.mappings.kitsu.coverImage
 						? `https://images.weserv.nl/?url=cors.consumet.stream/${item.mappings.kitsu.coverImage.original}&w=1700&h=560&fit=cover&output=webp`
 						: `https://images.weserv.nl/?url=cors.consumet.stream/${item.cover}&w=1700&h=560&fit=cover&output=webp` ||

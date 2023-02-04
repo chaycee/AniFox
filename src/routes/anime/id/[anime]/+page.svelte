@@ -67,9 +67,10 @@
 						<span class="text-slate-100">{animeInfo.status}</span>
 					</div>
 					<div class="flex  px-4">
+						<!-- TODO: Add space between genres -->
 						Genre:
 						<span class="text-gray-800 opacity-70">................................</span>
-						<span class="text-slate-100 line-clamp-1">{animeInfo.genres}</span>
+						<span class="text-slate-100 line-clamp-1">{animeInfo.genres.toString().replaceAll(',',', ')}</span>
 					</div>
 					<div class="flex  px-4">
 						Release:
