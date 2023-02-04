@@ -53,7 +53,9 @@
 		}
 		const firstEp = await response.json();
 
-		player = new OpenPlayerJS('video', {
+
+
+player = new OpenPlayerJS('video', {
 			mode: 'responsive',
 			detachMenus: true,
 			autoplay: true,
@@ -91,7 +93,6 @@
 		href="https://cdn.jsdelivr.net/npm/openplayerjs@latest/dist/openplayer.min.css"
 	/>
 </svelte:head>
-<!-- TODO: ADD NUMERATION START FROM 1 -->
 <section class="px-2 text-white     ">
 	<div class="flex h-full flex-col lg:flex-row ">
 		<!-- svelte-ignore a11y-media-has-caption -->
