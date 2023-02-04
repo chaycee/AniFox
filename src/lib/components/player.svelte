@@ -109,7 +109,7 @@
 				{#each source.episodes as ep, i}
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<li
-						class="p-4 flex gap-4 items-center cursor-pointer text-slate-400 hover:bg-gray-700 hover:text-slate-200"
+						class="p-4 flex gap-4 items-center cursor-pointer text-slate-400 hover:bg-gray-700 hover:text-slate-200 {(i % 2 === 0) ? 'bg-[#202025]' : 'bg-[#2b2b30]'}"
 						on:click={changeEpisode(ep.id)}
 					>
 						<div class="font-semibold inline-flex  leading-4 text-xs rounded-full text-accent ">
