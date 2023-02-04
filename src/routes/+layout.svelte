@@ -22,7 +22,7 @@
 		'Supernatural',
 		'Thriller'
 	];
-	let test = false;
+	let searchInput = false;
 	const toggleSidebar = () => {
 		const pageContainer = document.getElementById('page-container');
 		const pageSidebar = document.getElementById('page-sidebar');
@@ -40,10 +40,7 @@
 		pageSidebar.classList.toggle('translate-x-0');
 		pageSidebar.classList.toggle('-translate-x-full');
 	};
-	const toggleSearch = () => {
-		const searchInput = document.getElementById('search-input');
-		searchInput.classList.toggle('hidden');
-	};
+
 	function getRainbowColor(index) {
 		var colors = ['#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#0000ff', '#4b0082', '#8b00ff'];
 		return colors[index % colors.length];
@@ -55,8 +52,10 @@
   Sidebar on Desktop
     Closed '' (no class)
     Opened 'lg:pl-64'
+	pageContainer.classList.toggle('lg:pl-64');
+		pageHeader.classList.toggle('lg:pl-64');
 -->
-<div id="page-container" class="flex flex-col mx-auto w-full min-h-screen bg-primary lg:pl-64">
+<div  id="page-container" class="flex flex-col mx-auto w-full min-h-screen bg-primary lg:pl-64">
 	<!-- Page Sidebar -->
 	<!--
       Sidebar on Mobile
@@ -258,14 +257,7 @@
 							class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
 						>
 							<span class="flex-none flex items-center opacity-50">
-								<svg
-									class="bi bi-circle-fill inline-block w-2 h-2"
-									xmlns="http://www.w3.org/2000/svg"
-									fill={getRainbowColor(index)}
-									viewBox="0 0 16 16"
-									aria-hidden="true"><circle cx="8" cy="8" r="8" /></svg
-								>
-								<!-- bookmark svg
+								
 								<svg
 								class="hi-outline hi-bookmark-alt inline-block w-5 h-5"
 								stroke="currentColor"
@@ -278,7 +270,7 @@
 									stroke-width="2"
 									d="M5 13l4 3 4-3V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8z"
 								/></svg
-							> -->
+							>
 							</span>
 							<span class="py-2 grow">{genre}</span>
 						</a>
@@ -350,7 +342,7 @@
 				<!-- END Toggle Sidebar on Mobile -->
 
 				<!-- Search -->
-				<div class=" hidden sm:block sm:relative top-16 sm:top-0 " id="search-input">
+				<div class:hidden={searchInput} class=" hidden sm:block sm:relative top-16 sm:top-0 " id="search-input">
 					<form onsubmit="return false;">
 						<label
 							for="search"
@@ -379,9 +371,11 @@
 					</form>
 				</div>
 				<div class="sm:hidden" id="">
+					<!-- class:hidden on click -->
 					<button
+
 						type="button"
-						on:click={toggleSearch}
+						on:click={()=>{searchInput = !searchInput;}}
 						class="inline-flex justify-center items-center space-x-2 border font-semibold focus:outline-none px-3 py-2 leading-5 text-sm rounded border-gray-300 bg-white text-gray-800 shadow-sm hover:text-gray-800 hover:bg-gray-100 hover:border-gray-300 hover:shadow focus:ring focus:ring-gray-500 focus:ring-opacity-25 active:bg-white active:border-white active:shadow-none"
 					>
 						<svg
@@ -439,7 +433,7 @@
 	::-webkit-scrollbar-corner {
 		background: #000;
 	}
-	#page-container, #page-header {
+	#page-container, #page-header   {
 		/* smooth transition on close sidebar */
 		transition: all 0.3s ease-in-out;
   }
