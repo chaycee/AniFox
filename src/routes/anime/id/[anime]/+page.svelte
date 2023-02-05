@@ -2,6 +2,7 @@
 	/** @type {import('./$types').PageData} */
 	import Player from '$lib/components/player.svelte';
 	export let data;
+	
 	const months = [
 		'January',
 		'February',

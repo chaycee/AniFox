@@ -2,7 +2,6 @@
 	import Carousel from '$lib/components/carousel.svelte';
 	export let data;
 	$: data;
-	console.log(data);
 </script>
 
 <Carousel {data} />
@@ -122,7 +121,7 @@
 							/></svg
 						>
 
-						<p class="ml-2 text-sm font-bold text-gray-100">{parseInt(item.mappings.kitsu.attributes.averageRating)}%</p>
+						<p class="ml-2 text-sm font-bold text-gray-100">%</p>
 					</div>
 				</div>
 				<div id="under-section " class="text-sm  text-gray-300 flex gap-2">
@@ -167,7 +166,7 @@
 								/></svg
 							>
 
-							<p class="ml-2 text-sm font-bold text-gray-100">{parseInt(item.mappings.kitsu.attributes.averageRating)}%</p>
+							<p class="ml-2 text-sm font-bold text-gray-100">%</p>
 						</div>
 					</div>
 					<div id="under-section " class="text-sm  text-gray-300 flex gap-2">
