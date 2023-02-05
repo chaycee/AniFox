@@ -36,7 +36,7 @@
 			<a
 				data-sveltekit-preload-code="hover"
 				href="/anime/id/{card.id}"
-				class="group relative overflow-hidden aspect-w-16 aspect-h-10 bg-black/25 rounded-2xl transition hover:ring-4 hover:ring-red-500/50 active:opacity-75 active:ring-red-500/25"
+				class="group relative overflow-hidden aspect-w-16 aspect-h-10 bg-black/25 rounded-2xl transition hover:ring-4 hover:ring-purple-500/50 active:opacity-75 active:ring-purple-500/25"
 			>
 				<img
 					class="object-cover rounded-2xl h-full opacity-100 transform transition duration-300 ease-out group-hover:scale-105 group-focus:scale-105 group-focus-within:scale-105"
@@ -58,7 +58,7 @@
 								{card.releaseDate}
 								{#each card.genres.slice(0, 3) as genre}
 									<div
-										class="font-semibold inline-flex px-2 py-[1px] leading-4 text-xs rounded text-[#dc5a5b] ml-2 bg-[#201e27]"
+										class="font-semibold inline-flex px-2 py-[1px] leading-4 text-xs rounded text-themePurple ml-2 bg-[#201e27]"
 									>
 										{genre}
 									</div>
@@ -67,12 +67,12 @@
 						</div>
 
 						<div
-							class=" hidden xl:flex absolute right-3 items-center justify-center w-10 h-10 rounded-full transition text-slate-400 bg-[#201e27] group-hover:bg-[#523343] group-hover:text-white group-hover:scale-110 group-active:scale-100"
+							class=" hidden xl:flex absolute right-3 items-center justify-center w-10 h-10 rounded-full transition text-slate-400 bg-secondary group-hover:bg-[#312e30] group-hover:text-white group-hover:scale-110 group-active:scale-100"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 20 20"
-								fill="#dc5a5b"
+								fill="#636AF2"
 								class="hi-mini hi-play w-5 h-5 translate-x-0.5"
 							>
 								<path
@@ -92,7 +92,7 @@
 	<nav class="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-20 ">
 
 		<div
-		class="bg-[#212121] flex flex-col  text-2xl font-normal overflow-hidden bg-black/25 rounded-[40px] p-4 gap-2"
+		class="bg-[#181717] flex flex-col  text-2xl font-normal overflow-hidden bg-black/25 rounded-[40px] p-4 gap-2"
 	>
 		<div class="h-16  flex justify-center  w-full  dark:text-slate-400">Most Popular</div>
 		{#each data.popular.slice(0,5) as item}
@@ -113,7 +113,7 @@
 					<div class="flex items-center">
 						<svg
 							aria-hidden="true"
-							class="w-9 h-8 text-yellow-400"
+							class="w-9 h-8 text-purple-400"
 							fill="currentColor"
 							viewBox="0 0 20 20"
 							xmlns="http://www.w3.org/2000/svg"
@@ -137,7 +137,7 @@
 
 	</div>
 	<div
-			class="bg-[#212121] flex flex-col  text-2xl font-normal overflow-hidden bg-black/25 rounded-[40px] p-4 gap-2"
+			class="bg-[#181717] flex flex-col  text-2xl font-normal overflow-hidden bg-black/25 rounded-[40px] p-4 gap-2"
 		>
 			<div class="h-16  flex justify-center  w-full  dark:text-slate-400">Top Airing</div>
 			{#each data.trending.slice(3,8) as item}
@@ -158,7 +158,7 @@
 						<div class="flex items-center">
 							<svg
 								aria-hidden="true"
-								class="w-9 h-8 text-yellow-400"
+								class="w-9 h-8 text-purple-400"
 								fill="currentColor"
 								viewBox="0 0 20 20"
 								xmlns="http://www.w3.org/2000/svg"
@@ -210,7 +210,7 @@
 	<nav class="grid grid-cols-2 md:grid-cols-4 sm:grid-cols-2 xl:grid-cols-7 gap-4 lg:gap-8">
 		<!-- Movie -->
 		{#each data.recent.results.filter((ep) => ep.title.english ) as card}
-		
+
 			<a
 				data-sveltekit-preload-code="hover"
 				href="/anime/id/{card.id}?ep={card.episodeId}"
@@ -227,8 +227,8 @@
 				>
 					<div class="p-4 flex items-center justify-start space-x-2">
 						<div
-							class="font-semibold inline-flex px-2 py-1 leading-4 text-xs rounded-md text-accent bg-slate-600 shadow-sm
-							opacity-90 shadow-black"
+							class="font-semibold inline-flex px-2 py-1 leading-4 text-xs rounded-md text-themePurple bg-primary shadow-sm
+							opacity-100 shadow-black"
 						>
 							<span>Ep {card.episodeNumber}</span>
 						</div>

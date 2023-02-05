@@ -108,11 +108,13 @@
 				class="w-full rounded  h-96 grow border border-gray-700 overflow-x-hidden scroll-smooth bg-primary  divide-y divide-gray-700"
 			>
 				<li
-					class="p-4 sticky top-0 flex gap-4 items-center cursor-pointer justify-between text-slate-400 bg-[#2b2929] "
+					class="p-4 sticky top-0 flex gap-4 items-center cursor-pointer justify-between text-slate-400 bg-primary "
 				>
 				<span class="font-bold text-sm font-sans ">List of episodes:</span>
 					<div class="font-semibold inline-flex  leading-4 text-xs rounded-full mr-6  ">
-						<input type="search" bind:value={searchValue} class="p-2 rounded bg-secondary focus:ring-0 focus:border-slate-400 border outline-none  " />
+						<input type="search" bind:value={searchValue} class=" w-full  block border-2  bg-primary border-slate-700 rounded-md  py-3 leading-5 text-sm placeholder-gray-500 text-white focus:border-gray-500/50  focus:bg-primary focus:ring-gray-500/50 focus:ring-opacity-50  "
+						placeholder="Search..."
+						/>
 					</div>
 
 
@@ -120,18 +122,19 @@
 				{#each source.episodes as ep, i}
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<li
-						class={`p-4 flex gap-4 items-center cursor-pointer text-slate-400 hover:bg-gray-700 hover:text-slate-200 ${i %
+						class={`p-4 flex gap-4 items-center cursor-pointer text-slate-400
+						hover:text-slate-200 hover:bg-themedarkerPurple  ${i %
 						2 ===
 					  0
-						? 'bg-[#202025]'
-						: 'bg-[#2b2b30]'} ${searchValue === '' || i + 1 === Number(searchValue) ? '' : 'hidden'}`}
+						? 'bg-primary'
+						: 'bg-[#181717]'} ${searchValue === '' || i + 1 === Number(searchValue) ? '' : 'hidden'}`}
 						on:click={changeEpisode(ep.id)}
 					>
-						<div class="font-semibold inline-flex  leading-4 text-xs rounded-full text-accent ">
+						<div class="font-semibold inline-flex  leading-4 text-xs rounded-full text-themePurple ">
 							{i + 1}
 						</div>
 
-						<span class="font-semibold text-sm ">{ep.title}</span>
+						<span class="font-semibold text-sm  ">{ep.title}</span>
 					</li>
 				{/each}
 			</ul>

@@ -16,7 +16,7 @@
 			perPage: 1,
 			perMove: 1,
 			gap: '1rem',
-			autoplay: true,
+			// autoplay: true,
 			pauseOnHover: true,
 			resetProgress: false,
 			interval: 3000
@@ -36,11 +36,11 @@
 				/>
 
 				<div
-					class="absolute inset-0 rounded-xl  flex flex-col justify-between bg-gradient-to-l from-transparent via-black/40 to-secondary/90"
+					class="absolute inset-0 rounded-xl  flex flex-col justify-between bg-gradient-to-l from-transparent via-primary/50 to-primary/90"
 				>
 					<div class="text-white  m-auto ml-20">
-						<article class="prose  lg:prose-base text-white">
-							<h1 class="text-red-300 line-clamp-2">{item.title.english}</h1>
+						<article class="prose  lg:prose-base text-themeWhite">
+							<h1 class="text-themeWhite line-clamp-2">{item.title.english}</h1>
 
 							<span>
 								<div class="flex items-center gap-2  text-sm lg:text-base font-normal">
@@ -197,7 +197,7 @@
 							<a
 								data-sveltekit-preload-data="hover"
 								href="/anime/id/{item.id}"
-								class="inline-flex mt-2 justify-center items-center space-x-2 rounded-md border font-semibold focus:outline-none px-4 py-2 leading-5 text-sm border-gray-200 bg-white text-black hover:text-black hover:bg-gray-200 hover:border-gray-800 focus:ring focus:ring-gray-500 focus:ring-opacity-50 active:bg-gray-100 active:border-gray-300"
+								class="inline-flex mt-2 justify-center items-center space-x-2 rounded-md border font-semibold focus:outline-none px-4 py-2 leading-5 text-sm border-themelightPurple bg-themelightPurple text-themeWhite hover:text-white hover:bg-themelightPurple"
 							>
 								<svg
 									class="bi bi-play inline-block w-5 h-5"
@@ -217,3 +217,6 @@
 		{/each}
 	</Splide>
 </div>
+<style>
+
+</style>

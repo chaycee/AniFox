@@ -25,8 +25,8 @@
 
 <div class="relative">
 	<img
-		src={animeInfo.cover}
-		class="absolute inset-0 rounded-xl object-cover w-max  h-full "
+		src="https://images.weserv.nl/?url=cors.consumet.stream/{animeInfo.cover}&w=3000&h=560&fit=cover&output=webp"
+		class="absolute inset-0 rounded-xl  w-max  h-full "
 		alt=""
 	/>
 	<div class="absolute inset-0 bg-black opacity-80  " />
@@ -35,7 +35,7 @@
 			<div id="img-wrapper" class="flex justify-center">
 				<div class="relative w-fit">
 					<div
-						class="absolute inset-0 bg-gradient-to-r from-accent via-slate-300 to-accent blur-[4px] rounded-xl"
+						class="absolute inset-0 bg-gradient-to-r from-themePurple via-themedarkerPurple to-themelightPurple blur-[4px] rounded-xl"
 					/>
 					<img
 						src="https://images.weserv.nl/?url=cors.consumet.stream/{animeInfo.image}&output=webp&af"
@@ -52,28 +52,28 @@
 				</h1>
 				<section class="info flex flex-col gap-3 mt-3">
 					<div class="flex  px-4">
-						Type:
+						{@html '<strong>Type:</strong>' }
 						<span class="text-gray-800 opacity-70">..................................</span>
 						<span class="text-slate-100">{animeInfo.type}</span>
 					</div>
 					<div class="flex  px-4">
-						Episodes:
+						{@html '<strong>Episodes:</strong>' }
 						<span class="text-gray-800 opacity-70">...........................</span>
 						<span class="text-slate-100">{animeInfo.totalEpisodes}</span>
 					</div>
 					<div class="flex  px-4">
-						Status:
+						{@html '<strong>Status:</strong>' }
 						<span class="text-gray-800 opacity-70">................................</span>
 						<span class="text-slate-100">{animeInfo.status}</span>
 					</div>
 					<div class="flex  px-4">
 						<!-- TODO: Add space between genres -->
-						Genre:
+						{@html '<strong>Genre:</strong>' }
 						<span class="text-gray-800 opacity-70">................................</span>
 						<span class="text-slate-100 line-clamp-1">{animeInfo.genres.toString().replaceAll(',',', ')}</span>
 					</div>
 					<div class="flex  px-4">
-						Release:
+						{@html '<strong>Release:</strong>' }
 						<span class="text-gray-800 opacity-70">..............................</span>
 						{#if animeInfo.endDate.year === null || animeInfo.endDate.day === null || animeInfo.endDate.month === null || animeInfo.endDate.month === undefined}
 							<span class="text-slate-100">
@@ -91,12 +91,12 @@
 						{/if}
 					</div>
 					<div class="flex  px-4">
-						Age restrictions
+						{@html '<strong>Age restrictions:</strong>' }
 						<span class="text-gray-800 opacity-70">.................</span>
 						{#if animeInfo.isAdult === false}
 							<span class="text-slate-100"
 								><div
-									class="font-semibold inline-flex px-2 py-1 leading-4 text-xs rounded text-accent bg-slate-500"
+									class="font-semibold inline-flex px-2 py-1 leading-4 text-xs rounded text-themeWhite ring-themedarkerPurple ring-2"
 								>
 									R+
 								</div></span

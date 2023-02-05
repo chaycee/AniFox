@@ -55,7 +55,7 @@
 	pageContainer.classList.toggle('lg:pl-64');
 		pageHeader.classList.toggle('lg:pl-64');
 -->
-<div  id="page-container" class="flex flex-col mx-auto w-full min-h-screen bg-primary lg:pl-64">
+<div id="page-container" class="flex flex-col mx-auto w-full min-h-screen bg-primary lg:pl-64">
 	<!-- Page Sidebar -->
 	<!--
       Sidebar on Mobile
@@ -69,27 +69,30 @@
 
 	<nav
 		id="page-sidebar"
-		class="flex flex-col fixed top-0 left-0 bottom-0 w-full md:w-64 lg:w-64 h-full bg-primary border-r-[0.2px] border-secondary text-white z-50 transform transition-transform duration-500 ease-out -translate-x-full lg:translate-x-0 side_bar"
+		class="flex flex-col fixed top-0 left-0 bottom-0 w-full md:w-64 lg:w-64 h-full bg-primary border-r-[0.2px] border-secondary text-themeWhite z-50 transform transition-transform duration-500 ease-out -translate-x-full lg:translate-x-0 side_bar"
 		aria-label="Main Sidebar Navigation "
 	>
 		<!-- Sidebar Header -->
 		<div
-			class="h-16 bg-gray-600 bg-opacity-25 flex-none flex items-center justify-between lg:justify-center px-4  w-full"
+			class="h-16 bg-themedarkerPurple bg-opacity-25 flex-none flex items-center justify-between lg:justify-center px-4  w-full"
 		>
 			<!-- Brand -->
 			<a
-				href="javascript:void(0)"
+				href="/"
 				class="inline-flex items-center mr-5  space-x-2 font-bold text-2xl font-Monse tracking-wide text-white hover:opacity-75"
 			>
 				<img
 					src="/images/logo.png"
 					alt="Logo"
-					class="inline-block w-12 h-12 mt-3 text-pink-400"
+					class="-rotate-12 hover:rotate-0 duration-150 inline-block w-12 h-12 mt-3 text-pink-400"
 					width="48px"
 					height="48px"
 				/>
 
-				<span>AniFox</span>
+				<span
+					class="font-extrabold text-transparent  bg-clip-text bg-gradient-to-r from-purple-400 to-themeWhite"
+					>AniFox</span
+				>
 			</a>
 			<!-- END Brand -->
 
@@ -125,7 +128,7 @@
 					<a
 						data-sveltekit-preload-data="hover"
 						href="/"
-						class="flex items-center space-x-3 px-3 font-medium rounded text-gray-300 bg-gray-700 bg-opacity-60"
+						class="flex items-center space-x-3 px-3 font-medium rounded text-gray-300 bg-themePurple bg-opacity-60"
 					>
 						<span class="flex-none flex items-center opacity-50">
 							<svg
@@ -149,7 +152,7 @@
 					</div>
 					<a
 						href="javascript:void(0)"
-						class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+						class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-themelightPurple hover:bg-opacity-60 active:bg-themelightPurple active:bg-opacity-40"
 					>
 						<span class="flex-none flex items-center opacity-50">
 							<svg
@@ -167,7 +170,7 @@
 					</a>
 					<a
 						href="javascript:void(0)"
-						class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+						class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-themelightPurple hover:bg-opacity-60 active:bg-themelightPurple active:bg-opacity-40"
 					>
 						<span class="flex-none flex items-center opacity-50">
 							<svg
@@ -186,7 +189,7 @@
 					</a>
 					<a
 						href="javascript:void(0)"
-						class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+						class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-themelightPurple hover:bg-opacity-60 active:bg-themelightPurple active:bg-opacity-40"
 					>
 						<span class="flex-none flex items-center opacity-50">
 							<svg
@@ -206,7 +209,7 @@
 					</a>
 					<a
 						href="javascript:void(0)"
-						class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+						class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-themelightPurple hover:bg-opacity-60 active:bg-themelightPurple active:bg-opacity-40"
 					>
 						<span class="flex-none flex items-center opacity-50">
 							<svg
@@ -226,7 +229,7 @@
 					</a>
 					<a
 						href="javascript:void(0)"
-						class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+						class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-themelightPurple hover:bg-opacity-60 active:bg-themelightPurple active:bg-opacity-40"
 					>
 						<span class="flex-none flex items-center opacity-50">
 							<svg
@@ -252,25 +255,23 @@
 
 					{#each genres as genre, index}
 						<a
-
 							href="javascript:void(0)"
-							class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-gray-700 hover:bg-opacity-60 active:bg-gray-700 active:bg-opacity-40"
+							class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-themelightPurple hover:bg-opacity-60 active:bg-themelightPurple active:bg-opacity-40"
 						>
-							<span class="flex-none flex items-center opacity-50">
-								
+							<span class="flex-none flex items-center opacity-70">
 								<svg
-								class="hi-outline hi-bookmark-alt inline-block w-5 h-5"
-								stroke="currentColor"
-								fill={getRainbowColor(index)}
-								viewBox="0 0 24 24"
-								xmlns="http://www.w3.org/2000/svg"
-								><path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M5 13l4 3 4-3V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8z"
-								/></svg
-							>
+									class="hi-outline hi-bookmark-alt inline-block w-6 h-7"
+									stroke="currentColor"
+									fill={getRainbowColor(index)}
+									viewBox="0 0 24 24"
+									xmlns="http://www.w3.org/2000/svg"
+									><path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M5 13l4 3 4-3V5a2 2 0 00-2-2H7a2 2 0 00-2 2v8z"
+									/></svg
+								>
 							</span>
 							<span class="py-2 grow">{genre}</span>
 						</a>
@@ -302,11 +303,11 @@
 						type="button"
 						on:click={toggleSidebar}
 						id="sidebarBtn"
-						class="inline-flex justify-center items-center space-x-2  font-semibold focus:outline-none px-3 py-2 leading-6 rounded border-gray-300 bg-[#d9d9d9] border-[5px] text-gray-800 shadow-sm hover:text-gray-800 hover:bg-gray-100 hover:border-gray-300 hover:shadow focus:ring focus:ring-gray-500 focus:ring-opacity-25 active:bg-white active:border-white active:shadow-none"
+						class="inline-flex justify-center items-center space-x-2  font-semibold focus:outline-none px-3 py-3 leading-6 rounded border-slate-700  bg-primary border-[1px] text-gray-800 shadow-sm hover:text-gray-800 hover:bg-secondary hover:border-secondary hover:shadow focus:ring focus:ring-secondary focus:ring-opacity-25 active:bg-secondary active:border-slate-600 active:shadow-none"
 					>
 						<svg
 							class="hi-solid hi-menu-alt-1 inline-block w-5 h-5"
-							fill="currentColor"
+							fill="purple"
 							viewBox="0 0 20 20"
 							xmlns="http://www.w3.org/2000/svg"
 							><path
@@ -342,7 +343,11 @@
 				<!-- END Toggle Sidebar on Mobile -->
 
 				<!-- Search -->
-				<div class:hidden={searchInput} class=" hidden sm:block sm:relative top-16 sm:top-0 " id="search-input">
+				<div
+					class:hidden={searchInput}
+					class=" hidden sm:block sm:relative top-16 sm:top-0 "
+					id="search-input"
+				>
 					<form onsubmit="return false;">
 						<label
 							for="search"
@@ -363,7 +368,7 @@
 						</label>
 						<input
 							type="text"
-							class="sm:w-96 w-full block border-2  bg-primary border-gray-500 rounded-md pl-8 py-3 leading-5 text-sm placeholder-gray-500 text-white focus:border-gray-500/50  focus:bg-secondary focus:ring-gray-500/50 focus:ring-opacity-50 "
+							class="sm:w-96 w-full block border-2  bg-primary border-slate-700 rounded-md pl-8 py-3 leading-5 text-sm placeholder-gray-500 text-white focus:border-gray-500/50  focus:bg-primary focus:ring-gray-500/50 focus:ring-opacity-50 "
 							id="search"
 							name="search"
 							placeholder="Search Anime.."
@@ -373,9 +378,10 @@
 				<div class="sm:hidden" id="">
 					<!-- class:hidden on click -->
 					<button
-
 						type="button"
-						on:click={()=>{searchInput = !searchInput;}}
+						on:click={() => {
+							searchInput = !searchInput;
+						}}
 						class="inline-flex justify-center items-center space-x-2 border font-semibold focus:outline-none px-3 py-2 leading-5 text-sm rounded border-gray-300 bg-white text-gray-800 shadow-sm hover:text-gray-800 hover:bg-gray-100 hover:border-gray-300 hover:shadow focus:ring focus:ring-gray-500 focus:ring-opacity-25 active:bg-white active:border-white active:shadow-none"
 					>
 						<svg
@@ -405,7 +411,7 @@
 	<!-- END Page Header -->
 
 	<!-- Page Content -->
-	<main id="page-content" class="flex flex-auto flex-col max-w-full pt-16 bg-primary">
+	<main id="page-content" class="flex flex-auto flex-col max-w-full pt-16 pattern-dots-sm">
 		<!-- Page Section -->
 		<div class="max-w-10xl mx-auto p-4 lg:p-8 w-full font-opensans">
 			<slot />
@@ -418,6 +424,7 @@
 
 <!-- END Page Container -->
 <style>
+
 	::-webkit-scrollbar {
 		height: 12px;
 		width: 6px;
@@ -433,8 +440,9 @@
 	::-webkit-scrollbar-corner {
 		background: #000;
 	}
-	#page-container, #page-header   {
+	#page-container,
+	#page-header {
 		/* smooth transition on close sidebar */
 		transition: all 0.3s ease-in-out;
-  }
+	}
 </style>

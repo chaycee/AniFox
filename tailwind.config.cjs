@@ -12,10 +12,14 @@ module.exports = {
 	darkMode: 'class',
 	theme: {
 		colors:{
-			primary: '#161616',
+			primary: '#0D0D0D',
 			secondary: '#212121',
 			accent: '#94f9ff',
 			textsecondary: '#9d9d9d',
+			themeWhite: '#E9E9F2',
+			themePurple: '#777DF2',
+			themedarkerPurple: '#2F3273',
+			themelightPurple:'#636AF2',
 			black: colors.black,
 			white: colors.white,
 			gray: colors.gray,
@@ -32,6 +36,7 @@ module.exports = {
 			violet: colors.violet,
 			cyan: colors.cyan,
 			slate: colors.slate,
+			purple: colors.purple,
 			// transparent: 'transparent',
 			transparent: 'transparent',
 

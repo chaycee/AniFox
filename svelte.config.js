@@ -8,7 +8,7 @@ const config = {
 			inspector: {
 				toggleKeyCombo: 'x',
 				// hold and release key to toggle inspector mode
-				holdMode: false,
+				holdMode: true,
 				// show or hide the inspector option
 				showToggleButton: 'always',
 				// inspector position
