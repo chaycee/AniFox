@@ -1,5 +1,4 @@
 /** @type {import('./$types').PageServerLoad} */
-export const ssr = true;
 export async function load({fetch, params, url}) {
 	const episodeId = url.searchParams.get('ep');
 	const fetchDetails = async (id) => {
