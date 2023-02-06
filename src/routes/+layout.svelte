@@ -188,7 +188,7 @@
 						<span class="py-2 grow">Trending</span>
 					</a>
 					<a
-						href="javascript:void(0)"
+						href="/recently-updated"
 						class="flex items-center space-x-3 px-3 font-medium rounded  hover:text-gray-100 hover:bg-themelightPurple hover:bg-opacity-60 active:bg-themelightPurple active:bg-opacity-40"
 					>
 						<span class="flex-none flex items-center opacity-50">

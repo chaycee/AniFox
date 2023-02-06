@@ -42,6 +42,7 @@
 					src="https://images.weserv.nl/?url=cors.consumet.stream/{card.image}&output=webp&w=500&h=700"
 					alt="trending anime"
 				/>
+				
 
 				<div
 					class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent  via-black/60 to-black"
