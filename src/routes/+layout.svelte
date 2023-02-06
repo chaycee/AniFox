@@ -1,7 +1,7 @@
 <script>
 	import '../app.css';
 	import Footer from '$lib/components/footer.svelte';
-
+	import Search from '$lib/components/search.svelte';
 	let genres = [
 		'Action',
 		'Adventure',
@@ -366,13 +366,7 @@
 								/></svg
 							>
 						</label>
-						<input
-							type="text"
-							class="sm:w-96 w-full block border-2  bg-primary border-slate-700 rounded-md pl-8 py-3 leading-5 text-sm placeholder-gray-500 text-white focus:border-gray-500/50  focus:bg-primary focus:ring-gray-500/50 focus:ring-opacity-50 "
-							id="search"
-							name="search"
-							placeholder="Search Anime.."
-						/>
+						<Search/>
 					</form>
 				</div>
 				<div class="sm:hidden" id="">
