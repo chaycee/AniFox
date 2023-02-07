@@ -25,7 +25,7 @@
             }, 1000)
         }
     }
-// E.title.native will give japanese or chinese title instead i changed to e.title.ronaji
+// E.title.native will give japanese or chinese title instead i changed to e.title.romaji
     async function doSearch(query) {
         fetch("/api/search?q=" + query).then((r) => {
             r.json().then((res) => {

@@ -42,7 +42,7 @@
 					src="https://images.weserv.nl/?url=cors.consumet.stream/{card.image}&output=webp&w=500&h=700"
 					alt="trending anime"
 				/>
-				
+
 
 				<div
 					class="absolute inset-0 flex flex-col justify-between bg-gradient-to-b from-transparent  via-black/60 to-black"
@@ -122,7 +122,7 @@
 							/></svg
 						>
 
-						<p class="ml-2 text-sm font-bold text-gray-100">%</p>
+						<p class="ml-2 text-sm font-bold text-gray-100">{parseInt(item.mappings.kitsu.attributes.averageRating)}%</p>
 					</div>
 				</div>
 				<div id="under-section " class="text-sm  text-gray-300 flex gap-2">
@@ -167,7 +167,7 @@
 								/></svg
 							>
 
-							<p class="ml-2 text-sm font-bold text-gray-100">%</p>
+							<p class="ml-2 text-sm font-bold text-gray-100">{parseInt(item.mappings.kitsu.attributes.averageRating)}%</p>
 						</div>
 					</div>
 					<div id="under-section " class="text-sm  text-gray-300 flex gap-2">
