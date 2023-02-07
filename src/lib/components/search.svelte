@@ -61,6 +61,7 @@
 			}}
 		>
 			{#each list as el, i}
+			<!-- maybe preload?  -->
 				<a
 					on:click={() => {
 						showSearching = false;
@@ -130,6 +131,7 @@
 					</div>
 				</a>
 			{/each}
+			<!-- preload here too? not sure -->
 			<a
 				on:click={() => {
 					showSearching = false;
