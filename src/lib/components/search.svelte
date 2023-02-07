@@ -25,13 +25,13 @@
             }, 1000)
         }
     }
-
+// E.title.native will give japanese or chinese title instead i changed to e.title.ronaji
     async function doSearch(query) {
         fetch("/api/search?q=" + query).then((r) => {
             r.json().then((res) => {
                 list = res.results.slice(0, 5).map((e) => {
                     return {
-                        title: e.title.english ?? e.title.native,
+                        title: e.title.english ?? e.title.romaji,
                         id: e.id,
                         img: e.image
                     }
@@ -53,7 +53,7 @@
         on:click={() => {showSearching = true}}
     />
     {#if showSearching && isResults}
-    <div 
+    <div
         class="absolute left-0 w-full border-2 bg-primary border-slate-700 border-t-transparent rounded-md px-3 py-3 text-md text-white focus:border-gray-500/50  focus:bg-primary focus:ring-gray-500/50 focus:ring-opacity-50"
         use:clickOutside
         on:outclick={() => {showSearching = false}}

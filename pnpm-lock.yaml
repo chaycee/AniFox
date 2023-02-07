@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@popperjs/core': ^2.11.6
   '@splidejs/svelte-splide': ^0.2.9
   '@sveltejs/adapter-auto': ^1.0.2
   '@sveltejs/kit': ^1.3.10
@@ -9,9 +10,12 @@ specifiers:
   '@tailwindcss/line-clamp': ^0.4.2
   '@tailwindcss/typography': ^0.5.9
   autoprefixer: ^10.4.13
+  classnames: ^2.3.2
   eslint: ^8.33.0
   eslint-config-prettier: ^8.6.0
   eslint-plugin-svelte3: ^4.0.0
+  flowbite: ^1.6.3
+  flowbite-svelte: ^0.29.13
   hls.js: ^1.3.2
   ioredis: ^5.3.0
   openplayerjs: ^2.13.0
@@ -34,15 +38,19 @@ dependencies:
   vidstack: 0.0.2
 
 devDependencies:
+  '@popperjs/core': 2.11.6
   '@sveltejs/adapter-auto': 1.0.2_@sveltejs+kit@1.3.10
   '@sveltejs/kit': 1.3.10_svelte@3.55.1+vite@4.1.1
   '@tailwindcss/aspect-ratio': 0.4.2_tailwindcss@3.2.4
   '@tailwindcss/forms': 0.5.3_tailwindcss@3.2.4
   '@tailwindcss/typography': 0.5.9_tailwindcss@3.2.4
   autoprefixer: 10.4.13_postcss@8.4.21
+  classnames: 2.3.2
   eslint: 8.33.0
   eslint-config-prettier: 8.6.0_eslint@8.33.0
   eslint-plugin-svelte3: 4.0.0_4omm2ewoudhgnmf7aocafatnc4
+  flowbite: 1.6.3
+  flowbite-svelte: 0.29.13
   postcss: 8.4.21
   prettier: 2.8.3
   prettier-plugin-svelte: 2.9.0_kdmmghgdi3ngrsq6otxkjilbry
@@ -412,6 +420,10 @@ packages:
 
   /@polka/url/1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
+    dev: true
+
+  /@popperjs/core/2.11.6:
+    resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
     dev: true
 
   /@splidejs/splide/4.1.4:
@@ -789,6 +801,10 @@ packages:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.2
+
+  /classnames/2.3.2:
+    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
+    dev: true
 
   /cli-tableau/2.0.1:
     resolution: {integrity: sha512-he+WTicka9cl0Fg/y+YyxcN6/bfQ/1O3QmgxRXDhABKqLzvoOSM4fMzp39uMyLBulAFuywD2N7UaoQE7WaADxQ==}
@@ -1251,6 +1267,22 @@ packages:
 
   /flatted/3.2.7:
     resolution: {integrity: sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==}
+    dev: true
+
+  /flowbite-svelte/0.29.13:
+    resolution: {integrity: sha512-9MnJzdPyooPm4Gp6Fl+NrozNiL6eQiLQ7BdraKkH6Gh34VR4G6mFkJcG4CUptFQ84zSa0YHhF9MYcnsrK8nLsg==}
+    engines: {node: '>=16.0.0', npm: '>=7.0.0'}
+    dependencies:
+      '@popperjs/core': 2.11.6
+      classnames: 2.3.2
+      flowbite: 1.6.3
+    dev: true
+
+  /flowbite/1.6.3:
+    resolution: {integrity: sha512-wTtAzZBLrUYqUBoTSNcMAeJrZNAcdx04EDgXWnkQ7gkKoAPFvLaq/H/Zw0JKZLVKFpKxqJ7PlvocfDApSHjhvw==}
+    dependencies:
+      '@popperjs/core': 2.11.6
+      mini-svg-data-uri: 1.4.4
     dev: true
 
   /follow-redirects/1.15.2_debug@4.3.4:
