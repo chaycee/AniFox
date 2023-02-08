@@ -7,6 +7,7 @@
 	let searchValue = '';
 	let player = null;
 	const proxy = 'https://cors.consumet.stream/';
+	const backupProxy = 'https://corsproxy.io/';
 
 	async function changeEpisode(id) {
 		const searchParams = new URLSearchParams(window.location.search);

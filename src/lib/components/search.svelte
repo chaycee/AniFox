@@ -124,7 +124,7 @@
 											clip-rule="evenodd"
 										/></svg
 									>
-									<span>{el.type.charAt(0).toUpperCase() + el.type.slice(1).toLowerCase()}</span>
+									<span>{el.type}</span>
 								</div>
 							</div>
 						</div>
