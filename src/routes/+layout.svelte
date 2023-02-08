@@ -2,6 +2,9 @@
 	import '../app.css';
 	import Footer from '$lib/components/footer.svelte';
 	import Search from '$lib/components/search.svelte';
+	import { fly } from 'svelte/transition';
+
+	export let data;
 	let genres = [
 		'Action',
 		'Adventure',
@@ -366,7 +369,7 @@
 								/></svg
 							>
 						</label>
-						<Search/>
+						<Search />
 					</form>
 				</div>
 				<div class="sm:hidden" id="">
@@ -408,7 +411,11 @@
 	<main id="page-content" class="flex flex-auto flex-col max-w-full pt-16 pattern-dots-sm">
 		<!-- Page Section -->
 		<div class="max-w-10xl mx-auto p-4 lg:p-8 w-full font-opensans">
-			<slot />
+			{#key data.currentPath}
+				<div in:fly={{ y: -30, duration: 200, delay: 150 }} out:fly={{ y: -30, duration: 150 }}>
+					<slot />
+				</div>
+			{/key}
 		</div>
 		<!-- END Page Section -->
 	</main>
@@ -418,7 +425,6 @@
 
 <!-- END Page Container -->
 <style>
-
 	::-webkit-scrollbar {
 		height: 12px;
 		width: 6px;
