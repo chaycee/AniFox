@@ -127,7 +127,7 @@
 						hover:text-slate-200 hover:bg-themedarkerPurple  ${i %
 						2 ===
 					  0
-						? 'bg-primary'
+						? 'bg-secondary'
 						: 'bg-[#181717]'} ${searchValue === '' || i + 1 === Number(searchValue) ? '' : 'hidden'}`}
 						on:click={changeEpisode(ep.id)}
 					>

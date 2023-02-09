@@ -82,14 +82,13 @@
 			<!-- Brand -->
 			<a
 				href="/"
-				class="inline-flex items-center mr-5  space-x-2 font-bold text-2xl font-Monse tracking-wide text-white hover:opacity-75"
+				class="inline-flex items-center mr-5  gap-1 space-x-2 font-bold text-2xl font-Monse tracking-wide text-white hover:opacity-75"
 			>
 				<img
-					src="/images/logo.png"
+					src="/images/Logo.webp"
 					alt="Logo"
-					class="-rotate-12 hover:rotate-0 duration-150 inline-block w-12 h-12 mt-3 text-pink-400"
-					width="48px"
-					height="48px"
+					class="-rotate-12 hover:rotate-0 duration-150 inline-block w-8 h-8  text-pink-400"
+
 				/>
 
 				<span
