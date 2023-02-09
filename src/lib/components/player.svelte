@@ -3,12 +3,14 @@
 	import OpenPlayerJS from 'openplayerjs';
 	import { goto } from '$app/navigation';
 	export let epId;
-	export let source;
+	export let episodes;
+	export let animeId;
 	let searchValue = '';
 	let player = null;
 	const proxy = 'https://cors.consumet.stream/';
 	const backupProxy = 'https://corsproxy.io/';
 
+	//TODO: smth not working right with the sources provided in episodes idk
 	async function changeEpisode(id) {
 		const searchParams = new URLSearchParams(window.location.search);
 		searchParams.set('ep', id);
@@ -34,9 +36,9 @@
 	async function streamEpisode(id) {
 		// TODO: player stop or player pause?
 		player.stop();
-		const response = await fetch(`https://api.consumet.org/meta/anilist/watch/${id}?provider=zoro`);
+		const response = await fetch(`${proxy}https://api.anify.tv/sources/${animeId}/Zoro/${encodeURIComponent(id)}`);
 		const streamingSrc = await response.json();
-		player.src = `${proxy}${streamingSrc.sources[3].url}`;
+		player.src = `${proxy}${streamingSrc.sources[0].url}`;
 
 		setSubsLang(streamingSrc);
 		player.load();
@@ -44,17 +46,21 @@
 		player.play();
 	}
 
+	function fixId(badId) {
+		const good = badId.substring(7);
+		return good;
+	}
 	onMount(async () => {
 		let response;
 		if (epId) {
-			response = await fetch(`https://api.consumet.org/meta/anilist/watch/${epId}?provider=zoro`);
+			response = await fetch(`${proxy}https://api.anify.tv/sources/${animeId}/Zoro/${encodeURIComponent(epId)}`);
 		} else {
 			response = await fetch(
-				`https://api.consumet.org/meta/anilist/watch/${source.episodes[0].id}?provider=zoro`
+				`${proxy}https://api.anify.tv/sources/${animeId}/Zoro/${encodeURIComponent(fixId(episodes[0].id))}`
 			);
 		}
 		const firstEp = await response.json();
-
+		console.log(firstEp);
 		player = new OpenPlayerJS('video', {
 			mode: 'responsive',
 			detachMenus: true,
@@ -77,10 +83,11 @@
 		});
 		// add others with foreach
 		// TODO: optimize check for default quality
+		// TODO: sources[5] wasn't working so changed to 6 with new api (maybe good, maybe bad idk)
 		if (firstEp.sources.length >= 5) {
-			player.src = `${proxy}${firstEp.sources[5].url}`;
+			player.src = `${proxy}${firstEp.sources[6].url}`;
 		} else {
-			player.src = `${proxy}${firstEp.sources[3].url}`;
+			player.src = `${proxy}${firstEp.sources[0].url}`;
 		}
 
 		setSubsLang(firstEp);
@@ -120,7 +127,7 @@
 
 
 				</li>
-				{#each source.episodes as ep, i}
+				{#each episodes as ep, i}
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<li
 						class={`p-4 flex gap-4 items-center cursor-pointer text-slate-400
@@ -129,7 +136,7 @@
 					  0
 						? 'bg-secondary'
 						: 'bg-[#181717]'} ${searchValue === '' || i + 1 === Number(searchValue) ? '' : 'hidden'}`}
-						on:click={changeEpisode(ep.id)}
+						on:click={changeEpisode(fixId(ep.id))}
 					>
 						<div class="font-semibold inline-flex  leading-4 text-xs rounded-full text-themePurple ">
 							{i + 1}

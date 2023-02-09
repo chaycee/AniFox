@@ -1,6 +1,9 @@
 import { redis } from '$lib/server/redis';
 export async function load({ fetch, params, url, setHeaders }) {
 	const episodeId = url.searchParams.get('ep');
+	const getEpisodes = fetch(`https://api.anify.tv/episodes/${params.anime}`).then((res) => res.json()).then((data) => {
+		return data.find(element => element.provider === "Zoro").episodes;
+	});
 	const fetchDetails = async (id) => {
 		const cached = await redis.get(`anime:${id}`);
 		if (cached) {
@@ -23,6 +26,8 @@ export async function load({ fetch, params, url, setHeaders }) {
 
 	return {
 		episodeId,
-		animeInfo: fetchDetails(params.anime)
+		animeInfo: fetchDetails(params.anime),
+		episodes: await getEpisodes,
+		animeId: params.anime,
 	};
 }
