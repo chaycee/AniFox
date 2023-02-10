@@ -9,6 +9,7 @@
 	let player = null;
 	const proxy = 'https://proxy.vnxservers.com/proxy/m3u8/';
 	const backupProxy = 'https://corsproxy.io/';
+	const consumentCors = 'https://cors.consumet.stream/';
 
 	//TODO: smth not working right with the sources provided in episodes idk
 	async function changeEpisode(id) {
@@ -28,7 +29,7 @@
 				var track = document.createElement('track');
 				track.srclang = sub.lang;
 				track.label = sub.lang;
-				track.src = `${proxy}${sub.url}`;
+				track.src = `${consumentCors}${sub.url}`;
 				player.addCaptions(track);
 			}
 		}
@@ -39,7 +40,7 @@
 		// TODO: Gogo?
 		player.stop();
 		const response = await fetch(
-			`${proxy}https://api.anify.tv/sources/${animeId}/Zoro/${encodeURIComponent(id)}`
+			`${consumentCors}https://api.anify.tv/sources/${animeId}/Zoro/${encodeURIComponent(id)}`
 		);
 		const streamingSrc = await response.json();
 		player.src = `${proxy}${encodeURIComponent(streamingSrc.sources[6].url)}`;
@@ -58,11 +59,11 @@
 		let response;
 		if (epId) {
 			response = await fetch(
-				`${proxy}https://api.anify.tv/sources/${animeId}/Zoro/${encodeURIComponent(epId)}`
+				`${consumentCors}https://api.anify.tv/sources/${animeId}/Zoro/${encodeURIComponent(epId)}`
 			);
 		} else {
 			response = await fetch(
-				`${proxy}https://api.anify.tv/sources/${animeId}/Zoro/${encodeURIComponent(
+				`${consumentCors}https://api.anify.tv/sources/${animeId}/Zoro/${encodeURIComponent(
 					fixId(episodes[0].id)
 				)}`
 			);
