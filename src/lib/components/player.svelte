@@ -35,10 +35,11 @@
 	}
 	async function streamEpisode(id) {
 		// TODO: player stop or player pause?
+		// TODO: Gogo?
 		player.stop();
 		const response = await fetch(`${proxy}https://api.anify.tv/sources/${animeId}/Zoro/${encodeURIComponent(id)}`);
 		const streamingSrc = await response.json();
-		player.src = `${proxy}${streamingSrc.sources[0].url}`;
+		player.src = `${proxy}${streamingSrc.sources[6].url}`;
 
 		setSubsLang(streamingSrc);
 		player.load();
@@ -138,9 +139,7 @@
 						: 'bg-[#181717]'} ${searchValue === '' || i + 1 === Number(searchValue) ? '' : 'hidden'}`}
 						on:click={changeEpisode(fixId(ep.id))}
 					>
-						<div class="font-semibold inline-flex  leading-4 text-xs rounded-full text-themePurple ">
-							{i + 1}
-						</div>
+						
 
 						<span class="font-semibold text-sm  ">{ep.title}</span>
 					</li>
