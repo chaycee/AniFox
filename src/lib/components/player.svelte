@@ -7,7 +7,7 @@
 	export let animeId;
 	let searchValue = '';
 	let player = null;
-	const proxy = 'https://cors.consumet.stream/';
+	const proxy = 'https://proxy.vnxservers.com/proxy/m3u8/';
 	const backupProxy = 'https://corsproxy.io/';
 
 	//TODO: smth not working right with the sources provided in episodes idk
@@ -33,13 +33,16 @@
 			}
 		}
 	}
+
 	async function streamEpisode(id) {
 		// TODO: player stop or player pause?
 		// TODO: Gogo?
 		player.stop();
-		const response = await fetch(`${proxy}https://api.anify.tv/sources/${animeId}/Zoro/${encodeURIComponent(id)}`);
+		const response = await fetch(
+			`${proxy}https://api.anify.tv/sources/${animeId}/Zoro/${encodeURIComponent(id)}`
+		);
 		const streamingSrc = await response.json();
-		player.src = `${proxy}${streamingSrc.sources[6].url}`;
+		player.src = `${proxy}${encodeURIComponent(streamingSrc.sources[6].url)}`;
 
 		setSubsLang(streamingSrc);
 		player.load();
@@ -54,10 +57,14 @@
 	onMount(async () => {
 		let response;
 		if (epId) {
-			response = await fetch(`${proxy}https://api.anify.tv/sources/${animeId}/Zoro/${encodeURIComponent(epId)}`);
+			response = await fetch(
+				`${proxy}https://api.anify.tv/sources/${animeId}/Zoro/${encodeURIComponent(epId)}`
+			);
 		} else {
 			response = await fetch(
-				`${proxy}https://api.anify.tv/sources/${animeId}/Zoro/${encodeURIComponent(fixId(episodes[0].id))}`
+				`${proxy}https://api.anify.tv/sources/${animeId}/Zoro/${encodeURIComponent(
+					fixId(episodes[0].id)
+				)}`
 			);
 		}
 		const firstEp = await response.json();
@@ -86,9 +93,9 @@
 		// TODO: optimize check for default quality
 		// TODO: sources[5] wasn't working so changed to 6 with new api (maybe good, maybe bad idk)
 		if (firstEp.sources.length >= 5) {
-			player.src = `${proxy}${firstEp.sources[6].url}`;
+			player.src = `${proxy}${encodeURIComponent(firstEp.sources[6].url)}`;
 		} else {
-			player.src = `${proxy}${firstEp.sources[0].url}`;
+			player.src = `${proxy}${encodeURIComponent(firstEp.sources[0].url)}`;
 		}
 
 		setSubsLang(firstEp);
@@ -119,28 +126,25 @@
 				<li
 					class="p-4 sticky top-0 flex gap-4 items-center cursor-pointer justify-between text-slate-400 bg-primary "
 				>
-				<span class="font-bold text-sm font-sans ">List of episodes:</span>
+					<span class="font-bold text-sm font-sans ">List of episodes:</span>
 					<div class="font-semibold inline-flex  leading-4 text-xs rounded-full mr-6  ">
-						<input type="search" bind:value={searchValue} class=" w-full  block border-2  bg-primary border-slate-700 rounded-md  py-3 leading-5 text-sm placeholder-gray-500 text-white focus:border-gray-500/50  focus:bg-primary focus:ring-gray-500/50 focus:ring-opacity-50  "
-						placeholder="Search..."
+						<input
+							type="search"
+							bind:value={searchValue}
+							class=" w-full  block border-2  bg-primary border-slate-700 rounded-md  py-3 leading-5 text-sm placeholder-gray-500 text-white focus:border-gray-500/50  focus:bg-primary focus:ring-gray-500/50 focus:ring-opacity-50  "
+							placeholder="Search..."
 						/>
 					</div>
-
-
 				</li>
 				{#each episodes as ep, i}
 					<!-- svelte-ignore a11y-click-events-have-key-events -->
 					<li
 						class={`p-4 flex gap-4 items-center cursor-pointer text-slate-400
-						hover:text-slate-200 hover:bg-themedarkerPurple  ${i %
-						2 ===
-					  0
-						? 'bg-secondary'
-						: 'bg-[#181717]'} ${searchValue === '' || i + 1 === Number(searchValue) ? '' : 'hidden'}`}
+						hover:text-slate-200 hover:bg-themedarkerPurple  ${i % 2 === 0 ? 'bg-secondary' : 'bg-[#181717]'} ${
+							searchValue === '' || i + 1 === Number(searchValue) ? '' : 'hidden'
+						}`}
 						on:click={changeEpisode(fixId(ep.id))}
 					>
-						
-
 						<span class="font-semibold text-sm  ">{ep.title}</span>
 					</li>
 				{/each}
